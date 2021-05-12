@@ -128,7 +128,7 @@ const Navbar = () => {
     );
   };
   const navOptions = [
-    { name: 'About Us', link: '/about' },
+    { name: 'About', link: '/about' },
     { name: 'Projects', link: '/projects' },
     { name: 'Students', link: '/students' },
     { name: 'Contact', link: '/contact' },
@@ -141,36 +141,38 @@ const Navbar = () => {
   const handleClick = () => setClicked(!clicked);
   return (
     //SVG of Blueprint Logo and Name
-    <div className="navbar">
-      <div className="navbar__logo">
-        <Link to="/">
-          <Logo />
-          <Name />
-        </Link>
-      </div>
-      <div className="navbar__navigation">
-        <div className="navbar__navigation__desktop">
-          {navOptions.map((item) => (
-            <div className="navbar__navigation__desktop__links" key={item.name}>
-              <Link to={item.link}>{item.name}</Link>
-            </div>
-          ))}
-          {/* Special Custom Linked Buttons for "Join Our Team" and "For Non-profits" */}
-          <Link to="/join">
-            <Button className="navbar__navigation__desktop__links__special" color="secondary" variant="outline">
-              Join Our Team
-            </Button>
+    <div className="background">
+      <div className="navbar">
+        <div className="navbar__logo">
+          <Link to="/">
+            <Logo />
+            <Name />
           </Link>
-          <div className="navbar__navigation__desktop__links__divider" />
-          <Link to="/nonprofits">
-            <Button className="navbar__navigation__desktop__links__special" color="secondary" variant="solid">
-              For Nonprofits
-            </Button>
-          </Link>
-          <div className="navbar__navigation__desktop__links__divider" />
         </div>
+        <div className="navbar__navigation">
+          <div className="navbar__navigation__desktop">
+            {navOptions.map((item) => (
+              <div className="navbar__navigation__desktop__links" key={item.name}>
+                <Link to={item.link}>{item.name}</Link>
+              </div>
+            ))}
+            {/* Special Custom Linked Buttons for "Join Our Team" and "For Non-profits" */}
+            <Link to="/join">
+              <Button className="navbar__navigation__desktop__links__special" color="secondary" variant="outline">
+                Join Our Team
+              </Button>
+            </Link>
+            <div className="navbar__navigation__desktop__links__divider" />
+            <Link to="/nonprofits">
+              <Button className="navbar__navigation__desktop__links__special" color="secondary" variant="solid">
+                For Nonprofits
+              </Button>
+            </Link>
+            <div className="navbar__navigation__desktop__links__divider" />
+          </div>
+        </div>
+        <div className="navbar__navigation__mobile">{clicked ? <MobileMenuIcon /> : <MobileMenuIconAnimation />}</div>
       </div>
-      <div className="navbar__navigation__mobile">{clicked ? <MobileMenuIcon /> : <MobileMenuIconAnimation />}</div>
     </div>
   );
 };

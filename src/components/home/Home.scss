@@ -1,4 +1,7 @@
 @import '../../styles/styles.scss';
 .home {
+  background-image: url("../../assets/Background.png");
+  background-size: cover;
+  height: 100vh;
   color: $C00;
 }

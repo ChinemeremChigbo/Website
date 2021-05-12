@@ -1,15 +1,28 @@
 @import '../../styles/styles.scss';
 html,
 body {
-  background-color: $C70; //Black Background
+  color: $C00;
   overflow: hidden;
-  /*^^^No Scrollbar (There typically isn't one except for extreme zoom levels
-  but this keeps things looking cleaner IMO.
-  This and the webkit-scrollbar Can be gotten rid of if need be.*/
+  background-color: $C70; //Black Background
 }
 ::-webkit-scrollbar {
   width: 0;
   background: transparent; //Ensures no scroll bar across browsers
+}
+.background{
+  background: url("../../assets/Background.png") no-repeat center center fixed; 
+  min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+
 }
 .navbar {
   position: relative;
