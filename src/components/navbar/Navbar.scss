@@ -1,0 +1,243 @@
+@import '../../styles/styles.scss';
+html,
+body {
+  background-color: $C70; //Black Background
+  overflow: hidden;
+  /*^^^No Scrollbar (There typically isn't one except for extreme zoom levels
+  but this keeps things looking cleaner IMO.
+  This and the webkit-scrollbar Can be gotten rid of if need be.*/
+}
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent; //Ensures no scroll bar across browsers
+}
+.navbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-family: $title-font;
+  font-size: $nav-fontsize;
+  z-index: 1;
+
+  @include respond(small) {
+    height: 100vh; //Makes navbar component fill the whole screen on mobile, the background itself remains transparent.
+  }
+  @include respond(large) {
+    background-color: $B10; //Makes navbar background blue
+    height: $nav-height; //Makes navbar height the desired height
+  }
+  &__logo {
+    @include respond(small) {
+      display: none; //Hides Left BP Logo and Name on mobile
+    }
+    position: absolute; //position logo
+    display: flex;
+    margin-left: 30px;
+    margin-top: 6px;
+  }
+  &__navigation {
+    display: flex;
+    justify-content: flex-end;//align navbar options to right
+    width: 100%;
+    &__desktop {
+      display: flex;//have navbar elements line up horizontally
+      @include respond(small) {
+        display: none;
+      }
+      &__links {
+        margin-top: 10px;//margin spacing
+        margin-left: 10px;
+        margin-right: 40px;
+        transition: transform 0.3s ease;
+
+        &__special {
+          padding-top: 8px;//Join our team and for nonprofits button spacing
+          padding-bottom: 8px;
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+        &__special:hover {
+          text-decoration: underline;
+          text-underline-offset: 4px;
+          text-decoration-thickness: 2px;
+        }
+        &__divider {// Need special divider to prevent space buttons whitle preventing button area to increase (by changing padding or margin).
+          width: 30px;
+          height: auto;
+          display: inline-block;
+        }
+      }
+      &__links:hover {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 2px;
+        transform: translateY(-1px);
+        opacity: 80%;
+      }
+    }
+    &__mobile {
+      stroke: $C00;//makes burger menu symbol start white
+      @include respond(large) {
+        display: none;
+      }
+      &__links {
+        &__special {//Join our team and for nonprofits link styling
+          text-decoration: underline;
+          font-weight: 600;
+          text-underline-offset: 4px;
+          text-decoration-thickness: 2px;
+        }
+        &__special:hover {
+          transform: translateY(-1px);
+          opacity: 80%;
+        }
+      }
+      &__links:hover {
+        transform: translateY(-1px);
+        opacity: 80%;
+      }
+      &__menu-button {//menu button icon
+        position: absolute;
+        right: 50px;
+        top: 26px;
+
+        &.__menu-icon-1 {
+          margin-right: 2px;
+          margin-top: 4.5px;
+        }
+        &.__menu-icon-1:hover {
+          cursor: pointer;
+        }
+        //Menu animation transitional icons
+        &.__menu-icon-2 {
+          -webkit-animation: menu-logo-animation-2 $nav-animation-speed forwards;
+          animation: menu-logo-animation-2 $nav-animation-speed forwards;
+        }
+        &.__menu-icon-3 {
+          -webkit-animation: menu-logo-animation-3 $nav-animation-speed forwards;
+          animation: menu-logo-animation-3 $nav-animation-speed forwards;
+        }
+        &.__menu-icon-4 {
+          -webkit-animation: menu-logo-animation-4 $nav-animation-speed forwards;
+          animation: menu-logo-animation-4 $nav-animation-speed forwards;
+        }
+        &.__menu-icon-5 {
+          -webkit-animation: menu-logo-animation-5 $nav-animation-speed forwards;
+          animation: menu-logo-animation-5 $nav-animation-speed forwards;
+        }
+        //Final Blueprint logo
+        &.__menu-icon-6 {
+          fill: $C00;
+          &.__menu-icon-6:hover {
+            cursor: pointer;
+          }
+          stroke: none;
+          -webkit-animation: menu-logo-animation-6 $nav-animation-speed forwards;
+          animation: menu-logo-animation-6 $nav-animation-speed forwards;
+        }
+        //Animation keyframes for transitional frames
+        @keyframes menu-logo-animation-2 {
+          0% {
+            visibility: hidden;
+          }
+          15% {
+            visibility: hidden;
+          }
+          16% {
+            visibility: visible;
+          }
+          30% {
+            visibility: hidden;
+          }
+          100% {
+            visibility: hidden;
+          }
+        }
+        @keyframes menu-logo-animation-3 {
+          0% {
+            visibility: hidden;
+          }
+          30% {
+            visibility: hidden;
+          }
+          31% {
+            visibility: visible;
+          }
+          45% {
+            visibility: hidden;
+          }
+          100% {
+            visibility: hidden;
+          }
+        }
+        @keyframes menu-logo-animation-4 {
+          0% {
+            visibility: hidden;
+          }
+          45% {
+            visibility: hidden;
+          }
+          46% {
+            visibility: visible;
+          }
+          60% {
+            visibility: hidden;
+          }
+          100% {
+            visibility: hidden;
+          }
+        }
+        @keyframes menu-logo-animation-5 {
+          0% {
+            visibility: hidden;
+          }
+          60% {
+            visibility: hidden;
+          }
+          61% {
+            visibility: visible;
+          }
+          75% {
+            visibility: hidden;
+          }
+          100% {
+            visibility: hidden;
+          }
+        }
+        @keyframes menu-logo-animation-6 {
+          0% {
+            visibility: hidden;
+          }
+          75% {
+            visibility: hidden;
+          }
+          76% {
+            visibility: visible;
+          }
+        }
+      }
+      &__dropdown {
+        display: flex;
+        flex-direction: column;
+        width: max-content;
+        height: 40vh;
+        margin-top: -40vh;
+        padding-top: 100px;
+        justify-content: space-between;
+        text-align: right;
+        margin-right: 50px;
+      }
+
+      &__overlay {//The overlay that appears when menu button is clicked on mobile. Different from navbar itself.
+        z-index: -1;
+        position: absolute;
+        background-color: $B10;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        opacity: 80%;
+      }
+    }
+  }
+}

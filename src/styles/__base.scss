@@ -1,0 +1,16 @@
+a:-webkit-any-link {
+  color: $C00;
+  text-decoration: none;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+    //adding-bottom: $nav-height;
+}
