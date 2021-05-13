@@ -6,9 +6,9 @@ export default function Home() {
   return (
     <div
       className="home"
-      style={{ backgroundImage: 'url(http://placehold.it/350x150)', position: 'absolute', top: 100, left: 50 }}
+      style={{ position: 'absolute', top: 100, left: 50 }}
     >
-      This is BP!
+      Welcome!
     </div>
   );
 }
