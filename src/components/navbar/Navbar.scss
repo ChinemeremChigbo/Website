@@ -14,13 +14,13 @@ body {
 }
 
 .background{
-  background-image: url("../../assets/Background.png");
+  background: url("../../assets/Middleground.png"), url("../../assets/Background.png");
+  z-index: -1;
   width: 100vw;
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 .navbar {
   position: relative;
