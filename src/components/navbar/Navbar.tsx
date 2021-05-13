@@ -141,7 +141,8 @@ const Navbar = () => {
   const handleClick = () => setClicked(!clicked);
   return (
     //SVG of Blueprint Logo and Name
-    <div className="background">
+    <div className="page">
+      <div className="background"></div>
       <div className="navbar">
         <div className="navbar__logo">
           <Link to="/">
