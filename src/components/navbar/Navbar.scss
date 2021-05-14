@@ -25,29 +25,25 @@ body {
   /* max-height: 600px; */
   width: 100vw;
   background-color: #244b7e;
-  background-image:
-    url('../../assets/Middleground.png'),
-    url('../../assets/Background.png');
+  background-image: url('../../assets/Middleground.png'), url('../../assets/Background.png');
   background-repeat: repeat-x, repeat-x;
   background-position: center, center;
   background-size: cover, cover;
   height: 100vh;
-  left:0;
+  left: 0;
   animation: 1500s parallax infinite linear;
-  animation-timing-function:ease-out;
+  animation-timing-function: ease-out;
 }
-
-
 
 @keyframes animateName {
   0% {
-      filter: hue-rotate(45deg);
+    filter: hue-rotate(45deg);
   }
   50% {
     filter: hue-rotate(-45deg);
-}
+  }
   100% {
-      filter: hue-rotate(45deg);
+    filter: hue-rotate(45deg);
   }
 }
 .name {
@@ -55,20 +51,36 @@ body {
   width: 100vw;
   height: 80vh;
   -webkit-animation: animateName 40s linear infinite;
-	-moz-animation: animateName 40s linear infinite;
-	animation: animateName 40s linear infinite;
+  -moz-animation: animateName 40s linear infinite;
+  animation: animateName 40s linear infinite;
+}
+
+@keyframes animateEnter {
+  0% {
+    visibility: visible;
+  }
+  33% {
+    visibility: hidden;
+  }
+  66% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
 }
 
 .pressEnter {
   height: 100%;
   /* max-height: 600px; */
-  width: 18vw;
+  width: 15vw;
+  min-width: 125px;
   height: auto;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  left:0;
-  -webkit-animation: animateName 40s linear infinite;
-	-moz-animation: animateName 40s linear infinite;
-	animation: animateName 40s linear infinite;
+  left: 0;
+  -webkit-animation: animateEnter 2s linear infinite;
+  -moz-animation: animateEnter 2s linear infinite;
+  animation: animateEnter 2s linear infinite;
 }
