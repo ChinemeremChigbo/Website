@@ -51,15 +51,23 @@ body {
   }
 }
 .name {
+  position: relative;
+  width: 100vw;
+  height: 80vh;
+  -webkit-animation: animateName 40s linear infinite;
+	-moz-animation: animateName 40s linear infinite;
+	animation: animateName 40s linear infinite;
+}
+
+.pressEnter {
   height: 100%;
   /* max-height: 600px; */
-  width: 100vw;
-  background-repeat: repeat-x, repeat-x;
-  background-position: center, center;
-  background-size: cover, cover;
-  height: 100vh;
+  width: 18vw;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   left:0;
-  animation: 40s parallax infinite linear;
   -webkit-animation: animateName 40s linear infinite;
 	-moz-animation: animateName 40s linear infinite;
 	animation: animateName 40s linear infinite;
