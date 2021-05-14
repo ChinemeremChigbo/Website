@@ -9,7 +9,7 @@ document.onkeydown = function (e) {
   // $('.transform').toggleClass('transform-active');
 };
 
-let instructions = document.getElementsByClassName('instructions') as HTMLCollectionOf<HTMLElement>;
+const instructions = document.getElementsByClassName('instructions') as HTMLCollectionOf<HTMLElement>;
 
 if (instructions.length != 0) {
   instructions[0].style.transform = 'translate(-50%, -100%) rotate(' + 6 + 'deg)';
