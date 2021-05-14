@@ -7,7 +7,7 @@ const Navbar = () => {
     //SVG of Blueprint Logo and Name
     <div className="background">
       <img className="name" src="Name.svg" alt="Chinemerem Chigbo"></img>
-      <img className="name" src="PressEnter.svg" alt="Press Enter"></img>
+      <img className="name" src="PressEnter.png" alt="Press Enter"></img>
     </div>
   );
 };
