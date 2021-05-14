@@ -28,7 +28,7 @@ body {
 
 @keyframes parallax {
   100% {
-    background-position: 1000px 50%, 2500px 50%;
+    background-position: 100vw 50%, 300vw 50%;
   }
 }
 
@@ -49,7 +49,7 @@ body {
   background-size: cover, cover;
   height: 100vh;
   left:0;
-  animation: 50s parallax infinite linear;
+  animation: 20s parallax infinite linear;
   -webkit-animation: animateName 20s linear infinite;
 	-moz-animation: animateName 20s linear infinite;
 	animation: animateName 20s linear infinite;
