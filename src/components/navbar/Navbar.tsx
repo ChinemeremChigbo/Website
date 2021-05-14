@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.scss';
-document.onkeydown = function (e) {
-  console.log('key down');
-  console.log(e);
-};
+function getVolume() {
+  document.onkeydown = function (e) {
+    console.log('key down');
+    console.log(e);
+    document.location.href = '/about';
+  };
+}
+// function getVolume() {
+//   const x = document.getElementById('myAudio');
+//   alert(x?.volume);
+// }
 
 const Navbar = () => {
   return (
