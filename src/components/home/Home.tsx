@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import * as $ from "jquery";
+import * as $ from 'jquery';
 
 import './Home.scss';
 document.onkeydown = function (e) {
-  console.log('key down');a
+  console.log('key down');
   console.log(e);
-  $('.transform').toggleClass('transform-active');
+  // $('.transform').toggleClass('transform-active');
 };
 
 const Home = () => {
@@ -19,9 +19,7 @@ const Home = () => {
         Your browser does not support the audio element.
       </audio>
       <img className="name" src="Name.svg" alt="Chinemerem Chigbo"></img>
-      <div className="instructionsWrapper">
-        <img className="instructions" src="Instructions.png" alt="Instructions"></img>
-      </div>
+      <img className="instructions" src="Instructions.png" alt="Instructions"></img>
       <img className="pressEnter" src="PressAnyKey.png" alt="Press Enter"></img>
     </div>
   );
