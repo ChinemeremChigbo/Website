@@ -10,21 +10,17 @@ body {
   background: transparent; //Ensures no scroll bar across browsers
 }
 
-html {
+.background {
   height: 100%;
   /* max-height: 600px; */
-  width: 1000px;
+  width: 100vw;
   background-color: #244b7e;
   background-image:
-    url('../../assets/cornerTL.png'),
-    url('../../assets/cornerTR.png'),
-    url('../../assets/cornerBR.png'),
-    url('../../assets/cornerBL.png'),
     url('../../assets/Middleground.png'),
     url('../../assets/Background.png');
-  background-repeat: no-repeat,no-repeat,no-repeat,no-repeat,repeat-x, repeat-x;
-  background-position: left top,right top,right bottom,left bottom,center, center;
-  background-size: 100px,100px,100px,100px,cover, cover;
+  background-repeat: repeat-x, repeat-x;
+  background-position: center, center;
+  background-size: cover, cover;
   height: 100vh;
   left:0;
   animation: 50s parallax infinite linear;
@@ -32,6 +28,29 @@ html {
 
 @keyframes parallax {
   100% {
-    background-position: left top,right top,right bottom,left bottom,1000px 50%, 2500px 50%;
+    background-position: 1000px 50%, 2500px 50%;
   }
+}
+
+@keyframes animateName {
+  0% {
+      filter: hue-rotate(0deg);
+  }
+  100% {
+      filter: hue-rotate(360deg);
+  }
+}
+.name {
+  height: 100%;
+  /* max-height: 600px; */
+  width: 100vw;
+  background-repeat: repeat-x, repeat-x;
+  background-position: center, center;
+  background-size: cover, cover;
+  height: 100vh;
+  left:0;
+  animation: 50s parallax infinite linear;
+  -webkit-animation: animateName 20s linear infinite;
+	-moz-animation: animateName 20s linear infinite;
+	animation: animateName 20s linear infinite;
 }
