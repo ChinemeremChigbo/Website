@@ -11,11 +11,6 @@ document.onkeydown = function (e) {
 
 const instructions = document.getElementsByClassName('instructions') as HTMLCollectionOf<HTMLElement>;
 
-if (instructions.length != 0) {
-  instructions[0].style.transform = 'translate(-50%, -100%) rotate(' + 6 + 'deg)';
-  console.log('transformer');
-}
-
 const Home = () => {
   return (
     //SVG of Blueprint Logo and Name
@@ -26,7 +21,7 @@ const Home = () => {
         Your browser does not support the audio element.
       </audio>
       <img className="name" src="Name.svg" alt="Chinemerem Chigbo"></img>
-      <img className="instructions" src="Instructions.png" alt="Instructions"></img>
+      {/* <img className="instructions" src="Instructions.png" alt="Instructions"></img> */}
       <img className="pressEnter" src="PressAnyKey.png" alt="Press Enter"></img>
     </div>
   );
