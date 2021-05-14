@@ -10,35 +10,28 @@ body {
   background: transparent; //Ensures no scroll bar across browsers
 }
 
-.background{
-  background: url("../../assets/Background.png");
-  z-index: 1;
-  width: auto;
+html {
+  height: 100%;
+  /* max-height: 600px; */
+  width: 1000px;
+  background-color: #244b7e;
+  background-image:
+    url('../../assets/cornerTL.png'),
+    url('../../assets/cornerTR.png'),
+    url('../../assets/cornerBR.png'),
+    url('../../assets/cornerBL.png'),
+    url('../../assets/Middleground.png'),
+    url('../../assets/Background.png');
+  background-repeat: no-repeat,no-repeat,no-repeat,no-repeat,repeat-x, repeat-x;
+  background-position: left top,right top,right bottom,left bottom,center, center;
+  background-size: 100px,100px,100px,100px,cover, cover;
   height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.middleground1{
-  position: absolute;
-  z-index: 2;
-  left: 0px;
-  top: 0;
-  width: auto;
-  height: 100vh;
-  background-position: center;
-  background-repeat: repeat-x;
-  background-size: cover;
-}
-.middleground2{
-  position: absolute;
-  z-index: 3;
-  left: 90vw;
-  top: 0;
-  min-width: auto;
-  height: 100vh;
-  background-position: center;
-  background-repeat: repeat-x;
-  background-size: cover;
+  left:0;
+  animation: 50s parallax infinite linear;
 }
 
+@keyframes parallax {
+  100% {
+    background-position: left top,right top,right bottom,left bottom,1000px 50%, 2500px 50%;
+  }
+}
