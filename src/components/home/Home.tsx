@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import * as $ from "jquery";
+
 import './Home.scss';
-function getVolume() {
-  document.onkeydown = function (e) {
-    console.log('key down');
-    console.log(e);
-    document.location.href = '/about';
-  };
-}
-// function getVolume() {
-//   const x = document.getElementById('myAudio');
-//   alert(x?.volume);
-// }
+document.onkeydown = function (e) {
+  console.log('key down');a
+  console.log(e);
+  $('.transform').toggleClass('transform-active');
+};
 
 const Home = () => {
   return (
@@ -23,6 +19,9 @@ const Home = () => {
         Your browser does not support the audio element.
       </audio>
       <img className="name" src="Name.svg" alt="Chinemerem Chigbo"></img>
+      <div className="instructionsWrapper">
+        <img className="instructions" src="Instructions.png" alt="Instructions"></img>
+      </div>
       <img className="pressEnter" src="PressAnyKey.png" alt="Press Enter"></img>
     </div>
   );

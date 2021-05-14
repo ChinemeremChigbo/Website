@@ -84,3 +84,22 @@ body {
   -moz-animation: animateEnter 2s linear infinite;
   animation: animateEnter 2s linear infinite;
 }
+.instructionsWrapper{
+  display: flex;
+  justify-content: center;
+}
+.instructions {
+  position: absolute;
+  text-align: center;
+  image-rendering: pixelated;
+  max-height: 130%;
+  min-height: auto;
+  max-width: 100vw;
+  width: auto;
+  margin: auto;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
