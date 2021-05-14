@@ -12,11 +12,33 @@ body {
 
 .background{
   background: url("../../assets/Background.png");
-  z-index: -1;
-  width: 100vw;
+  z-index: 1;
+  width: auto;
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
+}
+.middleground1{
+  position: absolute;
+  z-index: 2;
+  left: 0px;
+  top: 0;
+  width: auto;
+  height: 100vh;
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: cover;
+}
+.middleground2{
+  position: absolute;
+  z-index: 3;
+  left: 90vw;
+  top: 0;
+  min-width: auto;
+  height: 100vh;
+  background-position: center;
+  background-repeat: repeat-x;
   background-size: cover;
 }
 

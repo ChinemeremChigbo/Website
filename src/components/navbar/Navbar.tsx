@@ -142,7 +142,8 @@ const Navbar = () => {
   return (
     //SVG of Blueprint Logo and Name
     <div className="background">
-      <img src= "../../assets/Middleground.png" alt="Paris"></img>
+      <img className="middleground1" src="Middleground.png" alt="Middleground"></img>
+      <img className="middleground2" src="Middleground.png" alt="Middleground"></img>
     </div>
   );
 };
