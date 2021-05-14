@@ -40,13 +40,13 @@ body {
 
 @keyframes animateName {
   0% {
-      filter: hue-rotate(90deg);
+      filter: hue-rotate(45deg);
   }
   50% {
-    filter: hue-rotate(-90deg);
+    filter: hue-rotate(-45deg);
 }
   100% {
-      filter: hue-rotate(90deg);
+      filter: hue-rotate(45deg);
   }
 }
 .name {
