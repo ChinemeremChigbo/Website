@@ -14,7 +14,7 @@ body {
     background-position: 0vw 50%, 0vw 50%;
   }
   50% {
-    background-position: 300vw 50%, 100vw 50%;
+    background-position: 9000vw 50%, 3000vw 50%;
   }
   100% {
     background-position: 0vw 50%, 0vw 50%;
@@ -33,7 +33,8 @@ body {
   background-size: cover, cover;
   height: 100vh;
   left:0;
-  animation: 50s parallax infinite linear;
+  animation: 1500s parallax infinite linear;
+  animation-timing-function:ease-out;
 }
 
 
@@ -58,8 +59,8 @@ body {
   background-size: cover, cover;
   height: 100vh;
   left:0;
-  animation: 20s parallax infinite linear;
-  -webkit-animation: animateName 20s linear infinite;
-	-moz-animation: animateName 20s linear infinite;
-	animation: animateName 20s linear infinite;
+  animation: 40s parallax infinite linear;
+  -webkit-animation: animateName 40s linear infinite;
+	-moz-animation: animateName 40s linear infinite;
+	animation: animateName 40s linear infinite;
 }
