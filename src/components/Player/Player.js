@@ -10,12 +10,23 @@ function Controls(props) {
         onClick={() => props.setIsPlaying(!props.isPlaying)}
       ></button>
       <button aria-label="Next Track" className="next" onClick={() => props.SkipSong()}></button>
+      <button
+        aria-label="Settings"
+        className="settings"
+        onClick={() => props.setIsSettings(!props.isSettings)}
+      ></button>
+      <img
+        className={props.isSettings ? 'instructionsOn' : 'instructionsOff'}
+        src="Instructions.png"
+        alt="Instructions"
+      ></img>
     </div>
   );
 }
 function Player(props) {
   const audioEl = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isSettings, setIsSettings] = useState(false);
 
   useEffect(() => {
     if (isPlaying) {
@@ -52,7 +63,13 @@ function Player(props) {
       <audio loop preload="auto" src={props.songs[props.currentSongIndex].src} ref={audioEl}>
         Your browser does not support the audio element.
       </audio>
-      <Controls isPlaying={isPlaying} setIsPlaying={setIsPlaying} SkipSong={SkipSong} />
+      <Controls
+        isPlaying={isPlaying}
+        setIsPlaying={setIsPlaying}
+        isSettings={isSettings}
+        setIsSettings={setIsSettings}
+        SkipSong={SkipSong}
+      />
     </div>
   );
 }

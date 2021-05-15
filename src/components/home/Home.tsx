@@ -7,10 +7,7 @@ import './Home.scss';
 document.onkeydown = function (e) {
   console.log('key down');
   console.log(e);
-  // $('.transform').toggleClass('transform-active');
 };
-
-const instructions = document.getElementsByClassName('instructions') as HTMLCollectionOf<HTMLElement>;
 
 const Home = () => {
   const [songs] = useState([
