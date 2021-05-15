@@ -49,7 +49,7 @@ function Player(props) {
 
   return (
     <div>
-      <audio autoPlay loop preload="auto" src={props.songs[props.currentSongIndex].src} ref={audioEl}>
+      <audio loop preload="auto" src={props.songs[props.currentSongIndex].src} ref={audioEl}>
         Your browser does not support the audio element.
       </audio>
       <Controls isPlaying={isPlaying} setIsPlaying={setIsPlaying} SkipSong={SkipSong} />

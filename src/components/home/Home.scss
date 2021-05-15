@@ -129,8 +129,7 @@ body {
 }
 .musicPlayer--controls .play:hover {
   cursor: pointer;
-  opacity: 80%;
-  background: url("../../assets/PlayY.png") no-repeat;
+  background: url("../../assets/PlayB.png") no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 }
@@ -152,8 +151,7 @@ body {
 }
 .musicPlayer--controls .pause:hover {
   cursor: pointer;
-  opacity: 80%;
-  background: url("../../assets/PauseY.png") no-repeat;
+  background: url("../../assets/PauseB.png") no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 }
@@ -175,7 +173,6 @@ body {
 }
 .musicPlayer--controls .next:hover {
   cursor: pointer;
-  opacity: 80%;
   background: url("../../assets/NextY.png") no-repeat;
   background-size: contain;
   image-rendering: pixelated;
@@ -199,7 +196,6 @@ body {
 }
 .musicPlayer--controls .last:hover {
   cursor: pointer;
-  opacity: 80%;
   background: url("../../assets/LastY.png") no-repeat;
   background-size: contain;
   image-rendering: pixelated;

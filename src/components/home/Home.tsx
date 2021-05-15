@@ -39,7 +39,10 @@ const Home = () => {
   }, [currentSongIndex]);
   return (
     //SVG of Blueprint Logo and Name
-    <div className="background">
+    <div
+      className="background"
+      onKeyDown={<img className="instructions" src="Instructions.png" alt="Instructions"></img>}
+    >
       <Player
         currentSongIndex={currentSongIndex}
         setCurrentSongIndex={setCurrentSongIndex}
@@ -47,7 +50,6 @@ const Home = () => {
         songs={songs}
       />
       <img className="name" src="Name.svg" alt="Chinemerem Chigbo"></img>
-      {/* <img className="instructions" src="Instructions.png" alt="Instructions"></img> */}
       <img className="pressAnyKey" src="PressAnyKey.png" alt="Press Any Key"></img>
     </div>
   );
