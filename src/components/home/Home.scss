@@ -104,3 +104,39 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.c-player {
+  display: inline;
+  width: max-content;
+  margin: 0px auto;
+  background-color: transparent;
+}
+
+.c-player--controls {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+}
+
+.c-player--controls .play-btn {
+  display: flex;
+  margin: 0 0px;
+  padding: 20px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background-color: $secondary;
+  cursor: pointer;
+}
+
+.c-player--controls .skip-btn {
+  display: flex;
+  margin: 0 10px;
+  padding: 20px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background-color: $secondary;
+  color: $highlight;
+  cursor: pointer;
+}

@@ -1,7 +1,4 @@
 import React from 'react';
-
-import { useState, useEffect } from 'react';
-import Player from './Player/Player';
 import Contact from './contact/Contact';
 import About from './about/About';
 import Projects from './projects/Projects';
@@ -9,38 +6,8 @@ import Home from './home/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
-  const [songs] = useState([
-    {
-      src: 'BackgroundMusic1.mp3',
-    },
-    {
-      src: 'BackgroundMusic2.mp3',
-    },
-    {
-      src: 'BackgroundMusic3.mp3',
-    },
-  ]);
-
-  const [currentSongIndex, setCurrentSongIndex] = useState(0);
-  const [nextSongIndex, setNextSongIndex] = useState(0);
-
-  useEffect(() => {
-    setNextSongIndex(() => {
-      if (currentSongIndex + 1 > songs.length - 1) {
-        return 0;
-      } else {
-        return currentSongIndex + 1;
-      }
-    });
-  }, [currentSongIndex]);
   return (
     <Router>
-      <Player
-        currentSongIndex={currentSongIndex}
-        setCurrentSongIndex={setCurrentSongIndex}
-        nextSongIndex={nextSongIndex}
-        songs={songs}
-      />
       <Switch>
         <Route exact path="/">
           <Home />
