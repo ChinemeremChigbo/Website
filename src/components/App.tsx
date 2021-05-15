@@ -6,7 +6,6 @@ import Contact from './contact/Contact';
 import About from './about/About';
 import Projects from './projects/Projects';
 import Home from './home/Home';
-
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -18,12 +17,13 @@ function App() {
       src: 'BackgroundMusic2.mp3',
     },
     {
-      src: 'BackgroundMusic2.mp3',
+      src: 'BackgroundMusic3.mp3',
     },
   ]);
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [nextSongIndex, setNextSongIndex] = useState(0);
+
   useEffect(() => {
     setNextSongIndex(() => {
       if (currentSongIndex + 1 > songs.length - 1) {
@@ -35,14 +35,12 @@ function App() {
   }, [currentSongIndex]);
   return (
     <Router>
-      <div className="App">
-        <Player
-          currentSongIndex={currentSongIndex}
-          setCurrentSongIndex={setCurrentSongIndex}
-          nextSongIndex={nextSongIndex}
-          songs={songs}
-        />
-      </div>
+      <Player
+        currentSongIndex={currentSongIndex}
+        setCurrentSongIndex={setCurrentSongIndex}
+        nextSongIndex={nextSongIndex}
+        songs={songs}
+      />
       <Switch>
         <Route exact path="/">
           <Home />
