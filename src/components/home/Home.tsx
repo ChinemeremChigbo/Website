@@ -41,7 +41,7 @@ const Home = () => {
     //SVG of Blueprint Logo and Name
     <div
       className="background"
-      onKeyDown={<img className="instructions" src="Instructions.png" alt="Instructions"></img>}
+      // onKeyDown={<img className="instructions" src="Instructions.png" alt="Instructions"></img>}
     >
       <Player
         currentSongIndex={currentSongIndex}
