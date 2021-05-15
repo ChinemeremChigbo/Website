@@ -36,14 +36,14 @@
       }
 
       .cls-1 {
-        fill: #6ca0d8;
+        fill: #7cb6ed;
       }
 
       .cls-2 {
-        fill: #c2ff96;
+        fill: #fff351;
       }
     </style>
   </defs>
-  <text id="Chinemerem_Chigbo" data-name="Chinemerem Chigbo" class="cls-1" x="253" y="139"><tspan x="253">Chinemerem</tspan><tspan x="253" dy="76.8">Chigbo</tspan></text>
-  <text id="Chinemerem_Chigbo-2" data-name="Chinemerem Chigbo" class="cls-2" x="257" y="135"><tspan x="257">Chinemerem</tspan><tspan x="257" dy="76.8">Chigbo</tspan></text>
+  <text id="Chinemerem_Chigbo" data-name="Chinemerem Chigbo" class="cls-1" x="251" y="145"><tspan x="251">Chinemerem</tspan><tspan x="251" dy="76.8">Chigbo</tspan></text>
+  <text id="Chinemerem_Chigbo-2" data-name="Chinemerem Chigbo" class="cls-2" x="255" y="141"><tspan x="255">Chinemerem</tspan><tspan x="255" dy="76.8">Chigbo</tspan></text>
 </svg>

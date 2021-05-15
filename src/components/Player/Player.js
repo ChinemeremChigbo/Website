@@ -2,10 +2,16 @@ import React, { useState, useRef, useEffect } from 'react';
 
 function Controls(props) {
   return (
-    <div className="c-player--controls">
-      <button className="skip-btn" onClick={() => props.SkipSong(false)}></button>
-      <button className="play-btn" onClick={() => props.setIsPlaying(!props.isPlaying)}></button>
-      <button className="skip-btn" onClick={() => props.SkipSong()}></button>
+    <div className="musicPlayer--controls">
+      <button aria-label="Last Track" className="last" onClick={() => props.SkipSong(false)}>
+        {/* <img className="skip-btn" src="Last.png" alt="Next Track Image"></img> */}
+      </button>
+      <button aria-label="Play/Plause" className="play" onClick={() => props.setIsPlaying(!props.isPlaying)}>
+        {/* <img className="play-btn" src="Play.png" alt="Play Button Image"></img> */}
+      </button>
+      <button aria-label="Next Track" className="next" onClick={() => props.SkipSong()}>
+        {/* <img className="skip-btn" src="Next.png" alt="Next Track Image"></img> */}
+      </button>
     </div>
   );
 }
@@ -45,7 +51,7 @@ function Player(props) {
   };
 
   return (
-    <div className="c-player">
+    <div className="musicPlayer">
       <audio autoPlay loop preload="auto" src={props.songs[props.currentSongIndex].src} ref={audioEl}>
         Your browser does not support the audio element.
       </audio>

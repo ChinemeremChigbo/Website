@@ -14,7 +14,7 @@ body {
     background-position: 0vw 50%, 0vw 50%;
   }
   50% {
-    background-position: 9000vw 50%, 3000vw 50%;
+    background-position: 100000vw 50%, 30000vw 50%;
   }
   100% {
     background-position: 0vw 50%, 0vw 50%;
@@ -31,11 +31,11 @@ body {
   background-size: cover, cover;
   height: 100vh;
   left: 0;
-  animation: 1500s parallax infinite linear;
-  animation-timing-function: ease-out;
+  animation: 15000s parallax infinite linear;
+
 }
 
-@keyframes animateName {
+@keyframes animateColor {
   0% {
     filter: hue-rotate(45deg);
   }
@@ -50,9 +50,9 @@ body {
   position: relative;
   width: 100vw;
   height: 80vh;
-  -webkit-animation: animateName 40s linear infinite;
-  -moz-animation: animateName 40s linear infinite;
-  animation: animateName 40s linear infinite;
+  -webkit-animation: animateColor 40s linear infinite;
+  -moz-animation: animateColor 40s linear infinite;
+  animation: animateColor 40s linear infinite;
 }
 
 @keyframes animateEnter {
@@ -70,7 +70,7 @@ body {
   }
 }
 
-.pressEnter {
+.pressAnyKey {
   position: absolute;
   z-index: 2;
   height: 100%;
@@ -84,9 +84,9 @@ body {
   bottom: 5%;
   left: 50%;
   transform: translate(-50%, -5vh);
-  -webkit-animation: animateEnter 2s linear infinite;
-  -moz-animation: animateEnter 2s linear infinite;
-  animation: animateEnter 2s linear infinite;
+  -webkit-animation: animateEnter 2s  linear infinite, animateColor 40s linear infinite;
+  -moz-animation: animateEnter 2s linear infinite, animateColor 40s linear infinite;
+  animation: animateEnter 2s linear infinite, animateColor 40s linear infinite;
 }
 .instructions {
   z-index: 1;
@@ -105,38 +105,86 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.c-player {
+.musicPlayer {
   display: inline;
   width: max-content;
   margin: 0px auto;
   background-color: transparent;
 }
 
-.c-player--controls {
+.musicPlayer--controls {
   display: flex;
   align-items: center;
   background-color: transparent;
 }
 
-.c-player--controls .play-btn {
+.musicPlayer--controls .play {
   display: flex;
   margin: 0 0px;
   padding: 20px;
-  border-radius: 50%;
   border: none;
   outline: none;
-  background-color: $secondary;
+  background-color: $primary;
+  background: url("../../assets/PlayB.png") no-repeat;
+  background-size: contain;
+  image-rendering: pixelated;
+
+  -webkit-animation: animateColor 40s linear infinite;
+  -moz-animation: animateColor 40s linear infinite;
+  animation: animateColor 40s linear infinite;
+}
+.musicPlayer--controls .play:hover {
   cursor: pointer;
+  opacity: 80%;
+  background: url("../../assets/PlayY.png") no-repeat;
+  background-size: contain;
+  image-rendering: pixelated;
 }
 
-.c-player--controls .skip-btn {
+.musicPlayer--controls .next {
+  display: flex;
+  margin: 10 10px;
+  padding: 20px;
+  border: none;
+  outline: none;
+  background-color: $primary;
+  color: $highlight;
+  background: url("../../assets/NextB.png") no-repeat;
+  background-size: contain;
+  image-rendering: pixelated;
+
+  -webkit-animation: animateColor 40s linear infinite;
+  -moz-animation: animateColor 40s linear infinite;
+  animation: animateColor 40s linear infinite;
+}
+.musicPlayer--controls .next:hover {
+  cursor: pointer;
+  opacity: 80%;
+  background: url("../../assets/NextY.png") no-repeat;
+  background-size: contain;
+  image-rendering: pixelated;
+}
+
+.musicPlayer--controls .last {
   display: flex;
   margin: 0 10px;
   padding: 20px;
-  border-radius: 50%;
   border: none;
   outline: none;
-  background-color: $secondary;
+  background-color: $primary;
   color: $highlight;
+  background: url("../../assets/LastB.png") no-repeat;
+  background-size: contain;
+  image-rendering: pixelated;
+
+  -webkit-animation: animateColor 40s linear infinite;
+  -moz-animation: animateColor 40s linear infinite;
+  animation: animateColor 40s linear infinite;
+}
+.musicPlayer--controls .last:hover {
   cursor: pointer;
+  opacity: 80%;
+  background: url("../../assets/LastY.png") no-repeat;
+  background-size: contain;
+  image-rendering: pixelated;
 }
