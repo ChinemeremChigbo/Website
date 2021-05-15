@@ -15,7 +15,7 @@ function Controls(props) {
         className="settings"
         onClick={() => props.setIsSettings(!props.isSettings)}
       ></button>
-      <img className={props.isSettings ? 'settingsOn' : 'settingsOff'} src="Instructions.png" alt="Instructions"></img>
+      <img className={props.isSettings ? 'settingsOn' : 'settingsOff'} src="Settings.png" alt="Settings"></img>
     </div>
   );
 }
