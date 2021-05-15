@@ -108,8 +108,10 @@ body {
 .musicPlayer {
   display: inline;
   width: max-content;
-  margin: 0px auto;
+  min-height: 50px;
+  margin: 10px;
   background-color: transparent;
+
 }
 
 .musicPlayer--controls {
@@ -120,12 +122,12 @@ body {
 
 .musicPlayer--controls .play {
   display: flex;
-  margin: 0 0px;
+  margin: 10 10px;
   padding: 20px;
   border: none;
   outline: none;
   background-color: $primary;
-  background: url("../../assets/PlayB.png") no-repeat;
+  background: url("../../assets/PlayY.png") no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 
@@ -143,8 +145,8 @@ body {
 
 .musicPlayer--controls .next {
   display: flex;
-  margin: 10 10px;
-  padding: 20px;
+  margin: 0px 2px;
+  padding: 10px;
   border: none;
   outline: none;
   background-color: $primary;
@@ -168,7 +170,7 @@ body {
 .musicPlayer--controls .last {
   display: flex;
   margin: 0 10px;
-  padding: 20px;
+  padding: 10px;
   border: none;
   outline: none;
   background-color: $primary;

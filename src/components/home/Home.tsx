@@ -48,7 +48,7 @@ const Home = () => {
       />
       <img className="name" src="Name.svg" alt="Chinemerem Chigbo"></img>
       {/* <img className="instructions" src="Instructions.png" alt="Instructions"></img> */}
-      <img className="pressAnyKey" src="PressAnyKey.png" alt="Press Enter"></img>
+      <img className="pressAnyKey" src="PressAnyKey.png" alt="Press Any Key"></img>
     </div>
   );
 };
