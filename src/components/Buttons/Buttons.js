@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function Controls(props) {
   return (
@@ -18,12 +19,16 @@ function Controls(props) {
       <img className={props.isSettings ? 'settingsOn' : 'settingsOff'} src="Settings.png" alt="Settings"></img>
       <button aria-label="Rules" className="rules" onClick={() => props.setIsRules(!props.isRules)}></button>
       <img className={props.isRules ? 'rulesOn' : 'rulesOff'} src="Rules.png" alt="Rules"></img>
-      <button aria-label="Start" className="start"></button>
+      <Link onClick={props.handleClick} to={'/start'}>
+        <button aria-label="Start" className="start"></button>
+      </Link>
     </div>
   );
 }
 
 function Player(props) {
+  const [clicked, setClicked] = useState(false);
+  const handleClick = () => setClicked(!clicked);
   const audioEl = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isSettings, setIsSettings] = useState(false);
