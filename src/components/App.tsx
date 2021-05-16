@@ -1,8 +1,9 @@
 import React from 'react';
+import Home from './home/Home';
+import Game from './game/Game';
 import Contact from './contact/Contact';
 import About from './about/About';
 import Projects from './projects/Projects';
-import Home from './home/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -11,6 +12,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route exact path="/game">
+          <Game />
         </Route>
         <Route exact path="/about">
           <About />
