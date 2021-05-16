@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Controls(props) {
   return (
-    <div className="musicPlayer--controls">
+    <div className={props.isRules || props.isSettings ? 'musicPlayerControlsInvisible' : 'musicPlayerControls'}>
       <button aria-label="Last Track" className="last" onClick={() => props.SkipSong(false)}></button>
       <button
         aria-label="Play/Plause"
@@ -17,7 +17,11 @@ function Controls(props) {
         onClick={() => props.setIsSettings(!props.isSettings)}
       ></button>
       <img className={props.isSettings ? 'settingsOn' : 'settingsOff'} src="Settings.png" alt="Settings"></img>
-      <button aria-label="Rules" className="rules" onClick={() => props.setIsRules(!props.isRules)}></button>
+      <button
+        aria-label="Rules"
+        className={props.isRules || props.isSettings ? 'settingsInvisible' : 'rules'}
+        onClick={() => props.setIsRules(!props.isRules)}
+      ></button>
       <img className={props.isRules ? 'rulesOn' : 'rulesOff'} src="Rules.png" alt="Rules"></img>
       <Link onClick={props.handleClick} to={'/start'}>
         <button aria-label="Start" className="start"></button>
@@ -27,8 +31,6 @@ function Controls(props) {
 }
 
 function Player(props) {
-  const [clicked, setClicked] = useState(false);
-  const handleClick = () => setClicked(!clicked);
   const audioEl = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isSettings, setIsSettings] = useState(false);
@@ -42,9 +44,11 @@ function Player(props) {
     }
     if (isSettings) {
       setIsRules(false);
-    }
-    if (isRules) {
+    } else if (isRules) {
       setIsSettings(false);
+    } else {
+      setIsSettings(false);
+      setIsRules(false);
     }
   });
 
@@ -76,9 +80,9 @@ function Player(props) {
         Your browser does not support the audio element.
       </audio>
       <Controls
+        SkipSong={SkipSong}
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
-        SkipSong={SkipSong}
         isSettings={isSettings}
         setIsSettings={setIsSettings}
         isRules={isRules}
