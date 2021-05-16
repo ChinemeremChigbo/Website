@@ -70,25 +70,6 @@ body {
   }
 }
 
-.pressAnyKey {
-  position: absolute;
-  z-index: 0;
-  height: 100%;
-  image-rendering: pixelated;
-  width: 15vw;
-  min-width: 135px;
-  height: auto;
-  margin: auto;
-  display: block;
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  transform: translate(-50%, -5vh);
-  -webkit-animation: animateEnter 2s  linear infinite, animateColor 40s linear infinite;
-  -moz-animation: animateEnter 2s linear infinite, animateColor 40s linear infinite;
-  animation: animateEnter 2s linear infinite, animateColor 40s linear infinite;
-}
-
 .musicPlayer--controls {
   z-index: 2;
   display: flex;
@@ -141,7 +122,7 @@ body {
 
 .musicPlayer--controls .next {
   z-index: 2;
-  padding: 8px;
+  padding: 8px 8px 5px 8px;
   border: none;
   outline: none;
   background: url("../../assets/NextB.png") no-repeat;
@@ -162,7 +143,7 @@ body {
 .musicPlayer--controls .last {
   z-index: 2;
   margin: 0px 8px 0px 18px;
-  padding: 8px;
+  padding: 8px 8px 5px 8px;
   border: none;
   outline: none;
   background: url("../../assets/LastB.png") no-repeat;
@@ -186,7 +167,7 @@ body {
   margin-left: auto;
   margin-right:18px;
   justify-content: flex-end;
-  padding: 20px 30px 20px 30px;
+  padding: 20px 30px 15px 30px;
   height:10px;
   -ms-flex-align: end;
   align-items: right;
@@ -247,24 +228,24 @@ body {
 
 .rules {
   z-index: 2;
-  display: inline;
-  margin-left: auto;
-  margin-top: 20px;
-  margin-right:18px;
-  justify-content: flex-end;
-  padding: 25px;
-  -ms-flex-align: end;
-  align-items: right;
+  padding: 33px 60px 18px 80px;
   border: none;
   outline: none;
-  color: $highlight;
-  background: url("../../assets/RulesY.png") no-repeat;
-  background-size: contain;
+  position: absolute;
   image-rendering: pixelated;
-
+  height: auto;
+  margin: auto;
+  display: block;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-125%, -50%);
   -webkit-animation: animateColor 40s linear infinite;
   -moz-animation: animateColor 40s linear infinite;
   animation: animateColor 40s linear infinite;
+  background: url("../../assets/RulesY.png") no-repeat;
+  background-size: contain;
+  image-rendering: pixelated;
 }
 .rules:hover {
   cursor: pointer;
@@ -312,24 +293,24 @@ body {
 
 .start {
   z-index: 2;
-  display: inline;
-  margin-left: auto;
-  margin-top: 20px;
-  margin-right:18px;
-  justify-content: flex-end;
-  padding: 25px;
-  -ms-flex-align: end;
-  align-items: right;
+  padding: 33px 60px 18px 80px;
   border: none;
   outline: none;
-  color: $highlight;
-  background: url("../../assets/StartY.png") no-repeat;
-  background-size: contain;
+  position: absolute;
   image-rendering: pixelated;
-
+  height: auto;
+  margin: auto;
+  display: block;
+  position: absolute;
+  bottom: 5%;
+  right: 50%;
+  transform: translate(125%, -50%);
   -webkit-animation: animateColor 40s linear infinite;
   -moz-animation: animateColor 40s linear infinite;
   animation: animateColor 40s linear infinite;
+  background: url("../../assets/StartY.png") no-repeat;
+  background-size: contain;
+  image-rendering: pixelated;
 }
 .start:hover {
   cursor: pointer;
