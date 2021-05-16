@@ -20,6 +20,7 @@ body {
     background-position: 0vw 50%, 0vw 50%;
   }
 }
+
 .background {
   height: 100%;
   /* max-height: 600px; */
@@ -32,7 +33,33 @@ body {
   height: 100vh;
   left: 0;
   animation: 15000s parallax infinite linear;
-  transition: none;
+}
+.backgroundBack {
+  height: 100%;
+  /* max-height: 600px; */
+  width: 100vw;
+  background-color: #244b7e;
+  background-image: url('../../assets/Middleground.png'), url('../../assets/Background.png');
+  background-repeat: repeat-x, repeat-x;
+  background-position: center, center;
+  background-size: cover, cover;
+  height: 100vh;
+  left: 0;
+  animation: 15000s parallax infinite linear;
+}
+.backgroundBlurred {
+  height: 100%;
+  /* max-height: 600px; */
+  width: 100vw;
+  background-color: #244b7e;
+  background-image: url('../../assets/MiddlegroundBlurred.png'), url('../../assets/BackgroundBlurred.png');
+  background-repeat: repeat-x, repeat-x;
+  background-position: center, center;
+  background-size: cover, cover;
+  height: 100vh;
+  left: 0;
+  animation: 15000s parallax infinite linear;
+  transition: 5s;
 }
 @keyframes animateColor {
   0% {
@@ -46,10 +73,12 @@ body {
   }
 }
 .name {
-  position: relative;
+  position: absolute;
+  bottom: 55%;
+  right: 50%;
+  transform: translate(50%, 50%);
   width: 100vw;
   height: 80vh;
-  margin-top: -20px;
 
   -webkit-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
   -moz-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
@@ -85,23 +114,12 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: transparent;
+  -webkit-animation: fadeOut 2s linear forwards ;
+  -moz-animation: fadeOut 2s linear forwards ;
+  animation: fadeOut 2s linear forwards ;
 }
 
-.musicPlayerControls .playInvisible {
-  z-index: 2;
-  margin: 10px 0px;
-  padding: 15px;
-  border: none;
-  outline: none;
-  background: url("../../assets/PlayY.png") no-repeat;
-  background-size: contain;
-  image-rendering: pixelated;
-  -webkit-animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-}
-
-.musicPlayerControls .play {
+.musicPlayerControlsPlay {
   z-index: 2;
   margin: 10px 0px;
   padding: 15px;
@@ -115,29 +133,14 @@ body {
   -moz-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
   animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
 }
-.musicPlayerControls .play:hover {
+.musicPlayerControlsPlay:hover {
   cursor: pointer;
   background: url("../../assets/PlayB.png") no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 }
 
-.musicPlayerControls .pauseInvisible {
-  z-index: 2;
-  margin: 10px 0px;
-  padding: 15px;
-  border: none;
-  outline: none;
-  background: url("../../assets/PauseY.png") no-repeat;
-  background-size: contain;
-  image-rendering: pixelated;
-
-  -webkit-animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-}
-
-.musicPlayerControls .pause {
+.musicPlayerControlsPause {
   z-index: 2;
   margin: 10px 0px;
   padding: 15px;
@@ -151,28 +154,16 @@ body {
   -moz-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
   animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
 }
-.musicPlayerControls .pause:hover {
+.musicPlayerControlsPause:hover {
   cursor: pointer;
   background: url("../../assets/PauseB.png") no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 }
 
-.musicPlayerControls .nextInvisible {
-  z-index: 2;
-  padding: 8px 8px 5px 8px;
-  border: none;
-  outline: none;
-  background: url("../../assets/NextB.png") no-repeat;
-  background-size: contain;
-  image-rendering: pixelated;
 
-  -webkit-animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-}
 
-.musicPlayerControls .next {
+.musicPlayerControlsNext {
   z-index: 2;
   padding: 8px 8px 5px 8px;
   border: none;
@@ -185,29 +176,15 @@ body {
   -moz-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
   animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
 }
-.musicPlayerControls .next:hover {
+.musicPlayerControlsNext:hover {
   cursor: pointer;
   background: url("../../assets/NextY.png") no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 }
 
-.musicPlayerControls .lastInvisible {
-  z-index: 2;
-  margin: 0px 8px 0px 18px;
-  padding: 8px 8px 5px 8px;
-  border: none;
-  outline: none;
-  background: url("../../assets/LastB.png") no-repeat;
-  background-size: contain;
-  image-rendering: pixelated;
 
-  -webkit-animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-}
-
-.musicPlayerControls .last {
+.musicPlayerControlsLast {
   z-index: 2;
   margin: 0px 8px 0px 18px;
   padding: 8px 8px 5px 8px;
@@ -221,7 +198,7 @@ body {
   -moz-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
   animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
 }
-.musicPlayerControls .last:hover {
+.musicPlayerControlsLast:hover {
   cursor: pointer;
   background: url("../../assets/LastY.png") no-repeat;
   background-size: contain;
@@ -233,6 +210,7 @@ body {
   display: inline;
   margin-left: auto;
   margin-right:18px;
+  margin-top:9px;
   justify-content: flex-end;
   padding: 20px 30px 15px 30px;
   height:10px;
@@ -250,27 +228,6 @@ body {
   animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
 }
 
-.settingsInvisible {
-  z-index: 2;
-  display: inline;
-  margin-left: auto;
-  margin-right:18px;
-  justify-content: flex-end;
-  padding: 20px 30px 15px 30px;
-  height:10px;
-  -ms-flex-align: end;
-  align-items: right;
-  border: none;
-  outline: none;
-  color: $highlight;
-  background: url("../../assets/SettingsY.png") no-repeat;
-  background-size: contain;
-  image-rendering: pixelated;
-
-  -webkit-animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-}
 
 .settings:hover {
   cursor: pointer;
@@ -344,27 +301,6 @@ body {
   image-rendering: pixelated;
 }
 
-.rulesInvisible{
-  z-index: 1;
-  padding: 33px 60px 18px 80px;
-  border: none;
-  outline: none;
-  position: absolute;
-  image-rendering: pixelated;
-  height: auto;
-  margin: auto;
-  display: block;
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  transform: translate(-125%, -50%);
-  -webkit-animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-  background: url("../../assets/RulesY.png") no-repeat;
-  background-size: contain;
-  image-rendering: pixelated;
-}
 
 .rulesOn {
   z-index: 2;
@@ -431,39 +367,17 @@ body {
   image-rendering: pixelated;
 }
 
-.startInvisible {
-  z-index: 1;
-  padding: 33px 60px 18px 80px;
-  border: none;
-  outline: none;
-  position: absolute;
-  image-rendering: pixelated;
-  height: auto;
-  margin: auto;
-  display: block;
-  position: absolute;
-  bottom: 5%;
-  right: 50%;
-  transform: translate(125%, -50%);
-  -webkit-animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeOut 1s linear forwards ;
-  background: url("../../assets/StartY.png") no-repeat;
-  background-size: contain;
-  image-rendering: pixelated;
-}
-
 @keyframes fadeOut {
   0% {
     opacity: 100%;
   }
   100% {
-    opacity: 10%;
+    opacity: 0%;
   }
 }
 @keyframes fadeIn{
   0% {
-    opacity: 10%;
+    opacity: 0%;
   }
   100% {
     opacity: 100%;

@@ -29,14 +29,13 @@ const Home = () => {
   }, [currentSongIndex]);
   return (
     //SVG of Blueprint Logo and Name
-    <div className="background">
+    <div>
       <Player
         currentSongIndex={currentSongIndex}
         setCurrentSongIndex={setCurrentSongIndex}
         nextSongIndex={nextSongIndex}
         songs={songs}
       />
-      <img className="name" src="Name.svg" alt="Chinemerem Chigbo"></img>
     </div>
   );
 };

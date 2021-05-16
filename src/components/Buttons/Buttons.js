@@ -3,29 +3,41 @@ import { Link } from 'react-router-dom';
 
 function Controls(props) {
   return (
-    <div className={props.isRules || props.isSettings ? 'musicPlayerControlsInvisible' : 'musicPlayerControls'}>
-      <button aria-label="Last Track" className="last" onClick={() => props.SkipSong(false)}></button>
-      <button
-        aria-label="Play/Plause"
-        className={props.isPlaying ? 'pause' : 'play'}
-        onClick={() => props.setIsPlaying(!props.isPlaying)}
-      ></button>
-      <button aria-label="Next Track" className="next" onClick={() => props.SkipSong()}></button>
-      <button
-        aria-label="Settings"
-        className="settings"
-        onClick={() => props.setIsSettings(!props.isSettings)}
-      ></button>
-      <img className={props.isSettings ? 'settingsOn' : 'settingsOff'} src="Settings.png" alt="Settings"></img>
-      <button
-        aria-label="Rules"
-        className={props.isRules || props.isSettings ? 'settingsInvisible' : 'rules'}
-        onClick={() => props.setIsRules(!props.isRules)}
-      ></button>
-      <img className={props.isRules ? 'rulesOn' : 'rulesOff'} src="Rules.png" alt="Rules"></img>
-      <Link onClick={props.handleClick} to={'/start'}>
-        <button aria-label="Start" className="start"></button>
-      </Link>
+    <div className="backgroundBack">
+      <div className={props.isRules || props.isSettings ? 'backgroundBlurred' : 'background'}>
+        <div>
+          <div className={props.isRules || props.isSettings ? 'musicPlayerControlsInvisible' : 'musicPlayerControls'}>
+            <button
+              aria-label="Last Track"
+              className="musicPlayerControlsLast"
+              onClick={() => props.SkipSong(false)}
+            ></button>
+            <button
+              aria-label="Play/Plause"
+              className={props.isPlaying ? 'musicPlayerControlsPause' : 'musicPlayerControlsPlay'}
+              onClick={() => props.setIsPlaying(!props.isPlaying)}
+            ></button>
+            <button
+              aria-label="Next Track"
+              className="musicPlayerControlsNext"
+              onClick={() => props.SkipSong()}
+            ></button>
+            <button
+              aria-label="Settings"
+              className="settings"
+              onClick={() => props.setIsSettings(!props.isSettings)}
+            ></button>
+            <button aria-label="Rules" className="rules" onClick={() => props.setIsRules(!props.isRules)}></button>
+            <img className="name" src="Name.svg" alt="Chinemerem Chigbo"></img>
+
+            <Link onClick={props.handleClick} to={'/start'}>
+              <button aria-label="Start" className="start"></button>
+            </Link>
+          </div>
+          <img className={props.isSettings ? 'settingsOn' : 'settingsOff'} src="Settings.png" alt="Settings"></img>
+          <img className={props.isRules ? 'rulesOn' : 'rulesOff'} src="Rules.png" alt="Rules"></img>
+        </div>
+      </div>
     </div>
   );
 }
