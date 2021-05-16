@@ -41,7 +41,7 @@ function Controls(props) {
           <button
             aria-label="Done"
             className={props.isRules ? 'rulesDone' : 'rulesDoneOff'}
-            onClick={() => props.setIsSettings(false)}
+            onClick={() => props.setIsRules(false)}
           ></button>
           <img className={props.isSettings ? 'settingsOn' : 'settingsOff'} src="Settings.png" alt="Settings"></img>
           <img className={props.isRules ? 'rulesOn' : 'rulesOff'} src="Rules.png" alt="Rules"></img>
