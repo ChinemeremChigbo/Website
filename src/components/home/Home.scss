@@ -190,7 +190,7 @@ body {
 }
 
 .settingsOn {
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   text-align: center;
   image-rendering: pixelated;
@@ -208,7 +208,7 @@ body {
   transition: 2s ease-in-out;
 }
 .settingsOff {
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   text-align: center;
   image-rendering: pixelated;
@@ -227,7 +227,7 @@ body {
 }
 
 .rules {
-  z-index: 2;
+  z-index: 1;
   padding: 33px 60px 18px 80px;
   border: none;
   outline: none;
@@ -255,7 +255,7 @@ body {
 }
 
 .rulesOn {
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   text-align: center;
   image-rendering: pixelated;
@@ -273,7 +273,7 @@ body {
   transition: 2s ease-in-out;
 }
 .rulesOff {
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   text-align: center;
   image-rendering: pixelated;
@@ -292,7 +292,7 @@ body {
 }
 
 .start {
-  z-index: 2;
+  z-index: 1;
   padding: 33px 60px 18px 80px;
   border: none;
   outline: none;
