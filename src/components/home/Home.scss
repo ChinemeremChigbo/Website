@@ -59,7 +59,6 @@ body {
   height: 100vh;
   left: 0;
   animation: 15000s parallax infinite linear;
-  transition: 5s;
 }
 @keyframes animateColor {
   0% {
@@ -80,9 +79,9 @@ body {
   width: 100vw;
   height: 80vh;
 
-  -webkit-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
+  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
 }
 
 @keyframes animateEnter {
@@ -106,6 +105,9 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: transparent;
+  -webkit-animation: fadeIn 3s linear forwards ease;
+  -moz-animation:  fadeIn 3s linear forwards ;
+  animation: fadeIn 3s linear forwards ;
 }
 
 .musicPlayerControlsInvisible {
