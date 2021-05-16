@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import * as $ from 'jquery';
 import Player from '../Player/Player';
-
 import './Home.scss';
-document.onkeydown = function (e) {
-  console.log('key down');
-  console.log(e);
-};
 
 const Home = () => {
   const [songs] = useState([

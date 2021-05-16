@@ -212,7 +212,6 @@ body {
 .settingsOn {
   z-index: 1;
   position: absolute;
-  opacity: 100%;
   text-align: center;
   image-rendering: pixelated;
   max-height: 130%;
@@ -250,7 +249,6 @@ body {
 .instructionsOn {
   z-index: 1;
   position: absolute;
-  opacity: 100%;
   text-align: center;
   image-rendering: pixelated;
   max-height: 130%;
@@ -265,6 +263,7 @@ body {
   transform: translate(-50%, -50%);
   image-rendering: pixelated;
   transition: 2s ease-in-out;
+  background-image: url('../../assets/Middleground.png'), url('../../assets/Background.png');
 }
 .instructionsOff {
   z-index: 1;
@@ -283,4 +282,5 @@ body {
   transform: translate(-50%, -50%);
   image-rendering: pixelated;
   transition: 2s;
+  background-image: url('../../assets/Middleground.png'), url('../../assets/Background.png');
 }
