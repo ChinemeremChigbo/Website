@@ -14,27 +14,32 @@ function Controls(props) {
         aria-label="Settings"
         className="settings"
         onClick={() => props.setIsSettings(!props.isSettings)}
-        onKeyDown={() => props.setIsSettings(!props.isSettings)}
       ></button>
       <img className={props.isSettings ? 'settingsOn' : 'settingsOff'} src="Settings.png" alt="Settings"></img>
-      <div
-        onKeyDown={() => props.setIsSettings(!props.isSettings)}
-        onKeyclassNameDown={props.isSettings ? 'settingsOn' : 'settingsOff'}
-      ></div>
+      <button aria-label="Rules" className="rules" onClick={() => props.setIsRules(!props.isRules)}></button>
+      <img className={props.isRules ? 'rulesOn' : 'rulesOff'} src="Rules.png" alt="Rules"></img>
+      <button aria-label="Start" className="start"></button>
     </div>
   );
 }
+
 function Player(props) {
   const audioEl = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isSettings, setIsSettings] = useState(false);
-  const [isInstructions, setIsInstructions] = useState(false);
+  const [isRules, setIsRules] = useState(false);
 
   useEffect(() => {
     if (isPlaying) {
       audioEl.current.play();
     } else {
       audioEl.current.pause();
+    }
+    if (isSettings) {
+      setIsRules(false);
+    }
+    if (isRules) {
+      setIsSettings(false);
     }
   });
 
@@ -71,8 +76,8 @@ function Player(props) {
         SkipSong={SkipSong}
         isSettings={isSettings}
         setIsSettings={setIsSettings}
-        isInstructions={isInstructions}
-        setIsInstructions={setIsInstructions}
+        isRules={isRules}
+        setIsRules={setIsRules}
       />
     </div>
   );

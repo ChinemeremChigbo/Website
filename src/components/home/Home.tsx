@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Player from '../Player/Player';
+import Player from '../Buttons/Buttons';
 import './Home.scss';
 
 const Home = () => {
@@ -29,10 +29,7 @@ const Home = () => {
   }, [currentSongIndex]);
   return (
     //SVG of Blueprint Logo and Name
-    <div
-      className="background"
-      // onKeyDown={<img className="instructions" src="Instructions.png" alt="Instructions"></img>}
-    >
+    <div className="background">
       <Player
         currentSongIndex={currentSongIndex}
         setCurrentSongIndex={setCurrentSongIndex}

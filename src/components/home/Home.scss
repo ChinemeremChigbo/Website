@@ -184,10 +184,10 @@ body {
   z-index: 2;
   display: inline;
   margin-left: auto;
-  margin-top: 20px;
   margin-right:18px;
   justify-content: flex-end;
-  padding: 25px;
+  padding: 20px 30px 20px 30px;
+  height:10px;
   -ms-flex-align: end;
   align-items: right;
   border: none;
@@ -245,7 +245,35 @@ body {
   transition: 2s;
 }
 
-.instructionsOn {
+.rules {
+  z-index: 2;
+  display: inline;
+  margin-left: auto;
+  margin-top: 20px;
+  margin-right:18px;
+  justify-content: flex-end;
+  padding: 25px;
+  -ms-flex-align: end;
+  align-items: right;
+  border: none;
+  outline: none;
+  color: $highlight;
+  background: url("../../assets/RulesY.png") no-repeat;
+  background-size: contain;
+  image-rendering: pixelated;
+
+  -webkit-animation: animateColor 40s linear infinite;
+  -moz-animation: animateColor 40s linear infinite;
+  animation: animateColor 40s linear infinite;
+}
+.rules:hover {
+  cursor: pointer;
+  background: url("../../assets/RulesB.png") no-repeat;
+  background-size: contain;
+  image-rendering: pixelated;
+}
+
+.rulesOn {
   z-index: 1;
   position: absolute;
   text-align: center;
@@ -262,9 +290,8 @@ body {
   transform: translate(-50%, -50%);
   image-rendering: pixelated;
   transition: 2s ease-in-out;
-  background-image: url('../../assets/Middleground.png'), url('../../assets/Background.png');
 }
-.instructionsOff {
+.rulesOff {
   z-index: 1;
   position: absolute;
   text-align: center;
@@ -281,5 +308,32 @@ body {
   transform: translate(-50%, -50%);
   image-rendering: pixelated;
   transition: 2s;
-  background-image: url('../../assets/Middleground.png'), url('../../assets/Background.png');
+}
+
+.start {
+  z-index: 2;
+  display: inline;
+  margin-left: auto;
+  margin-top: 20px;
+  margin-right:18px;
+  justify-content: flex-end;
+  padding: 25px;
+  -ms-flex-align: end;
+  align-items: right;
+  border: none;
+  outline: none;
+  color: $highlight;
+  background: url("../../assets/StartY.png") no-repeat;
+  background-size: contain;
+  image-rendering: pixelated;
+
+  -webkit-animation: animateColor 40s linear infinite;
+  -moz-animation: animateColor 40s linear infinite;
+  animation: animateColor 40s linear infinite;
+}
+.start:hover {
+  cursor: pointer;
+  background: url("../../assets/StartB.png") no-repeat;
+  background-size: contain;
+  image-rendering: pixelated;
 }
