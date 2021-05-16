@@ -29,11 +29,20 @@ function Controls(props) {
             ></button>
             <button aria-label="Rules" className="rules" onClick={() => props.setIsRules(!props.isRules)}></button>
             <img className="name" src="Name.svg" alt="Chinemerem Chigbo"></img>
-
             <Link onClick={props.handleClick} to={'/start'}>
               <button aria-label="Start" className="start"></button>
             </Link>
           </div>
+          <button
+            aria-label="Done"
+            className={props.isSettings ? 'settingsDone' : 'settingsDoneOff'}
+            onClick={() => props.setIsSettings(false)}
+          ></button>
+          <button
+            aria-label="Done"
+            className={props.isRules ? 'rulesDone' : 'rulesDoneOff'}
+            onClick={() => props.setIsSettings(false)}
+          ></button>
           <img className={props.isSettings ? 'settingsOn' : 'settingsOff'} src="Settings.png" alt="Settings"></img>
           <img className={props.isRules ? 'rulesOn' : 'rulesOff'} src="Rules.png" alt="Rules"></img>
         </div>
