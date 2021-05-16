@@ -1,7 +1,7 @@
 {
-  "name": "website-v2",
+  "name": "Chinemerem.com",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@fortawesome/react-fontawesome": "fortawesome/react-fontawesome",
