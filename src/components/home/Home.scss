@@ -437,34 +437,34 @@ body {
 
 @keyframes fadeOut {
   0% {
-    opacity: 100%;
+    opacity: 1;
   }
   99% {
     visibility: visible;
   }
   100% {
-    opacity: 0%;
+    opacity: 0;
     visibility: hidden;
   }
 }
 @keyframes fadeIn{
   0% {
-    opacity: 0%;
+    opacity: 0;
   }
   100% {
-    opacity: 100%;
+    opacity: 1;
   }
 }
 
 @keyframes fadeInPause{
   0% {
-    opacity: 0%;
+    opacity: 0;
   }
   50% {
-    opacity: 0%;
+    opacity: 0;
   }
   100% {
-    opacity: 100%;
+    opacity: 1;
   }
 }
 
