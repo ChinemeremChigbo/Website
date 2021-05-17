@@ -29,8 +29,8 @@ export default function Game() {
       friction = 0.99,
       radius = 10,
       release = [],
-      boostTimeout = 5,
-      boostCooldown = 50,
+      // boostTimeout = 1000,
+      // boostReady = false,
       keys = [];
 
     var PlayerFast = [];
@@ -123,20 +123,6 @@ export default function Game() {
           velX -= speedIncrement;
         }
       }
-      //SpaceBar
-      if (release[' '] && boostTimeout > 1) {
-        if (velX > -maxSpeedX) {
-          maxSpeedX = 25;
-          maxSpeedY = 20;
-          velX *= 2;
-          boostTimeout--;
-        }
-      }
-      if (boostCooldown < 0) {
-        boostCooldown = 50;
-        boostTimeout = 5;
-      }
-
       velY *= friction;
       y += velY;
       velX *= friction;
