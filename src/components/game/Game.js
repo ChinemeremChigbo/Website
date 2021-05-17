@@ -8,6 +8,12 @@ export default function Game() {
       ctx = canvas.getContext('2d');
     let screenHeight = $(window).height();
     let screenWidth = $(window).width();
+    document.body.addEventListener('keydown', function (e) {
+      keys[e.key] = true;
+    });
+    document.body.addEventListener('keyup', function (e) {
+      keys[e.key] = false;
+    });
     canvas.width = 1920;
     canvas.height = 1080;
 
@@ -17,12 +23,21 @@ export default function Game() {
       velX = 0,
       speedX = 1.5,
       speedY = 1.3,
-      baseVel = 0.05,
+      increment = 0.02,
       friction = 0.99,
       radius = 10,
       keys = [];
-    var Player = [];
 
+    var PlayerFast = [];
+    var FastFrame = 0;
+    var PlayerHurt = [];
+    var HurtFrame = 0;
+    var PlayerIdle = [];
+    var IdleFrame = 0;
+    var PlayerRush = [];
+    var RushFrame = 0;
+    var PlayerSwimming = [];
+    var SwimmingFrame = 0;
     var Fast = [
       './player/Fast/1.png',
       './player/Fast/2.png',
@@ -63,31 +78,44 @@ export default function Game() {
       './player/Swimming/6.png',
       './player/Swimming/7.png',
     ];
-
+    var once = false;
     function Update() {
       requestAnimationFrame(Update);
+
+      PlayerFast[FastFrame] = new Image();
+      PlayerFast[FastFrame].src = Fast[FastFrame];
+      PlayerHurt[HurtFrame] = new Image();
+      PlayerHurt[HurtFrame].src = Hurt[HurtFrame];
+      PlayerIdle[IdleFrame] = new Image();
+      PlayerIdle[IdleFrame].src = Idle[IdleFrame];
+      PlayerRush[RushFrame] = new Image();
+      PlayerRush[RushFrame].src = Rush[RushFrame];
+      PlayerSwimming[SwimmingFrame] = new Image();
+      PlayerSwimming[SwimmingFrame].src = Swimming[SwimmingFrame];
+
+      //Background Movement
       //Up or W
-      if (keys[38] || keys[87]) {
+      if (keys['ArrowUp'] || keys['w']) {
         if (velY > -speedY) {
-          velY -= baseVel;
+          velY -= increment;
         }
       }
       //Down or S
-      if (keys[40] || keys[83]) {
+      if (keys['ArrowDown'] || keys['s']) {
         if (velY < speedY) {
-          velY += baseVel;
+          velY += increment;
         }
       }
       //Right or D
-      if (keys[39] || keys[68]) {
+      if (keys['ArrowRight'] || keys['d']) {
         if (velX < speedX) {
-          velX += baseVel;
+          velX += increment;
         }
       }
       //Left or A
-      if (keys[37] || keys[65]) {
+      if (keys['ArrowLeft'] || keys['a']) {
         if (velX > -speedX) {
-          velX -= baseVel;
+          velX -= increment;
         }
       }
 
@@ -111,19 +139,9 @@ export default function Game() {
       ctx.clearRect(0, 0, canvas.width, canvas.width);
       var Background = new Image();
       Background.src = 'Settings.png';
-      ctx.drawImage(Background, x, y);
+      ctx.drawImage(Background, -x, -y);
     }
-
     Update();
-
-    document.body.addEventListener('keydown', function (e) {
-      keys[e.keyCode] = true;
-      console.log(e);
-      console.log(e.keyCode);
-    });
-    document.body.addEventListener('keyup', function (e) {
-      keys[e.keyCode] = false;
-    });
     function drawGif(arr, x, y, scalex, scaley, rotate, factor, changespeed) {
       if (!factor) {
         factor = 1;
@@ -147,25 +165,38 @@ export default function Game() {
       ctx.restore();
     }
 
-    function gifSetup() {
-      for (var i = 0; i < 6; i++) {
-        Player[i] = new Image();
-        Player[i].src = Idle[i];
-      }
-    }
-    gifSetup();
-
     function PlayerMovement() {
-      if (true) {
-        drawGif(Player, screenWidth / 2, screenHeight / 2, -1, 1, 0, 3, 100);
+      //Changing Play Sprites Based Off of Movement and Speed
+      if (velX > 0.3) {
+        drawGif(PlayerSwimming, screenWidth / 2, screenHeight / 2, 1, 1, 0, 3, 100);
+        if (SwimmingFrame < Swimming.length - 1) {
+          SwimmingFrame++;
+        }
+      } else if (velX < -0.3) {
+        drawGif(PlayerSwimming, screenWidth / 2, screenHeight / 2, -1, 1, 0, 3, 100);
+        if (SwimmingFrame < Swimming.length - 1) {
+          SwimmingFrame++;
+        }
+      } else if (0 < velX <= 0.3) {
+        drawGif(PlayerIdle, screenWidth / 2, screenHeight / 2, -1, 1, 0, 3, 100);
+        if (IdleFrame < Idle.length - 1) {
+          IdleFrame++;
+        }
+      } else {
+        drawGif(PlayerIdle, screenWidth / 2, screenHeight / 2, 1, 1, 0, 3, 100);
+        if (IdleFrame < Idle.length - 1) {
+          IdleFrame++;
+        }
       }
       requestAnimationFrame(PlayerMovement);
     }
     requestAnimationFrame(PlayerMovement);
   });
   return (
-    <div className="game">
-      <canvas id="canvas"></canvas>
+    <div className="gameBackground">
+      <div className="game">
+        <canvas id="canvas"></canvas>
+      </div>
     </div>
   );
 }
