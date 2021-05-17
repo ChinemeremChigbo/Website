@@ -7,7 +7,7 @@ export default function Game() {
     let canvas = document.getElementById('canvas'),
       ctx = canvas.getContext('2d');
 
-    canvas.width = 100;
+    canvas.width = 500;
     canvas.height = 500;
 
     let x = 150,
@@ -15,7 +15,8 @@ export default function Game() {
       velY = 0,
       velX = 0,
       speedX = 1.5,
-      speedY = 0.5,
+      speedY = 1.3,
+      baseVel = 0.05,
       friction = 0.99,
       radius = 10,
       keys = [];
@@ -25,25 +26,25 @@ export default function Game() {
       //Up or W
       if (keys[38] || keys[87]) {
         if (velY > -speedY) {
-          velY--;
+          velY -= baseVel;
         }
       }
       //Down or S
       if (keys[40] || keys[83]) {
         if (velY < speedY) {
-          velY++;
+          velY += baseVel;
         }
       }
       //Right or D
       if (keys[39] || keys[68]) {
         if (velX < speedX) {
-          velX++;
+          velX += baseVel;
         }
       }
       //Left or A
       if (keys[37] || keys[65]) {
         if (velX > -speedX) {
-          velX--;
+          velX -= baseVel;
         }
       }
 
