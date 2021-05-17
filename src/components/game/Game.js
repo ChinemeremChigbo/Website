@@ -1,6 +1,7 @@
 import React from 'react';
 import './Game.scss';
 import $ from 'jquery';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 
 export default function Game() {
   $(function () {
@@ -174,6 +175,12 @@ export default function Game() {
         canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2,
         canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2
       );
+      let navigateOnce = true;
+      if (x > canvas.width / 2 + 30 && navigateOnce === true) {
+        navigateOnce = false;
+        window.location.href = '/';
+        requestAnimationFrame(Update);
+      }
     }
     Update();
     function drawGif(arr, x, y, scalex, scaley, rotate, factor, changespeed) {
