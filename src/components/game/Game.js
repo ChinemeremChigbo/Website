@@ -7,11 +7,11 @@ export default function Game() {
     let canvas = document.getElementById('canvas'),
       ctx = canvas.getContext('2d');
 
-    canvas.width = 500;
-    canvas.height = 500;
+    canvas.width = 1920;
+    canvas.height = 1080;
 
-    let x = 150,
-      y = 150,
+    let x = canvas.width / 4,
+      y = canvas.height / 4,
       velY = 0,
       velX = 0,
       speedX = 1.5,
@@ -20,6 +20,48 @@ export default function Game() {
       friction = 0.99,
       radius = 10,
       keys = [];
+    var Player = [];
+
+    var Fast = [
+      './player/Fast/1.png',
+      './player/Fast/2.png',
+      './player/Fast/3.png',
+      './player/Fast/4.png',
+      './player/Fast/5.png',
+    ];
+    var Hurt = [
+      './player/Hurt/1.png',
+      './player/Hurt/2.png',
+      './player/Hurt/3.png',
+      './player/Hurt/4.png',
+      './player/Hurt/5.png',
+    ];
+    var Idle = [
+      './player/Idle/1.png',
+      './player/Idle/2.png',
+      './player/Idle/3.png',
+      './player/Idle/4.png',
+      './player/Idle/5.png',
+      './player/Idle/6.png',
+    ];
+    var Rush = [
+      './player/Rush/1.png',
+      './player/Rush/2.png',
+      './player/Rush/3.png',
+      './player/Rush/4.png',
+      './player/Rush/5.png',
+      './player/Rush/6.png',
+      './player/Rush/7.png',
+    ];
+    var Swimming = [
+      './player/Swimming/1.png',
+      './player/Swimming/2.png',
+      './player/Swimming/3.png',
+      './player/Swimming/4.png',
+      './player/Swimming/5.png',
+      './player/Swimming/6.png',
+      './player/Swimming/7.png',
+    ];
 
     function Update() {
       requestAnimationFrame(Update);
@@ -65,10 +107,10 @@ export default function Game() {
         y = radius;
       }
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.beginPath();
-      ctx.arc(x, y, radius, 0, Math.PI * 2);
-      ctx.fill();
+      ctx.clearRect(0, 0, canvas.width, canvas.width);
+      var Background = new Image();
+      Background.src = 'Settings.png';
+      ctx.drawImage(Background, x, y);
     }
 
     Update();
@@ -81,6 +123,43 @@ export default function Game() {
     document.body.addEventListener('keyup', function (e) {
       keys[e.keyCode] = false;
     });
+    function drawAnimatedImage(arr, x, y, angle, factor, changespeed) {
+      if (!factor) {
+        factor = 1;
+      }
+      if (!changespeed) {
+        changespeed = 1;
+      }
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate((angle * Math.PI) / 180);
+      if (!!arr[Math.round(Date.now() / changespeed) % arr.length]) {
+        ctx.drawImage(
+          arr[Math.round(Date.now() / changespeed) % arr.length],
+          -((arr[Math.round(Date.now() / changespeed) % arr.length].width * factor) / 2),
+          -((arr[Math.round(Date.now() / changespeed) % arr.length].height * factor) / 2),
+          arr[Math.round(Date.now() / changespeed) % arr.length].width * factor,
+          arr[Math.round(Date.now() / changespeed) % arr.length].height * factor
+        );
+      }
+      ctx.restore();
+    }
+
+    function gifSetup() {
+      for (var i = 0; i < 6; i++) {
+        Player[i] = new Image();
+        Player[i].src = Idle[i];
+      }
+    }
+    gifSetup();
+
+    function PlayerMovement() {
+      if (Player.length == 6) {
+        drawAnimatedImage(Player, canvas.width / 2, canvas.height / 4, 0, 3, 100);
+      }
+      requestAnimationFrame(PlayerMovement);
+    }
+    requestAnimationFrame(PlayerMovement);
   });
   return (
     <div className="game">
