@@ -10,9 +10,11 @@ export default function Game() {
     let screenWidth = $(window).width();
     document.body.addEventListener('keydown', function (e) {
       keys[e.key] = true;
+      // console.log(e);
     });
     document.body.addEventListener('keyup', function (e) {
       keys[e.key] = false;
+      release[e.key] = true;
     });
     canvas.width = 1920;
     canvas.height = 1080;
@@ -21,11 +23,14 @@ export default function Game() {
       y = canvas.height / 4,
       velY = 0,
       velX = 0,
-      speedX = 1.5,
-      speedY = 1.3,
-      increment = 0.02,
+      maxSpeedX = 2.5,
+      maxSpeedY = 2,
+      speedIncrement = 0.03,
       friction = 0.99,
       radius = 10,
+      release = [],
+      boostTimeout = 5,
+      boostCooldown = 50,
       keys = [];
 
     var PlayerFast = [];
@@ -96,27 +101,40 @@ export default function Game() {
       //Background Movement
       //Up or W
       if (keys['ArrowUp'] || keys['w']) {
-        if (velY > -speedY) {
-          velY -= increment;
+        if (velY > -maxSpeedY) {
+          velY -= speedIncrement;
         }
       }
       //Down or S
       if (keys['ArrowDown'] || keys['s']) {
-        if (velY < speedY) {
-          velY += increment;
+        if (velY < maxSpeedY) {
+          velY += speedIncrement;
         }
       }
       //Right or D
       if (keys['ArrowRight'] || keys['d']) {
-        if (velX < speedX) {
-          velX += increment;
+        if (velX < maxSpeedX) {
+          velX += speedIncrement;
         }
       }
       //Left or A
       if (keys['ArrowLeft'] || keys['a']) {
-        if (velX > -speedX) {
-          velX -= increment;
+        if (velX > -maxSpeedX) {
+          velX -= speedIncrement;
         }
+      }
+      //SpaceBar
+      if (release[' '] && boostTimeout > 1) {
+        if (velX > -maxSpeedX) {
+          maxSpeedX = 25;
+          maxSpeedY = 20;
+          velX *= 2;
+          boostTimeout--;
+        }
+      }
+      if (boostCooldown < 0) {
+        boostCooldown = 50;
+        boostTimeout = 5;
       }
 
       velY *= friction;
@@ -167,23 +185,24 @@ export default function Game() {
 
     function PlayerMovement() {
       //Changing Play Sprites Based Off of Movement and Speed
-      if (velX > 0.3) {
+      const swimToIdleThreshold = 0.3;
+      if (velX > swimToIdleThreshold) {
         drawGif(PlayerSwimming, screenWidth / 2, screenHeight / 2, 1, 1, 0, 3, 100);
         if (SwimmingFrame < Swimming.length - 1) {
           SwimmingFrame++;
         }
-      } else if (velX < -0.3) {
+      } else if (velX < -swimToIdleThreshold) {
         drawGif(PlayerSwimming, screenWidth / 2, screenHeight / 2, -1, 1, 0, 3, 100);
         if (SwimmingFrame < Swimming.length - 1) {
           SwimmingFrame++;
         }
-      } else if (0 < velX <= 0.3) {
-        drawGif(PlayerIdle, screenWidth / 2, screenHeight / 2, -1, 1, 0, 3, 100);
+      } else if (0 < velX <= swimToIdleThreshold) {
+        drawGif(PlayerIdle, screenWidth / 2, screenHeight / 2, -1, 1, 0, 3, 150);
         if (IdleFrame < Idle.length - 1) {
           IdleFrame++;
         }
       } else {
-        drawGif(PlayerIdle, screenWidth / 2, screenHeight / 2, 1, 1, 0, 3, 100);
+        drawGif(PlayerIdle, screenWidth / 2, screenHeight / 2, 1, 1, 0, 3, 150);
         if (IdleFrame < Idle.length - 1) {
           IdleFrame++;
         }
