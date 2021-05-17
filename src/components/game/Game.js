@@ -15,19 +15,22 @@ export default function Game() {
     document.body.addEventListener('keyup', function (e) {
       keys[e.key] = false;
     });
-
+    let navigateOnce = true;
     let screenSizePadding = 4000;
     canvas.width = 1880 + screenSizePadding;
     canvas.height = 700 + screenSizePadding;
     let x = canvas.width / 2,
       y = canvas.height / 2,
+      xSlow = canvas.width / 2,
+      ySlow = canvas.height / 2,
       velY = 0,
       velX = 0,
       maxSpeedX = 2.5,
       maxSpeedY = 2,
       speedIncrement = 0.1,
       friction = 0.99,
-      radius = 10,
+      backgroundMovementX = true,
+      backgroundMovementY = true,
       // boostTimeout = 1000,
       // boostReady = false,
       keys = [];
@@ -124,24 +127,41 @@ export default function Game() {
       }
       velY *= friction;
       y += velY;
+
       velX *= friction;
       x += velX;
+      if (backgroundMovementX) {
+        xSlow += velX * 0.5;
+      }
+      if (backgroundMovementY) {
+        ySlow += velY * 0.5;
+      }
 
       if (x >= canvas.width - screenSizePadding / 2) {
         x = canvas.width - screenSizePadding / 2;
+        backgroundMovementX = false;
       } else if (x <= screenSizePadding / 2) {
         x = screenSizePadding / 2;
+        backgroundMovementX = false;
+      } else {
+        backgroundMovementX = true;
       }
 
       if (y > canvas.height - screenSizePadding / 2) {
         y = canvas.height - screenSizePadding / 2;
+        backgroundMovementY = false;
       } else if (y <= screenSizePadding / 2) {
         y = screenSizePadding / 2;
+        backgroundMovementY = false;
+      } else {
+        backgroundMovementY = true;
       }
 
       ctx.clearRect(0, 0, canvas.width, canvas.width);
       var Background = new Image();
       Background.src = 'Background.png';
+      var MiddleGround = new Image();
+      MiddleGround.src = 'MiddleGround.png';
       var GameBackground = new Image();
       GameBackground.src = 'GameBackground.png';
       ctx.drawImage(Background, screenWidth / 2 - Background.width / 2, screenHeight / 2 - Background.height / 2);
@@ -171,15 +191,54 @@ export default function Game() {
       //   GameBackground.height
       // );
       ctx.drawImage(
+        MiddleGround,
+        canvas.width / 2 - xSlow - MiddleGround.width / 2 + screenWidth / 2,
+        canvas.height / 2 - ySlow - MiddleGround.height / 2 + screenHeight / 2
+      );
+      ctx.drawImage(
         GameBackground,
         canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2,
         canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2
       );
-      let navigateOnce = true;
-      if (x > canvas.width / 2 + 30 && navigateOnce === true) {
+      //left portal
+      if (
+        x < canvas.width / 2 - 939 &&
+        y > canvas.height / 2 - 60 &&
+        y < canvas.height / 2 + 20 &&
+        navigateOnce === true
+      ) {
         navigateOnce = false;
         window.location.href = '/';
-        requestAnimationFrame(Update);
+      }
+      //right portal
+      if (
+        x > canvas.width / 2 + 939 &&
+        y > canvas.height / 2 - 40 &&
+        y < canvas.height / 2 + 40 &&
+        navigateOnce === true
+      ) {
+        navigateOnce = false;
+        window.location.href = '/';
+      }
+      //bottom portal
+      if (
+        x > canvas.width / 2 + 105 &&
+        x < canvas.width / 2 + 185 &&
+        y > canvas.height / 2 + 349 &&
+        navigateOnce === true
+      ) {
+        navigateOnce = false;
+        window.location.href = '/';
+      }
+      //top portal
+      if (
+        x > canvas.width / 2 - 15 &&
+        x < canvas.width / 2 + 70 &&
+        y < canvas.height / 2 - 349 &&
+        navigateOnce === true
+      ) {
+        navigateOnce = false;
+        window.location.href = '/';
       }
     }
     Update();
