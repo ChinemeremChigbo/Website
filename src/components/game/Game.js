@@ -16,11 +16,11 @@ export default function Game() {
       keys[e.key] = false;
       release[e.key] = true;
     });
-    canvas.width = 1920;
-    canvas.height = 1080;
+    canvas.width = 1800;
+    canvas.height = 750;
 
-    let x = canvas.width / 4,
-      y = canvas.height / 4,
+    let x = canvas.width / 2,
+      y = canvas.height / 2,
       velY = 0,
       velX = 0,
       maxSpeedX = 2.5,
@@ -142,8 +142,8 @@ export default function Game() {
 
       ctx.clearRect(0, 0, canvas.width, canvas.width);
       var Background = new Image();
-      Background.src = 'Settings.png';
-      ctx.drawImage(Background, -x, -y);
+      Background.src = 'GameBackground.png';
+      ctx.drawImage(Background, -x + canvas.width / 20, -y - canvas.height / 3.5);
     }
     Update();
     function drawGif(arr, x, y, scalex, scaley, rotate, factor, changespeed) {
@@ -173,22 +173,22 @@ export default function Game() {
       //Changing Play Sprites Based Off of Movement and Speed
       const swimToIdleThreshold = 0.3;
       if (velX > swimToIdleThreshold) {
-        drawGif(PlayerSwimming, screenWidth / 2, screenHeight / 2, 1, 1, 0, 3, 100);
+        drawGif(PlayerSwimming, screenWidth / 2, screenHeight / 2, 1, 1, 0, 1.5, 100);
         if (SwimmingFrame < Swimming.length - 1) {
           SwimmingFrame++;
         }
       } else if (velX < -swimToIdleThreshold) {
-        drawGif(PlayerSwimming, screenWidth / 2, screenHeight / 2, -1, 1, 0, 3, 100);
+        drawGif(PlayerSwimming, screenWidth / 2, screenHeight / 2, -1, 1, 0, 1.5, 100);
         if (SwimmingFrame < Swimming.length - 1) {
           SwimmingFrame++;
         }
       } else if (0 < velX <= swimToIdleThreshold) {
-        drawGif(PlayerIdle, screenWidth / 2, screenHeight / 2, -1, 1, 0, 3, 150);
+        drawGif(PlayerIdle, screenWidth / 2, screenHeight / 2, -1, 1, 0, 1.5, 150);
         if (IdleFrame < Idle.length - 1) {
           IdleFrame++;
         }
       } else {
-        drawGif(PlayerIdle, screenWidth / 2, screenHeight / 2, 1, 1, 0, 3, 150);
+        drawGif(PlayerIdle, screenWidth / 2, screenHeight / 2, 1, 1, 0, 1.5, 150);
         if (IdleFrame < Idle.length - 1) {
           IdleFrame++;
         }
