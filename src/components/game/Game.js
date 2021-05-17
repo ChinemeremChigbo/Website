@@ -6,7 +6,8 @@ export default function Game() {
   $(function () {
     let canvas = document.getElementById('canvas'),
       ctx = canvas.getContext('2d');
-
+    let screenHeight = $(window).height();
+    let screenWidth = $(window).width();
     canvas.width = 1920;
     canvas.height = 1080;
 
@@ -123,7 +124,7 @@ export default function Game() {
     document.body.addEventListener('keyup', function (e) {
       keys[e.keyCode] = false;
     });
-    function drawAnimatedImage(arr, x, y, angle, factor, changespeed) {
+    function drawGif(arr, x, y, scalex, scaley, rotate, factor, changespeed) {
       if (!factor) {
         factor = 1;
       }
@@ -132,7 +133,8 @@ export default function Game() {
       }
       ctx.save();
       ctx.translate(x, y);
-      ctx.rotate((angle * Math.PI) / 180);
+      ctx.scale(scalex, scaley);
+      ctx.rotate((rotate * Math.PI) / 180);
       if (!!arr[Math.round(Date.now() / changespeed) % arr.length]) {
         ctx.drawImage(
           arr[Math.round(Date.now() / changespeed) % arr.length],
@@ -154,8 +156,8 @@ export default function Game() {
     gifSetup();
 
     function PlayerMovement() {
-      if (Player.length == 6) {
-        drawAnimatedImage(Player, canvas.width / 2, canvas.height / 4, 0, 3, 100);
+      if (true) {
+        drawGif(Player, screenWidth / 2, screenHeight / 2, -1, 1, 0, 3, 100);
       }
       requestAnimationFrame(PlayerMovement);
     }
