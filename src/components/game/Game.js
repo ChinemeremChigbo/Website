@@ -16,14 +16,14 @@ export default function Game() {
     });
 
     let screenSizePadding = 4000;
-    canvas.width = 2300 + screenSizePadding;
-    canvas.height = 850 + screenSizePadding;
+    canvas.width = 1880 + screenSizePadding;
+    canvas.height = 700 + screenSizePadding;
     let x = canvas.width / 2,
       y = canvas.height / 2,
       velY = 0,
       velX = 0,
       maxSpeedX = 5,
-      maxSpeedY = 3,
+      maxSpeedY = 4,
       speedIncrement = 1.75,
       friction = 0.99,
       radius = 10,
@@ -144,31 +144,31 @@ export default function Game() {
       var GameBackground = new Image();
       GameBackground.src = 'GameBackground.png';
       ctx.drawImage(Background, screenWidth / 2 - Background.width / 2, screenHeight / 2 - Background.height / 2);
-      ctx.fillStyle = '#0d1a20';
-      ctx.fillRect(
-        canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2 + GameBackground.width - 10,
-        canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2,
-        2500,
-        GameBackground.height
-      );
-      ctx.fillRect(
-        0,
-        canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2 + GameBackground.height,
-        GameBackground.width + 2490,
-        GameBackground.height
-      );
-      ctx.fillRect(
-        canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2 - GameBackground.width,
-        canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2,
-        GameBackground.width,
-        GameBackground.height
-      );
-      ctx.fillRect(
-        0,
-        canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2 - GameBackground.height,
-        GameBackground.width + 2490,
-        GameBackground.height
-      );
+      // ctx.fillStyle = '#0d1a20';
+      // ctx.fillRect(
+      //   canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2 + GameBackground.width - 10,
+      //   canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2,
+      //   2500,
+      //   GameBackground.height
+      // );
+      // ctx.fillRect(
+      //   0,
+      //   canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2 + GameBackground.height,
+      //   GameBackground.width + 2490,
+      //   GameBackground.height
+      // );
+      // ctx.fillRect(
+      //   canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2 - GameBackground.width,
+      //   canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2,
+      //   GameBackground.width,
+      //   GameBackground.height
+      // );
+      // ctx.fillRect(
+      //   0,
+      //   canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2 - GameBackground.height,
+      //   GameBackground.width + 2490,
+      //   GameBackground.height
+      // );
       ctx.drawImage(
         GameBackground,
         canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2,
@@ -201,7 +201,7 @@ export default function Game() {
 
     function PlayerMovement() {
       //Changing Play Sprites Based Off of Movement and Speed
-      const swimToIdleThreshold = 0.3;
+      const swimToIdleThreshold = 0.8;
       if (velX > swimToIdleThreshold) {
         drawGif(PlayerSwimming, screenWidth / 2, screenHeight / 2, 1, 1, 0, 1.5, 100);
         if (SwimmingFrame < Swimming.length - 1) {
