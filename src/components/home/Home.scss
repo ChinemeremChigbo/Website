@@ -105,9 +105,9 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: transparent;
-  -webkit-animation: fadeIn 3s linear forwards ease;
-  -moz-animation:  fadeIn 3s linear forwards ;
-  animation: fadeIn 3s linear forwards ;
+  -webkit-animation: fadeIn 1s linear forwards ease;
+  -moz-animation:  fadeIn 1s linear forwards ;
+  animation: fadeIn 1s linear forwards ;
 }
 
 .musicPlayerControlsInvisible {
@@ -116,9 +116,9 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: transparent;
-  -webkit-animation: fadeOut 2s linear forwards ;
-  -moz-animation: fadeOut 2s linear forwards ;
-  animation: fadeOut 2s linear forwards ;
+  -webkit-animation: fadeOut 1s linear forwards ;
+  -moz-animation: fadeOut 1s linear forwards ;
+  animation: fadeOut 1s linear forwards ;
 }
 
 .musicPlayerControlsPlay {
@@ -131,9 +131,9 @@ body {
   background-size: contain;
   image-rendering: pixelated;
 
-  -webkit-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
+  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
 }
 .musicPlayerControlsPlay:hover {
   cursor: pointer;
@@ -152,9 +152,9 @@ body {
   background-size: contain;
   image-rendering: pixelated;
 
-  -webkit-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
+  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
 }
 .musicPlayerControlsPause:hover {
   cursor: pointer;
@@ -172,9 +172,9 @@ body {
   background-size: contain;
   image-rendering: pixelated;
 
-  -webkit-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
+  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
 }
 .musicPlayerControlsNext:hover {
   cursor: pointer;
@@ -194,9 +194,9 @@ body {
   background-size: contain;
   image-rendering: pixelated;
 
-  -webkit-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
+  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
 }
 .musicPlayerControlsLast:hover {
   cursor: pointer;
@@ -223,9 +223,9 @@ body {
   background-size: contain;
   image-rendering: pixelated;
 
-  -webkit-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
+  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
 }
 
 
@@ -287,9 +287,9 @@ body {
   bottom: 2%;
   left: 50%;
   transform: translate(-50%, -50%);
-  -webkit-animation:  fadeInPause 5s linear forwards ;
-  -moz-animation:  fadeInPause 5s linear forwards ;
-  animation: fadeInPause 5s linear forwards ;
+  -webkit-animation:  fadeInPause 3s linear forwards ;
+  -moz-animation:  fadeInPause 3s linear forwards ;
+  animation: fadeInPause 3s linear forwards ;
   background: url("../../assets/DoneY.png") no-repeat;
   background-size: contain;
   image-rendering: pixelated;
@@ -322,9 +322,9 @@ body {
   bottom: 5%;
   left: 50%;
   transform: translate(-125%, -50%);
-  -webkit-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
+  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
   background: url("../../assets/RulesY.png") no-repeat;
   background-size: contain;
   image-rendering: pixelated;
@@ -388,9 +388,9 @@ body {
   bottom: 2%;
   left: 50%;
   transform: translate(-50%, -50%);
-  -webkit-animation:  fadeInPause 5s linear forwards ;
-  -moz-animation:  fadeInPause 5s linear forwards ;
-  animation: fadeInPause 5s linear forwards ;
+  -webkit-animation:  fadeInPause 3s linear forwards ;
+  -moz-animation:  fadeInPause 3s linear forwards ;
+  animation: fadeInPause 3s linear forwards ;
   background: url("../../assets/DoneY.png") no-repeat;
   background-size: contain;
   image-rendering: pixelated;
@@ -421,9 +421,9 @@ body {
   bottom: 5%;
   right: 50%;
   transform: translate(125%, -50%);
-  -webkit-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeIn 3s linear forwards ;
+  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
   background: url("../../assets/StartY.png") no-repeat;
   background-size: contain;
   image-rendering: pixelated;
