@@ -10,25 +10,23 @@ export default function Game() {
     let screenWidth = $(window).width();
     document.body.addEventListener('keydown', function (e) {
       keys[e.key] = true;
-      // console.log(e);
     });
     document.body.addEventListener('keyup', function (e) {
       keys[e.key] = false;
-      release[e.key] = true;
     });
-    canvas.width = 1800;
-    canvas.height = 750;
 
+    let screenSizePadding = 4000;
+    canvas.width = 2300 + screenSizePadding;
+    canvas.height = 850 + screenSizePadding;
     let x = canvas.width / 2,
       y = canvas.height / 2,
       velY = 0,
       velX = 0,
-      maxSpeedX = 2.5,
-      maxSpeedY = 2,
-      speedIncrement = 0.03,
+      maxSpeedX = 5,
+      maxSpeedY = 3,
+      speedIncrement = 1.75,
       friction = 0.99,
       radius = 10,
-      release = [],
       // boostTimeout = 1000,
       // boostReady = false,
       keys = [];
@@ -128,22 +126,54 @@ export default function Game() {
       velX *= friction;
       x += velX;
 
-      if (x >= canvas.width - radius) {
-        x = canvas.width - radius;
-      } else if (x <= radius) {
-        x = radius;
+      if (x >= canvas.width - screenSizePadding / 2) {
+        x = canvas.width - screenSizePadding / 2;
+      } else if (x <= screenSizePadding / 2) {
+        x = screenSizePadding / 2;
       }
 
-      if (y > canvas.height - radius) {
-        y = canvas.height - radius;
-      } else if (y <= radius) {
-        y = radius;
+      if (y > canvas.height - screenSizePadding / 2) {
+        y = canvas.height - screenSizePadding / 2;
+      } else if (y <= screenSizePadding / 2) {
+        y = screenSizePadding / 2;
       }
 
       ctx.clearRect(0, 0, canvas.width, canvas.width);
       var Background = new Image();
-      Background.src = 'GameBackground.png';
-      ctx.drawImage(Background, -x + canvas.width / 20, -y - canvas.height / 3.5);
+      Background.src = 'Background.png';
+      var GameBackground = new Image();
+      GameBackground.src = 'GameBackground.png';
+      ctx.drawImage(Background, screenWidth / 2 - Background.width / 2, screenHeight / 2 - Background.height / 2);
+      ctx.fillStyle = '#0d1a20';
+      ctx.fillRect(
+        canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2 + GameBackground.width - 10,
+        canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2,
+        2500,
+        GameBackground.height
+      );
+      ctx.fillRect(
+        0,
+        canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2 + GameBackground.height,
+        GameBackground.width + 2490,
+        GameBackground.height
+      );
+      ctx.fillRect(
+        canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2 - GameBackground.width,
+        canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2,
+        GameBackground.width,
+        GameBackground.height
+      );
+      ctx.fillRect(
+        0,
+        canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2 - GameBackground.height,
+        GameBackground.width + 2490,
+        GameBackground.height
+      );
+      ctx.drawImage(
+        GameBackground,
+        canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2,
+        canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2
+      );
     }
     Update();
     function drawGif(arr, x, y, scalex, scaley, rotate, factor, changespeed) {
