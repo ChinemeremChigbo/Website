@@ -73,14 +73,13 @@ body {
 }
 .name {
   position: absolute;
-  bottom: 55%;
+  bottom: 50%;
   right: 50%;
   transform: translate(50%, 50%);
-  width: 100vw;
-  background-size: contain;
   image-rendering: pixelated;
-  height: 80vh;
-  width:auto;
+  max-width: 120vw;
+  max-height: auto;
+  width: 120vh;
 
   -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
   -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
