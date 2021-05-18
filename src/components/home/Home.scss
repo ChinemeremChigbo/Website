@@ -79,9 +79,9 @@ body {
   width: 100vw;
   height: 80vh;
 
-  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
 }
 
 @keyframes animateEnter {
@@ -106,8 +106,8 @@ body {
   align-items: center;
   background-color: transparent;
   -webkit-animation: fadeIn 1s linear forwards ease;
-  -moz-animation:  fadeIn 1s linear forwards ;
-  animation: fadeIn 1s linear forwards ;
+  -moz-animation: fadeIn 1s linear forwards;
+  animation: fadeIn 1s linear forwards;
 }
 
 .musicPlayerControlsInvisible {
@@ -116,9 +116,9 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: transparent;
-  -webkit-animation: fadeOut 1s linear forwards ;
-  -moz-animation: fadeOut 1s linear forwards ;
-  animation: fadeOut 1s linear forwards ;
+  -webkit-animation: fadeOut 1s linear forwards;
+  -moz-animation: fadeOut 1s linear forwards;
+  animation: fadeOut 1s linear forwards;
 }
 
 .musicPlayerControlsPlay {
@@ -127,17 +127,17 @@ body {
   padding: 15px;
   border: none;
   outline: none;
-  background: url("../../assets/PlayY.png") no-repeat;
+  background: url('../../assets/PlayY.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 
-  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
 }
 .musicPlayerControlsPlay:hover {
   cursor: pointer;
-  background: url("../../assets/PlayB.png") no-repeat;
+  background: url('../../assets/PlayB.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 }
@@ -148,17 +148,17 @@ body {
   padding: 15px;
   border: none;
   outline: none;
-  background: url("../../assets/PauseY.png") no-repeat;
+  background: url('../../assets/PauseY.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 
-  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
 }
 .musicPlayerControlsPause:hover {
   cursor: pointer;
-  background: url("../../assets/PauseB.png") no-repeat;
+  background: url('../../assets/PauseB.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 }
@@ -168,21 +168,20 @@ body {
   padding: 8px 8px 5px 8px;
   border: none;
   outline: none;
-  background: url("../../assets/NextB.png") no-repeat;
+  background: url('../../assets/NextB.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 
-  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
 }
 .musicPlayerControlsNext:hover {
   cursor: pointer;
-  background: url("../../assets/NextY.png") no-repeat;
+  background: url('../../assets/NextY.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 }
-
 
 .musicPlayerControlsLast {
   z-index: 2;
@@ -190,17 +189,17 @@ body {
   padding: 8px 8px 5px 8px;
   border: none;
   outline: none;
-  background: url("../../assets/LastB.png") no-repeat;
+  background: url('../../assets/LastB.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 
-  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
 }
 .musicPlayerControlsLast:hover {
   cursor: pointer;
-  background: url("../../assets/LastY.png") no-repeat;
+  background: url('../../assets/LastY.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 }
@@ -209,29 +208,28 @@ body {
   z-index: 2;
   display: inline;
   margin-left: auto;
-  margin-right:18px;
-  margin-top:9px;
+  margin-right: 18px;
+  margin-top: 9px;
   justify-content: flex-end;
   padding: 20px 30px 15px 30px;
-  height:10px;
+  height: 10px;
   -ms-flex-align: end;
   align-items: right;
   border: none;
   outline: none;
   color: $highlight;
-  background: url("../../assets/SettingsY.png") no-repeat;
+  background: url('../../assets/SettingsY.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 
-  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
+  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
 }
-
 
 .settings:hover {
   cursor: pointer;
-  background: url("../../assets/SettingsB.png") no-repeat;
+  background: url('../../assets/SettingsB.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 }
@@ -287,26 +285,300 @@ body {
   bottom: 2%;
   left: 50%;
   transform: translate(-50%, -50%);
-  -webkit-animation:  fadeInPause 3s linear forwards ;
-  -moz-animation:  fadeInPause 3s linear forwards ;
-  animation: fadeInPause 3s linear forwards ;
-  background: url("../../assets/DoneY.png") no-repeat;
+  -webkit-animation: fadeInPause 2s linear forwards;
+  -moz-animation: fadeInPause 2s linear forwards;
+  animation: fadeInPause 2s linear forwards;
+  background: url('../../assets/DoneY.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 }
 
-.settingsDoneOff{
+.settingsDoneOff {
   visibility: hidden;
-
 }
 
 .settingsDone:hover {
   cursor: pointer;
-  background: url("../../assets/DoneB.png") no-repeat;
+  background: url('../../assets/DoneB.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 }
 
+.settingsDevpost {
+  z-index: 3;
+  border: none;
+  outline: none;
+  padding: 48px;
+  padding-bottom: 40px;
+  position: relative;
+  height: auto;
+  margin: auto;
+  display: block;
+  transform: scale(1.4);
+  -webkit-animation: fadeInPause 1s linear forwards;
+  -moz-animation: fadeInPause 1s linear forwards;
+  animation: fadeInPause 1s linear forwards;
+  background: url('../../assets/Devpost.png') no-repeat;
+  background-size: 145%;
+  image-rendering: pixelated;
+  background-position: 50% 8%;
+}
+
+.settingsDevpostOff {
+  visibility: hidden;
+}
+
+.settingsDevpost:hover {
+  cursor: pointer;
+  background: url('../../assets/Devpost.png') no-repeat;
+  z-index: 3;
+  border: none;
+  outline: none;
+  padding: 48px;
+  padding-bottom: 40px;
+  position: relative;
+  height: auto;
+  margin: auto;
+  display: block;
+  transform: scale(1.5);
+  -webkit-animation: fadeInPause 1s linear forwards;
+  -moz-animation: fadeInPause 1s linear forwards;
+  animation: fadeInPause 1s linear forwards;
+  background: url('../../assets/Devpost.png') no-repeat;
+  background-size: 145%;
+  image-rendering: pixelated;
+  background-position: 50% 8%;
+}
+
+.settingsEmail {
+  z-index: 3;
+  border: none;
+  outline: none;
+  padding: 48px;
+  padding-bottom: 40px;
+  position: relative;
+  height: auto;
+  margin: auto;
+  display: block;
+  transform: scale(1.4);
+  -webkit-animation: fadeInPause 1.4s linear forwards;
+  -moz-animation: fadeInPause 1.4s linear forwards;
+  animation: fadeInPause 1.4s linear forwards;
+  background: url('../../assets/Email.png') no-repeat;
+  background-size: 200%;
+  image-rendering: pixelated;
+  background-position: 50% 27%;
+}
+
+.settingsEmailOff {
+  visibility: hidden;
+}
+
+.settingsEmail:hover {
+  cursor: pointer;
+  background: url('../../assets/Email.png') no-repeat;
+  z-index: 3;
+  border: none;
+  outline: none;
+  padding: 48px;
+  padding-bottom: 40px;
+  position: relative;
+  height: auto;
+  margin: auto;
+  display: block;
+  transform: scale(1.5);
+  -webkit-animation: fadeInPause 1.4s linear forwards;
+  -moz-animation: fadeInPause 1.4s linear forwards;
+  animation: fadeInPause 1.4s linear forwards;
+  background: url('../../assets/Email.png') no-repeat;
+  background-size: 200%;
+  image-rendering: pixelated;
+  background-position: 50% 27%;
+}
+
+.settingsGithub {
+  z-index: 3;
+  border: none;
+  outline: none;
+  padding: 48px;
+  padding-bottom: 40px;
+  position: relative;
+  height: auto;
+  margin: auto;
+  display: block;
+  transform: scale(1.4);
+  -webkit-animation: fadeInPause 1.8s linear forwards;
+  -moz-animation: fadeInPause 1.8s linear forwards;
+  animation: fadeInPause 1.8s linear forwards;
+  background: url('../../assets/Github.png') no-repeat;
+  background-size: 130%;
+  image-rendering: pixelated;
+  background-position: 50% 8%;
+}
+
+.settingsGithubOff {
+  visibility: hidden;
+}
+
+.settingsGithub:hover {
+  cursor: pointer;
+  z-index: 3;
+  border: none;
+  outline: none;
+  padding: 48px;
+  padding-bottom: 40px;
+  position: relative;
+  height: auto;
+  margin: auto;
+  display: block;
+  transform: scale(1.5);
+  -webkit-animation: fadeInPause 1.8s linear forwards;
+  -moz-animation: fadeInPause 1.8s linear forwards;
+  animation: fadeInPause 1.8s linear forwards;
+  background: url('../../assets/Github.png') no-repeat;
+  background-size: 130%;
+  image-rendering: pixelated;
+  background-position: 50% 8%;
+}
+
+.settingsLinkedIn {
+  z-index: 3;
+  border: none;
+  outline: none;
+  padding: 48px;
+  padding-bottom: 40px;
+  position: relative;
+  height: auto;
+  margin: auto;
+  display: block;
+  transform: scale(1.4);
+  -webkit-animation: fadeInPause 2.2s linear forwards;
+  -moz-animation: fadeInPause 2.2s linear forwards;
+  animation: fadeInPause 2.2s linear forwards;
+  background: url('../../assets/LinkedIn.png') no-repeat;
+  background-size: 145%;
+  image-rendering: pixelated;
+  background-position: 50% 8%;
+}
+
+.settingsLinkedInOff {
+  visibility: hidden;
+}
+
+.settingsLinkedIn:hover {
+  cursor: pointer;
+  background: url('../../assets/LinkedIn.png') no-repeat;
+  z-index: 3;
+  border: none;
+  outline: none;
+  padding: 48px;
+  padding-bottom: 40px;
+  position: relative;
+  height: auto;
+  margin: auto;
+  display: block;
+  transform: scale(1.5);
+  -webkit-animation: fadeInPause 2.2s linear forwards;
+  -moz-animation: fadeInPause 2.2s linear forwards;
+  animation: fadeInPause 2.2s linear forwards;
+  background: url('../../assets/LinkedIn.png') no-repeat;
+  background-size: 145%;
+  image-rendering: pixelated;
+  background-position: 50% 8%;
+}
+
+.settingsVSCO {
+  z-index: 3;
+  border: none;
+  outline: none;
+  padding: 48px;
+  padding-bottom: 40px;
+  position: relative;
+  height: auto;
+  margin: auto;
+  display: block;
+  transform: scale(1.4);
+  -webkit-animation: fadeInPause 2.6s linear forwards;
+  -moz-animation: fadeInPause 2.6s linear forwards;
+  animation: fadeInPause 2.6s linear forwards;
+  background: url('../../assets/VSCO.png') no-repeat;
+  background-size: 145%;
+  image-rendering: pixelated;
+  background-position: 50% 8%;
+}
+
+.settingsVSCOOff {
+  visibility: hidden;
+}
+
+.settingsVSCO:hover {
+  cursor: pointer;
+  background: url('../../assets/VSCO.png') no-repeat;
+  z-index: 3;
+  border: none;
+  outline: none;
+  padding: 48px;
+  padding-bottom: 40px;
+  position: relative;
+  height: auto;
+  margin: auto;
+  display: block;
+  transform: scale(1.5);
+  -webkit-animation: fadeInPause 2.6s linear forwards;
+  -moz-animation: fadeInPause 2.6s linear forwards;
+  animation: fadeInPause 2.6s linear forwards;
+  background: url('../../assets/VSCO.png') no-repeat;
+  background-size: 145%;
+  image-rendering: pixelated;
+  background-position: 50% 8%;
+  
+}
+
+.settingsYoutube {
+  z-index: 3;
+  border: none;
+  outline: none;
+  padding: 48px;
+  padding-bottom: 40px;
+  position: relative;
+  height: auto;
+  margin: auto;
+  display: block;
+  transform: scale(1.4);
+  -webkit-animation: fadeInPause 3s linear forwards;
+  -moz-animation: fadeInPause 3s linear forwards;
+  animation: fadeInPause 3s linear forwards;
+  background: url('../../assets/Youtube.png') no-repeat;
+  background-size: 145%;
+  image-rendering: pixelated;
+  background-position: 50% 0%;
+}
+
+.settingsYoutubeOff {
+  visibility: hidden;
+}
+
+.settingsYoutube:hover {
+  cursor: pointer;
+  background: url('../../assets/Youtube.png') no-repeat;
+  z-index: 3;
+  border: none;
+  outline: none;
+  padding: 48px;
+  padding-bottom: 40px;
+  position: relative;
+  height: auto;
+  margin: auto;
+  display: block;
+  transform: scale(1.5);
+  -webkit-animation: fadeInPause 3s linear forwards;
+  -moz-animation: fadeInPause 3s linear forwards;
+  animation: fadeInPause 3s linear forwards;
+  background: url('../../assets/Youtube.png') no-repeat;
+  background-size: 145%;
+  image-rendering: pixelated;
+  background-position: 50% 0%;
+}
 
 .rules {
   z-index: 1;
@@ -322,20 +594,19 @@ body {
   bottom: 5%;
   left: 50%;
   transform: translate(-125%, -50%);
-  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
-  background: url("../../assets/RulesY.png") no-repeat;
+  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  background: url('../../assets/RulesY.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 }
 .rules:hover {
   cursor: pointer;
-  background: url("../../assets/RulesB.png") no-repeat;
+  background: url('../../assets/RulesB.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 }
-
 
 .rulesOn {
   z-index: 2;
@@ -388,21 +659,21 @@ body {
   bottom: 2%;
   left: 50%;
   transform: translate(-50%, -50%);
-  -webkit-animation:  fadeInPause 3s linear forwards ;
-  -moz-animation:  fadeInPause 3s linear forwards ;
-  animation: fadeInPause 3s linear forwards ;
-  background: url("../../assets/DoneY.png") no-repeat;
+  -webkit-animation: fadeInPause 2s linear forwards;
+  -moz-animation: fadeInPause 2s linear forwards;
+  animation: fadeInPause 2s linear forwards;
+  background: url('../../assets/DoneY.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 }
 
-.rulesDoneOff{
+.rulesDoneOff {
   visibility: hidden;
 }
 
 .rulesDone:hover {
   cursor: pointer;
-  background: url("../../assets/DoneB.png") no-repeat;
+  background: url('../../assets/DoneB.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 }
@@ -421,16 +692,16 @@ body {
   bottom: 5%;
   right: 50%;
   transform: translate(125%, -50%);
-  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
-  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
-  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards ;
-  background: url("../../assets/StartY.png") no-repeat;
+  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  background: url('../../assets/StartY.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 }
 .start:hover {
   cursor: pointer;
-  background: url("../../assets/StartB.png") no-repeat;
+  background: url('../../assets/StartB.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
 }
@@ -447,7 +718,7 @@ body {
     visibility: hidden;
   }
 }
-@keyframes fadeIn{
+@keyframes fadeIn {
   0% {
     opacity: 0;
   }
@@ -456,7 +727,7 @@ body {
   }
 }
 
-@keyframes fadeInPause{
+@keyframes fadeInPause {
   0% {
     opacity: 0;
   }
@@ -468,3 +739,36 @@ body {
   }
 }
 
+.contactGrid {
+  z-index: 2;
+  position: absolute;
+  text-align: center;
+  image-rendering: pixelated;
+  max-height: 130%;
+  height: 70vh;
+  max-width: 80vw;
+  width: auto;
+  margin: auto;
+  display: inline;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  image-rendering: pixelated;
+  transition: 2s ease-in-out;
+  align-items: center;
+  justify-items: center;
+
+  display: inline-grid;
+  grid-template-columns: repeat(2, 200px);
+  grid-template-rows: repeat(5, vh/8);
+  padding: auto;
+  -webkit-animation: fadeInPause 3s linear forwards;
+  -moz-animation: fadeInPause 3s linear forwards;
+  animation: fadeInPause 3s linear forwards;
+}
+
+.grid-item {
+  background-size: contain;
+  image-rendering: pixelated;
+}
