@@ -28,7 +28,6 @@ const Home = () => {
     });
   }, [currentSongIndex]);
   return (
-    //SVG of Blueprint Logo and Name
     <div>
       <Player
         currentSongIndex={currentSongIndex}

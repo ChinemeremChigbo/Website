@@ -210,7 +210,7 @@ export default function Game() {
         navigateOnce = false;
         window.location.href = '/';
       }
-      //right portal
+      //right portal (Contact)
       if (
         x > canvas.width / 2 + 939 &&
         y > canvas.height / 2 - 40 &&
@@ -218,9 +218,9 @@ export default function Game() {
         navigateOnce === true
       ) {
         navigateOnce = false;
-        window.location.href = '/';
+        window.location.href = '/contact';
       }
-      //bottom portal
+      //bottom portal (About)
       if (
         x > canvas.width / 2 + 105 &&
         x < canvas.width / 2 + 185 &&
@@ -228,9 +228,9 @@ export default function Game() {
         navigateOnce === true
       ) {
         navigateOnce = false;
-        window.location.href = '/';
+        window.location.href = '/about';
       }
-      //top portal
+      //top portal (Experience)
       if (
         x > canvas.width / 2 - 15 &&
         x < canvas.width / 2 + 70 &&
@@ -238,7 +238,7 @@ export default function Game() {
         navigateOnce === true
       ) {
         navigateOnce = false;
-        window.location.href = '/';
+        window.location.href = '/experience';
       }
     }
     Update();

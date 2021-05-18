@@ -3,7 +3,7 @@ import Home from './home/Home';
 import Game from './game/Game';
 import Contact from './contact/Contact';
 import About from './about/About';
-import Projects from './projects/Projects';
+import Experience from './experience/Experience';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -22,8 +22,8 @@ function App() {
         <Route exact path="/contact">
           <Contact />
         </Route>
-        <Route exact path="/projects">
-          <Projects />
+        <Route exact path="/experience">
+          <Experience />
         </Route>
       </Switch>
     </Router>
