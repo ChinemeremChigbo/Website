@@ -28,7 +28,7 @@ function Controls(props) {
               onClick={() => props.setIsSettings(!props.isSettings)}
             ></button>
             <button aria-label="Rules" className="rules" onClick={() => props.setIsRules(!props.isRules)}></button>
-            <img className="name" src="Name.svg" alt="Chinemerem Chigbo"></img>
+            <img className="name" src="Name.png" alt="Chinemerem Chigbo"></img>
             <Link onClick={props.handleClick} to={'/game'}>
               <button aria-label="Start" className="start"></button>
             </Link>
