@@ -9,7 +9,6 @@ export default function Game() {
       ctx = canvas.getContext('2d');
     let screenHeight = $(window).height();
     let screenWidth = $(window).width();
-    var lastDownTarget;
 
     let navigateOnce = true;
     let screenSizePadding = 4000;
@@ -90,53 +89,71 @@ export default function Game() {
     document.body.addEventListener('keyup', function (e) {
       keys[e.key] = false;
     });
-    document.body.addEventListener(
-      'mousedown',
-      function (e) {
-        var mousePos = getMousePos(canvas, e);
-        if (isInside(mousePos, rectRight)) {
-          lastDownTarget = e.target;
-          keys['ArrowRight'] = true;
-        }
-        if (isInside(mousePos, rectLeft)) {
-          lastDownTarget = e.target;
-          keys['ArrowLeft'] = true;
-        }
-        if (isInside(mousePos, rectUp)) {
-          lastDownTarget = e.target;
-          keys['ArrowUp'] = true;
-        }
-        if (isInside(mousePos, rectDown)) {
-          lastDownTarget = e.target;
-          keys['ArrowDown'] = true;
-        }
-      },
-      false
-    );
-    document.body.addEventListener(
-      'mouseup',
-      function (e) {
-        debugger;
-        var mousePos = getMousePos(canvas, e);
-        if (isInside(mousePos, rectRight)) {
-          lastDownTarget = e.target;
-          keys['ArrowRight'] = false;
-        }
-        if (isInside(mousePos, rectLeft)) {
-          lastDownTarget = e.target;
-          keys['ArrowLeft'] = false;
-        }
-        if (isInside(mousePos, rectUp)) {
-          lastDownTarget = e.target;
-          keys['ArrowUp'] = false;
-        }
-        if (isInside(mousePos, rectDown)) {
-          lastDownTarget = e.target;
-          keys['ArrowDown'] = false;
-        }
-      },
-      false
-    );
+    // document.body.addEventListener(
+    //   'touchstart',
+    //   function (e) {
+    //     var mousePos = getMousePos(canvas, e);
+    //     if (isInside(mousePos, rectRight)) {
+    //       keys['ArrowRight'] = true;
+    //     }
+    //     if (isInside(mousePos, rectLeft)) {
+    //       keys['ArrowLeft'] = true;
+    //     }
+    //     if (isInside(mousePos, rectUp)) {
+    //       keys['ArrowUp'] = true;
+    //     }
+    //     if (isInside(mousePos, rectDown)) {
+    //       keys['ArrowDown'] = true;
+    //     }
+    //   },
+    //   false
+    // );
+    // document.body.addEventListener(
+    //   'touchend',
+    //   function (e) {
+    //     var mousePos = getMousePos(canvas, e);
+    //     alert(mousePos);
+    //     if (isInside(mousePos, rectRight)) {
+    //       keys['ArrowRight'] = false;
+    //     }
+    //     if (isInside(mousePos, rectLeft)) {
+    //       keys['ArrowLeft'] = false;
+    //     }
+    //     if (isInside(mousePos, rectUp)) {
+    //       keys['ArrowUp'] = false;
+    //     }
+    //     if (isInside(mousePos, rectDown)) {
+    //       keys['ArrowDown'] = false;
+    //     }
+    //   },
+    //   false
+    // );
+    var touchStartPositionY;
+    var touchStartPositionX;
+    $(document).bind('touchstart', function (e) {
+      touchStartPositionY = e.originalEvent.touches[0].clientY;
+    });
+
+    $(document).bind('touchend', function (e) {
+      var touchEndPositionY = e.originalEvent.changedTouches[0].clientY;
+      if (touchStartPositionY > touchEndPositionY + 5) {
+        velY -= speedIncrement * 5;
+      } else if (touchStartPositionY < touchEndPositionY - 5) {
+        velY += speedIncrement * 5;
+      }
+    });
+    $(document).bind('touchstart', function (e) {
+      touchStartPositionX = e.originalEvent.touches[0].clientX;
+    });
+
+    $(document).bind('touchend', function (e) {
+      var touchEndPositionX = e.originalEvent.changedTouches[0].clientX;
+      if (touchStartPositionX > touchEndPositionX + 5) {
+        velX -= speedIncrement * 5;
+      } else if (touchStartPositionX < touchEndPositionX - 5) {
+        velX += speedIncrement * 5;
+      }
+    });
     // canvas.addEventListener(
     //   'click',
     //   function (e) {
