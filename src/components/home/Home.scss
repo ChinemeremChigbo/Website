@@ -4,6 +4,7 @@ body {
   background-color: white;
   color: $highlight;
   overflow: hidden;
+  margin: 0;
 }
 ::-webkit-scrollbar {
   width: 0;
@@ -22,28 +23,24 @@ body {
 }
 
 .background {
-  height: 100%;
-  /* max-height: 600px; */
+  height: 100vh;
   width: 100vw;
   background-color: #244b7e;
   background-image: url('../../assets/Middleground.png'), url('../../assets/Background.png');
   background-repeat: repeat-x, repeat-x;
   background-position: center, center;
   background-size: cover, cover;
-  height: 100vh;
   left: 0;
   animation: 15000s parallax infinite linear;
 }
 .backgroundBack {
-  height: 100%;
-  /* max-height: 600px; */
+  height: 100vh;
   width: 100vw;
   background-color: #244b7e;
   background-image: url('../../assets/Middleground.png'), url('../../assets/Background.png');
   background-repeat: repeat-x, repeat-x;
   background-position: center, center;
   background-size: cover, cover;
-  height: 100vh;
   left: 0;
   animation: 15000s parallax infinite linear;
 }
@@ -77,9 +74,9 @@ body {
   right: 50%;
   transform: translate(50%, 50%);
   image-rendering: pixelated;
-  max-width: 120vw;
+  max-width: 45vw;
   max-height: auto;
-  width: 120vh;
+  width: 60%;
 
   -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
   -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
@@ -562,7 +559,6 @@ body {
 
 .settingsYoutube:hover {
   cursor: pointer;
-  background: url('../../assets/Youtube.png') no-repeat;
   z-index: 3;
   border: none;
   outline: none;
@@ -581,27 +577,30 @@ body {
   image-rendering: pixelated;
   background-position: 50% 0%;
 }
+.bottomButtons{
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width:100%;
+  bottom: 5%;
+  left: 0;
+}
 
 .rules {
-  z-index: 1;
-  padding: 33px 60px 18px 80px;
+  z-index: 2;
+  display: inline;
+  margin-left: 35%;
+  padding: 3vw 5vw 2vw 5vw;
   border: none;
   outline: none;
-  position: absolute;
-  image-rendering: pixelated;
-  height: auto;
-  margin: auto;
-  display: block;
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  transform: translate(-125%, -50%);
-  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
-  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
-  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
   background: url('../../assets/RulesY.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
+  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
 }
 .rules:hover {
   cursor: pointer;
@@ -657,7 +656,6 @@ body {
   height: auto;
   margin: auto;
   display: block;
-  position: absolute;
   bottom: 2%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -681,25 +679,19 @@ body {
 }
 
 .start {
-  z-index: 1;
-  padding: 33px 60px 18px 80px;
+  z-index: 2;
+  display: inline;
+  margin-right: 35%;
+  padding: 3vw 5vw 2vw 5vw;
   border: none;
   outline: none;
-  position: absolute;
-  image-rendering: pixelated;
-  height: auto;
-  margin: auto;
-  display: block;
-  position: absolute;
-  bottom: 5%;
-  right: 50%;
-  transform: translate(125%, -50%);
-  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
-  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
-  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
   background: url('../../assets/StartY.png') no-repeat;
   background-size: contain;
   image-rendering: pixelated;
+  -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+  animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
+
 }
 .start:hover {
   cursor: pointer;
