@@ -72,11 +72,10 @@ body {
   position: absolute;
   bottom: 50%;
   right: 50%;
-  transform: translate(50%, 50%);
+  transform: translate(50%, 45%);
   image-rendering: pixelated;
-  max-width: 42vw;
-  max-height: auto;
-  width: 60%;
+
+  width: 45vw;
 
   -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
   -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
@@ -122,8 +121,8 @@ body {
 
 .musicPlayerControlsPlay {
   z-index: 2;
-  min-height: 20px;
-  min-width: 20px;
+  min-height: 35px;
+  min-width: 35px;
   width: 2.5vw;
   height: 2.5vw;
 
@@ -148,8 +147,8 @@ body {
 
 .musicPlayerControlsPause {
   z-index: 2;
-  min-height: 20px;
-  min-width: 20px;
+  min-height: 35px;
+  min-width: 35px;
   width: 2.5vw;
   height: 2.5vw;
 
@@ -174,8 +173,8 @@ body {
 
 .musicPlayerControlsNext {
   z-index: 2;
-  min-height: 13px;
-  min-width: 13px;
+  min-height: 20px;
+  min-width: 20px;
   width: 1.2vw;
   height: 1.2vw;
   margin-left: 3px;
@@ -200,8 +199,8 @@ body {
 
 .musicPlayerControlsLast {
   z-index: 2;
-  min-height: 13px;
-  min-width: 13px;
+  min-height: 20px;
+  min-width: 20px;
   width: 1.2vw;
   height: 1.2vw;
   margin-left: 2vh;
@@ -227,8 +226,8 @@ body {
 
 .settings {
   z-index: 2;
-  min-height: 30px;
-  min-width: 30px;
+  min-height: 55px;
+  min-width: 55px;
   height: auto;
   width: 4vw;
   height: 4vw;
@@ -293,11 +292,15 @@ body {
 }
 
 .settingsDone {
+  display: inline;
   z-index: 3;
   position: absolute;
   margin: auto;
-  min-height: 45px;
-  width: 13vw;
+  width: 11vw;
+  height: auto;
+  min-height: 55px;
+  min-width: 55px;
+
   bottom: 2%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -602,10 +605,19 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
-  width: 100%;
-  bottom: 5%;
-  left: 0;
+  margin-top: 75vh;
+  margin-bottom: 15vh;
+}
+.bottomButtonsInvisible {
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 75vh;
+  margin-bottom: 15vh;
+  -webkit-animation: fadeOut 1s linear forwards;
+  -moz-animation: fadeOut 1s linear forwards;
+  animation: fadeOut 1s linear forwards;
 }
 
 .rules {
@@ -615,9 +627,11 @@ body {
   margin-right: 5px;
   border: none;
   outline: none;
-  min-height: 45px;
-  width: 13vw;
   height: auto;
+  width: 11vw;
+  min-height: 55px;
+  min-width: 55px;
+
   background: url('../../assets/RulesY.png') no-repeat;
   background-size: contain;
   background-position: center;
@@ -675,10 +689,13 @@ body {
   z-index: 3;
   position: absolute;
   margin: auto;
-  min-height: 45px;
-  width: 13vw;
   bottom: 2%;
   left: 50%;
+  display: inline;
+  width: 12vw;
+  height: auto;
+  min-height: 55px;
+  min-width: 55px;
   transform: translate(-50%, -50%);
   border: none;
   outline: none;
@@ -706,12 +723,14 @@ body {
 .start {
   display: inline;
   margin-right: 35%;
-  margin-left: 5px;
+  margin-left: auto;
   border: none;
   outline: none;
-  min-height: 45px;
-  width: 13vw;
+  width: 11vw;
   height: auto;
+  min-height: 55px;
+  min-width: 55px;
+  
   background: url('../../assets/StartY.png') no-repeat;
   background-size: contain;
   background-position: center;

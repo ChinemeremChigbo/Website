@@ -28,10 +28,10 @@ function Controls(props) {
               onClick={() => props.setIsSettings(!props.isSettings)}
             ></button>
             <img className="name" src="Name.png" alt="Chinemerem Chigbo"></img>
-            <div className="bottomButtons">
-              <button aria-label="Rules" className="rules" onClick={() => props.setIsRules(!props.isRules)}></button>
-              <button aria-label="Start" className="start" onClick={() => (window.location.href = '/game')}></button>
-            </div>
+          </div>
+          <div className={props.isRules || props.isSettings ? 'bottomButtonsInvisible' : 'bottomButtons'}>
+            <button aria-label="Rules" className="rules" onClick={() => props.setIsRules(!props.isRules)}></button>
+            <button aria-label="Start" className="start" onClick={() => (window.location.href = '/game')}></button>
           </div>
           <button
             aria-label="Done"
