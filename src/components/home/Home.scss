@@ -308,7 +308,7 @@ body {
 
   bottom: 2%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
   border: none;
   outline: none;
   -webkit-animation: fadeInPause 3s linear forwards;
@@ -327,7 +327,7 @@ body {
 .settingsDone:hover {
   cursor: pointer;
   transform: scale(1.1);
-  transform: translate(-50%, -50%) scale(1.1);
+  transform: translate(-50%, 0%) scale(1.1);
   background: url('../../assets/DoneB.png') no-repeat;
   background-size: contain;
   background-position: center;
@@ -558,7 +558,7 @@ body {
   z-index: 2;
   display: inline;
   margin-left: 35%;
-  margin-right: 15px;
+  margin-right: 50px;
   border: none;
   outline: none;
   height: auto;
@@ -626,14 +626,14 @@ body {
   z-index: 3;
   position: absolute;
   margin: auto;
-  bottom: 2%;
+  bottom: 1%;
   left: 50%;
   display: inline;
   width: 12vw;
   height: auto;
   min-height: 85px;
   min-width: 85px;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
   border: none;
   outline: none;
   -webkit-animation: fadeInPause 3s linear forwards;
@@ -653,7 +653,7 @@ body {
   cursor: pointer;
   background: url('../../assets/DoneB.png') no-repeat;
   background-size: contain;
-  transform: translate(-50%, -50%) scale(1.1);
+  transform: translate(-50%, 0%) scale(1.1);
   background-position: center;
   image-rendering: pixelated;
 }
