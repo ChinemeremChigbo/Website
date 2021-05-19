@@ -133,13 +133,16 @@ export default function Game() {
     $(document).bind('touchstart', function (e) {
       touchStartPositionY = e.originalEvent.touches[0].clientY;
     });
-
     $(document).bind('touchend', function (e) {
       var touchEndPositionY = e.originalEvent.changedTouches[0].clientY;
       if (touchStartPositionY > touchEndPositionY + 5) {
-        velY -= speedIncrement * 15;
+        if (velY > -maxSpeedY) {
+          velY -= speedIncrement * 15;
+        }
       } else if (touchStartPositionY < touchEndPositionY - 5) {
-        velY += speedIncrement * 15;
+        if (velY < maxSpeedY) {
+          velY += speedIncrement * 15;
+        }
       }
     });
     $(document).bind('touchstart', function (e) {
@@ -149,9 +152,13 @@ export default function Game() {
     $(document).bind('touchend', function (e) {
       var touchEndPositionX = e.originalEvent.changedTouches[0].clientX;
       if (touchStartPositionX > touchEndPositionX + 5) {
-        velX -= speedIncrement * 5;
+        if (velX < maxSpeedX) {
+          velX -= speedIncrement * 15;
+        }
       } else if (touchStartPositionX < touchEndPositionX - 5) {
-        velX += speedIncrement * 5;
+        if (velX > -maxSpeedX) {
+          velX += speedIncrement * 15;
+        }
       }
     });
     // canvas.addEventListener(
