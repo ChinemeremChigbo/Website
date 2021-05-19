@@ -312,16 +312,16 @@ export default function Game() {
         canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2,
         canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2
       );
-      if (screenWidth < 1024) {
-        ctx.rect(rectUp.x, rectUp.y, rectUp.width, rectUp.height);
-        ctx.rect(rectDown.x, rectDown.y, rectDown.width, rectDown.height);
-        ctx.rect(rectRight.x, rectRight.y, rectRight.width, rectRight.height);
-        ctx.rect(rectLeft.x, rectLeft.y, rectLeft.width, rectLeft.height);
-        ctx.fillStyle = 'rgba(225,225,225,0.5)';
-        ctx.fill();
-        ctx.stroke();
-        ctx.closePath();
-      }
+      // if (screenWidth < 1024) {
+      //   ctx.rect(rectUp.x, rectUp.y, rectUp.width, rectUp.height);
+      //   ctx.rect(rectDown.x, rectDown.y, rectDown.width, rectDown.height);
+      //   ctx.rect(rectRight.x, rectRight.y, rectRight.width, rectRight.height);
+      //   ctx.rect(rectLeft.x, rectLeft.y, rectLeft.width, rectLeft.height);
+      //   ctx.fillStyle = 'rgba(225,225,225,0.5)';
+      //   ctx.fill();
+      //   ctx.stroke();
+      //   ctx.closePath();
+      // }
       //left portal
       if (
         x < canvas.width / 2 - 939 &&
