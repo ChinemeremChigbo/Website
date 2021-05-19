@@ -9,12 +9,8 @@ export default function Game() {
       ctx = canvas.getContext('2d');
     let screenHeight = $(window).height();
     let screenWidth = $(window).width();
-    document.body.addEventListener('keydown', function (e) {
-      keys[e.key] = true;
-    });
-    document.body.addEventListener('keyup', function (e) {
-      keys[e.key] = false;
-    });
+    var lastDownTarget;
+
     let navigateOnce = true;
     let screenSizePadding = 4000;
     canvas.width = 1880 + screenSizePadding;
@@ -45,6 +41,7 @@ export default function Game() {
     var RushFrame = 0;
     var PlayerSwimming = [];
     var SwimmingFrame = 0;
+    var moveOnce = true;
     var Fast = [
       './player/Fast/1.png',
       './player/Fast/2.png',
@@ -86,6 +83,121 @@ export default function Game() {
       './player/Swimming/7.png',
     ];
     var once = false;
+
+    document.body.addEventListener('keydown', function (e) {
+      keys[e.key] = true;
+    });
+    document.body.addEventListener('keyup', function (e) {
+      keys[e.key] = false;
+    });
+    document.body.addEventListener(
+      'mousedown',
+      function (e) {
+        var mousePos = getMousePos(canvas, e);
+        if (isInside(mousePos, rectRight)) {
+          lastDownTarget = e.target;
+          keys['ArrowRight'] = true;
+        }
+        if (isInside(mousePos, rectLeft)) {
+          lastDownTarget = e.target;
+          keys['ArrowLeft'] = true;
+        }
+        if (isInside(mousePos, rectUp)) {
+          lastDownTarget = e.target;
+          keys['ArrowUp'] = true;
+        }
+        if (isInside(mousePos, rectDown)) {
+          lastDownTarget = e.target;
+          keys['ArrowDown'] = true;
+        }
+      },
+      false
+    );
+    document.body.addEventListener(
+      'mouseup',
+      function (e) {
+        debugger;
+        var mousePos = getMousePos(canvas, e);
+        if (isInside(mousePos, rectRight)) {
+          lastDownTarget = e.target;
+          keys['ArrowRight'] = false;
+        }
+        if (isInside(mousePos, rectLeft)) {
+          lastDownTarget = e.target;
+          keys['ArrowLeft'] = false;
+        }
+        if (isInside(mousePos, rectUp)) {
+          lastDownTarget = e.target;
+          keys['ArrowUp'] = false;
+        }
+        if (isInside(mousePos, rectDown)) {
+          lastDownTarget = e.target;
+          keys['ArrowDown'] = false;
+        }
+      },
+      false
+    );
+    // canvas.addEventListener(
+    //   'click',
+    //   function (e) {
+    //     var mousePos = getMousePos(canvas, e);
+    //     debugger;
+    //     if (isInside(mousePos, rect)) {
+    //       lastDownTarget = e.target;
+    //       keys['ArrowRight'] = true;
+    //     }
+    //   },
+    //   false
+    // );
+    // canvas.addEventListener(
+    //   'click',
+    //   function (evt) {
+    //     var mousePos = getMousePos(canvas, evt);
+    //     debugger;
+    //     if (isInside(mousePos, rect)) {
+    //       alert('clicked inside rect');
+    //     } else {
+    //       alert('clicked outside rect');
+    //     }
+    //   },
+    //   false
+    // );
+    function getMousePos(canvas, event) {
+      var rect = canvas.getBoundingClientRect();
+      return {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top,
+      };
+    }
+    function isInside(pos, rect) {
+      return pos.x > rect.x && pos.x < rect.x + rect.width && pos.y < rect.y + rect.height && pos.y > rect.y;
+    }
+
+    var rectUp = {
+      x: 0,
+      y: 0,
+      width: screenWidth,
+      height: screenHeight / 4,
+    };
+    var rectDown = {
+      width: screenWidth,
+      height: screenHeight / 4,
+      x: 0,
+      y: screenHeight - rectUp.height,
+    };
+    var rectRight = {
+      x: screenWidth - screenWidth / 2,
+      y: rectUp.height,
+      width: screenWidth / 2,
+      height: screenHeight - rectUp.height - rectDown.height,
+    };
+    var rectLeft = {
+      x: 0,
+      y: rectUp.height,
+      width: screenWidth / 2,
+      height: screenHeight - rectUp.height - rectDown.height,
+    };
+
     function Update() {
       requestAnimationFrame(Update);
 
@@ -200,6 +312,16 @@ export default function Game() {
         canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2,
         canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2
       );
+      if (screenWidth < 1024) {
+        ctx.rect(rectUp.x, rectUp.y, rectUp.width, rectUp.height);
+        ctx.rect(rectDown.x, rectDown.y, rectDown.width, rectDown.height);
+        ctx.rect(rectRight.x, rectRight.y, rectRight.width, rectRight.height);
+        ctx.rect(rectLeft.x, rectLeft.y, rectLeft.width, rectLeft.height);
+        ctx.fillStyle = 'rgba(225,225,225,0.5)';
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+      }
       //left portal
       if (
         x < canvas.width / 2 - 939 &&
@@ -242,6 +364,7 @@ export default function Game() {
       }
     }
     Update();
+
     function drawGif(arr, x, y, scalex, scaley, rotate, factor, changespeed) {
       if (!factor) {
         factor = 1;
@@ -264,7 +387,6 @@ export default function Game() {
       }
       ctx.restore();
     }
-
     function PlayerMovement() {
       //Changing Play Sprites Based Off of Movement and Speed
       const swimToIdleThreshold = 0.8;
