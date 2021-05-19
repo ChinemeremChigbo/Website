@@ -137,9 +137,9 @@ export default function Game() {
     $(document).bind('touchend', function (e) {
       var touchEndPositionY = e.originalEvent.changedTouches[0].clientY;
       if (touchStartPositionY > touchEndPositionY + 5) {
-        velY -= speedIncrement * 5;
+        velY -= speedIncrement * 15;
       } else if (touchStartPositionY < touchEndPositionY - 5) {
-        velY += speedIncrement * 5;
+        velY += speedIncrement * 15;
       }
     });
     $(document).bind('touchstart', function (e) {
