@@ -122,12 +122,16 @@ body {
 
 .musicPlayerControlsPlay {
   z-index: 2;
-  margin: 10px 0px;
-  padding: 15px;
+  min-height: 20px;
+  min-width: 20px;
+  width: 2.5vw;
+  height: 2.5vw;
+
   border: none;
   outline: none;
   background: url('../../assets/PlayY.png') no-repeat;
   background-size: contain;
+  background-position: center;
   image-rendering: pixelated;
 
   -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
@@ -138,17 +142,22 @@ body {
   cursor: pointer;
   background: url('../../assets/PlayB.png') no-repeat;
   background-size: contain;
+  background-position: center;
   image-rendering: pixelated;
 }
 
 .musicPlayerControlsPause {
   z-index: 2;
-  margin: 10px 0px;
-  padding: 15px;
+  min-height: 20px;
+  min-width: 20px;
+  width: 2.5vw;
+  height: 2.5vw;
+
   border: none;
   outline: none;
   background: url('../../assets/PauseY.png') no-repeat;
   background-size: contain;
+  background-position: center;
   image-rendering: pixelated;
 
   -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
@@ -159,16 +168,22 @@ body {
   cursor: pointer;
   background: url('../../assets/PauseB.png') no-repeat;
   background-size: contain;
+  background-position: center;
   image-rendering: pixelated;
 }
 
 .musicPlayerControlsNext {
   z-index: 2;
-  padding: 8px 8px 5px 8px;
+  min-height: 13px;
+  min-width: 13px;
+  width: 1.2vw;
+  height: 1.2vw;
+  margin-left: 3px;
   border: none;
   outline: none;
   background: url('../../assets/NextB.png') no-repeat;
   background-size: contain;
+  background-position: center;
   image-rendering: pixelated;
 
   -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
@@ -179,17 +194,23 @@ body {
   cursor: pointer;
   background: url('../../assets/NextY.png') no-repeat;
   background-size: contain;
+  background-position: center;
   image-rendering: pixelated;
 }
 
 .musicPlayerControlsLast {
   z-index: 2;
-  margin: 0px 8px 0px 18px;
-  padding: 8px 8px 5px 8px;
+  min-height: 13px;
+  min-width: 13px;
+  width: 1.2vw;
+  height: 1.2vw;
+  margin-left: 2vh;
+  margin-right: 3px;
   border: none;
   outline: none;
   background: url('../../assets/LastB.png') no-repeat;
   background-size: contain;
+  background-position: center;
   image-rendering: pixelated;
 
   -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
@@ -200,25 +221,25 @@ body {
   cursor: pointer;
   background: url('../../assets/LastY.png') no-repeat;
   background-size: contain;
+  background-position: center;
   image-rendering: pixelated;
 }
 
 .settings {
   z-index: 2;
-  display: inline;
+  min-height: 30px;
+  min-width: 30px;
+  height: auto;
+  width: 4vw;
+  height: 4vw;
+  margin-top: 1vh;
+  margin-right: 2vh;
   margin-left: auto;
-  margin-right: 18px;
-  margin-top: 9px;
-  justify-content: flex-end;
-  padding: 20px 30px 15px 30px;
-  height: 10px;
-  -ms-flex-align: end;
-  align-items: right;
   border: none;
   outline: none;
-  color: $highlight;
   background: url('../../assets/SettingsY.png') no-repeat;
   background-size: contain;
+  background-position: center;
   image-rendering: pixelated;
 
   -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
@@ -230,6 +251,7 @@ body {
   cursor: pointer;
   background: url('../../assets/SettingsB.png') no-repeat;
   background-size: contain;
+  background-position: center;
   image-rendering: pixelated;
 }
 
@@ -272,23 +294,21 @@ body {
 
 .settingsDone {
   z-index: 3;
-  padding: 33px 60px 18px 80px;
-  border: none;
-  outline: none;
   position: absolute;
-  image-rendering: pixelated;
-  height: auto;
   margin: auto;
-  display: block;
-  position: absolute;
+  min-height: 45px;
+  width: 13vw;
   bottom: 2%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border: none;
+  outline: none;
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
   background: url('../../assets/DoneY.png') no-repeat;
   background-size: contain;
+  background-position: center;
   image-rendering: pixelated;
 }
 
@@ -300,6 +320,7 @@ body {
   cursor: pointer;
   background: url('../../assets/DoneB.png') no-repeat;
   background-size: contain;
+  background-position: center;
   image-rendering: pixelated;
 }
 
@@ -530,7 +551,6 @@ body {
   background-size: 145%;
   image-rendering: pixelated;
   background-position: 50% 8%;
-  
 }
 
 .settingsYoutube {
@@ -577,13 +597,13 @@ body {
   image-rendering: pixelated;
   background-position: 50% 0%;
 }
-.bottomButtons{
+.bottomButtons {
   z-index: 3;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  width:100%;
+  width: 100%;
   bottom: 5%;
   left: 0;
 }
@@ -595,8 +615,8 @@ body {
   margin-right: 5px;
   border: none;
   outline: none;
-  min-height:25px;
-  width: 15vw;
+  min-height: 45px;
+  width: 13vw;
   height: auto;
   background: url('../../assets/RulesY.png') no-repeat;
   background-size: contain;
@@ -653,22 +673,21 @@ body {
 
 .rulesDone {
   z-index: 3;
-  padding: 33px 60px 18px 80px;
-  border: none;
-  outline: none;
   position: absolute;
-  image-rendering: pixelated;
-  height: auto;
   margin: auto;
-  display: block;
+  min-height: 45px;
+  width: 13vw;
   bottom: 2%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border: none;
+  outline: none;
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
   background: url('../../assets/DoneY.png') no-repeat;
   background-size: contain;
+  background-position: center;
   image-rendering: pixelated;
 }
 
@@ -680,6 +699,7 @@ body {
   cursor: pointer;
   background: url('../../assets/DoneB.png') no-repeat;
   background-size: contain;
+  background-position: center;
   image-rendering: pixelated;
 }
 
@@ -689,8 +709,8 @@ body {
   margin-left: 5px;
   border: none;
   outline: none;
-  min-height:25px;
-  width: 15vw;
+  min-height: 45px;
+  width: 13vw;
   height: auto;
   background: url('../../assets/StartY.png') no-repeat;
   background-size: contain;
@@ -699,7 +719,6 @@ body {
   -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
   -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
   animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
-
 }
 .start:hover {
   cursor: pointer;
