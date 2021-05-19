@@ -74,7 +74,7 @@ body {
   right: 50%;
   transform: translate(50%, 50%);
   image-rendering: pixelated;
-  max-width: 45vw;
+  max-width: 42vw;
   max-height: auto;
   width: 60%;
 
@@ -592,11 +592,15 @@ body {
   z-index: 2;
   display: inline;
   margin-left: 35%;
-  padding: 3vw 5vw 2vw 5vw;
+  margin-right: 5px;
   border: none;
   outline: none;
+  min-height:25px;
+  width: 15vw;
+  height: auto;
   background: url('../../assets/RulesY.png') no-repeat;
   background-size: contain;
+  background-position: center;
   image-rendering: pixelated;
   -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
   -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
@@ -606,6 +610,7 @@ body {
   cursor: pointer;
   background: url('../../assets/RulesB.png') no-repeat;
   background-size: contain;
+  background-position: center;
   image-rendering: pixelated;
 }
 
@@ -679,14 +684,17 @@ body {
 }
 
 .start {
-  z-index: 2;
   display: inline;
   margin-right: 35%;
-  padding: 3vw 5vw 2vw 5vw;
+  margin-left: 5px;
   border: none;
   outline: none;
+  min-height:25px;
+  width: 15vw;
+  height: auto;
   background: url('../../assets/StartY.png') no-repeat;
   background-size: contain;
+  background-position: center;
   image-rendering: pixelated;
   -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
   -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
@@ -697,6 +705,7 @@ body {
   cursor: pointer;
   background: url('../../assets/StartB.png') no-repeat;
   background-size: contain;
+  background-position: center;
   image-rendering: pixelated;
 }
 
