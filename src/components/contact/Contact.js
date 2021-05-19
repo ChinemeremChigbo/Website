@@ -33,14 +33,14 @@ function Controls(props) {
                 onClick={() => window.open('https://github.com/chinemeremchigbo', '_blank')}
               ></button>{' '}
               <button
-                aria-label="LinkedIn"
-                className={props.isSettings ? 'settingsLinkedIn' : 'settingsLinkedInOff'}
-                onClick={() => window.open('https://www.linkedin.com/in/chinemeremchigbo/', '_blank')}
-              ></button>{' '}
-              <button
                 aria-label="VSCO"
                 className={props.isSettings ? 'settingsVSCO' : 'settingsVSCOOff'}
                 onClick={() => window.open('https://vsco.co/chinemeremchigbo/gallery', '_blank')}
+              ></button>{' '}
+              <button
+                aria-label="LinkedIn"
+                className={props.isSettings ? 'settingsLinkedIn' : 'settingsLinkedInOff'}
+                onClick={() => window.open('https://www.linkedin.com/in/chinemeremchigbo/', '_blank')}
               ></button>{' '}
               <button
                 aria-label="Youtube"

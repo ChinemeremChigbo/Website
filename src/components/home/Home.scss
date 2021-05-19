@@ -121,8 +121,8 @@ body {
 
 .musicPlayerControlsPlay {
   z-index: 2;
-  min-height: 25px;
-  min-width: 25px;
+  min-height: 45px;
+  min-width: 45px;
   width: 2.5vw;
   height: 2.5vw;
 
@@ -148,8 +148,8 @@ body {
 
 .musicPlayerControlsPause {
   z-index: 2;
-  min-height: 25px;
-  min-width: 25px;
+  min-height: 45px;
+  min-width: 45px;
   width: 2.5vw;
   height: 2.5vw;
 
@@ -175,8 +175,8 @@ body {
 
 .musicPlayerControlsNext {
   z-index: 2;
-  min-height: 10px;
-  min-width: 10px;
+  min-height: 20px;
+  min-width: 20px;
   width: 1.2vw;
   height: 1.2vw;
   margin-left: 3px;
@@ -202,8 +202,8 @@ body {
 
 .musicPlayerControlsLast {
   z-index: 2;
-  min-height: 10px;
-  min-width: 10px;
+  min-height: 20px;
+  min-width: 20px;
   width: 1.2vw;
   height: 1.2vw;
   margin-left: 2vh;
@@ -230,8 +230,8 @@ body {
 
 .settings {
   z-index: 2;
-  min-height: 35px;
-  min-width: 35px;
+  min-height: 70px;
+  min-width: 70px;
   height: auto;
   width: 4vw;
   height: 4vw;
@@ -303,8 +303,8 @@ body {
   margin: auto;
   width: 10vw;
   height: auto;
-  min-height: 55px;
-  min-width: 55px;
+  min-height: 85px;
+  min-width: 85px;
 
   bottom: 2%;
   left: 50%;
@@ -340,8 +340,8 @@ body {
   outline: none;
   height: 8vw;
   width: 8vw;
-  min-height: 5px;
-  min-width: 5px;
+  min-height: 50px;
+  min-width: 50px;
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
@@ -373,8 +373,8 @@ body {
   outline: none;
   height: 8vw;
   width: 8vw;
-  min-height: 5px;
-  min-width: 5px;
+  min-height: 50px;
+  min-width: 50px;
   -webkit-animation: fadeInPause 3.2s linear forwards;
   -moz-animation: fadeInPause 3.2s linear forwards;
   animation: fadeInPause 3.2s linear forwards;
@@ -406,8 +406,8 @@ body {
   outline: none;
   height: 8vw;
   width: 8vw;
-  min-height: 20px;
-  min-width: 25px;
+  min-height: 50px;
+  min-width: 50px;
   -webkit-animation: fadeInPause 3.4s linear forwards;
   -moz-animation: fadeInPause 3.4s linear forwards;
   animation: fadeInPause 3.4s linear forwards;
@@ -439,8 +439,8 @@ body {
   outline: none;
   height: 8vw;
   width: 8vw;
-  min-height: 20px;
-  min-width: 25px;
+  min-height: 50px;
+  min-width: 50px;
   -webkit-animation: fadeInPause 3.6s linear forwards;
   -moz-animation: fadeInPause 3.6s linear forwards;
   animation: fadeInPause 3.6s linear forwards;
@@ -472,8 +472,8 @@ body {
   outline: none;
   height: 8vw;
   width: 8vw;
-  min-height: 20px;
-  min-width: 25px;
+  min-height: 50px;
+  min-width: 50px;
   -webkit-animation: fadeInPause 3.8s linear forwards;
   -moz-animation: fadeInPause 3.8s linear forwards;
   animation: fadeInPause 3.8s linear forwards;
@@ -503,17 +503,17 @@ body {
   z-index: 2;
   border: none;
   outline: none;
-  height: 7vw;
-  width: 11vw;
-  min-height: 20px;
-  min-width: 25px;
-  -webkit-animation: fadeInPause 4s linear forwards;
-  -moz-animation: fadeInPause 4s linear forwards;
-  animation: fadeInPause 3s linear forwards;
+  height: 8vw;
+  width: 8vw;
+  min-height: 50px;
+  min-width: 50px;
+  -webkit-animation: fadeInPause 3.8s linear forwards;
+  -moz-animation: fadeInPause 3.8s linear forwards;
+  animation: fadeInPause 3.8s linear forwards;
   background: url('../../assets/Youtube.png') no-repeat;
-  background-size: cover;
+  background-size: 145%;
   image-rendering: pixelated;
-  background-position: 50% 0%;
+  background-position: 50% 8%;
 }
 
 .settingsYoutubeOff {
@@ -538,6 +538,9 @@ body {
   align-items: center;
   margin-top: 75vh;
   margin-bottom: 15vh;
+  -webkit-animation: fadeIn 1s linear forwards ease;
+  -moz-animation: fadeIn 1s linear forwards;
+  animation: fadeIn 1s linear forwards;
 }
 .bottomButtonsInvisible {
   z-index: 3;
@@ -560,8 +563,8 @@ body {
   outline: none;
   height: auto;
   width: 10vw;
-  min-height: 55px;
-  min-width: 55px;
+  min-height: 85px;
+  min-width: 85px;
   align-items: center;
   justify-content: center;
 
@@ -628,8 +631,8 @@ body {
   display: inline;
   width: 12vw;
   height: auto;
-  min-height: 55px;
-  min-width: 55px;
+  min-height: 85px;
+  min-width: 85px;
   transform: translate(-50%, -50%);
   border: none;
   outline: none;
@@ -663,8 +666,8 @@ body {
   outline: none;
   width: 10vw;
   height: auto;
-  min-height: 55px;
-  min-width: 55px;
+  min-height: 85px;
+  min-width: 85px;
   
   background: url('../../assets/StartY.png') no-repeat;
   background-size: contain;
@@ -726,10 +729,10 @@ body {
   justify-items: center;
   left:50%;
   top: 50%;
-  transform: translate(-50%, 15%);
+  transform: translate(-50%, 60%);
   display: inline-grid;
   grid-template-columns: repeat(2, 15vw);
-  grid-template-rows: repeat(3, 25vh);
+  grid-template-rows: repeat(3, 15vh);
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
