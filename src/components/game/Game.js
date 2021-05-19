@@ -20,7 +20,7 @@ export default function Game() {
       ySlow = canvas.height / 2,
       velY = 0,
       velX = 0,
-      maxSpeedX = 2.5,
+      maxSpeedX = 3,
       maxSpeedY = 2,
       speedIncrement = 0.1,
       friction = 0.99,
