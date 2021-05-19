@@ -729,10 +729,10 @@ body {
   justify-items: center;
   left:50%;
   top: 50%;
-  transform: translate(-50%, 60%);
+  transform: translate(-50%, 38%);
   display: inline-grid;
   grid-template-columns: repeat(2, 15vw);
-  grid-template-rows: repeat(3, 15vh);
+  grid-template-rows: repeat(3, 18vh);
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
