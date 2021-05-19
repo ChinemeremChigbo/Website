@@ -335,16 +335,13 @@ body {
 }
 
 .settingsDevpost {
-  z-index: 3;
+  z-index: 2;
   border: none;
   outline: none;
-  padding: 48px;
-  padding-bottom: 40px;
-  position: relative;
-  height: auto;
-  margin: auto;
-  display: block;
-  transform: scale(1.4);
+  height: 8vw;
+  width: 8vw;
+  min-height: 5px;
+  min-width: 5px;
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
@@ -360,17 +357,7 @@ body {
 
 .settingsDevpost:hover {
   cursor: pointer;
-  background: url('../../assets/Devpost.png') no-repeat;
-  z-index: 3;
-  border: none;
-  outline: none;
-  padding: 48px;
-  padding-bottom: 40px;
-  position: relative;
-  height: auto;
-  margin: auto;
-  display: block;
-  transform: scale(1.5);
+  transform: scale(1.2);
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
@@ -381,16 +368,13 @@ body {
 }
 
 .settingsEmail {
-  z-index: 3;
+  z-index: 2;
   border: none;
   outline: none;
-  padding: 48px;
-  padding-bottom: 40px;
-  position: relative;
-  height: auto;
-  margin: auto;
-  display: block;
-  transform: scale(1.4);
+  height: 8vw;
+  width: 8vw;
+  min-height: 5px;
+  min-width: 5px;
   -webkit-animation: fadeInPause 3.2s linear forwards;
   -moz-animation: fadeInPause 3.2s linear forwards;
   animation: fadeInPause 3.2s linear forwards;
@@ -406,17 +390,7 @@ body {
 
 .settingsEmail:hover {
   cursor: pointer;
-  background: url('../../assets/Email.png') no-repeat;
-  z-index: 3;
-  border: none;
-  outline: none;
-  padding: 48px;
-  padding-bottom: 40px;
-  position: relative;
-  height: auto;
-  margin: auto;
-  display: block;
-  transform: scale(1.5);
+  transform: scale(1.2);
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
@@ -427,16 +401,13 @@ body {
 }
 
 .settingsGithub {
-  z-index: 3;
+  z-index: 2;
   border: none;
   outline: none;
-  padding: 48px;
-  padding-bottom: 40px;
-  position: relative;
-  height: auto;
-  margin: auto;
-  display: block;
-  transform: scale(1.4);
+  height: 8vw;
+  width: 8vw;
+  min-height: 20px;
+  min-width: 25px;
   -webkit-animation: fadeInPause 3.4s linear forwards;
   -moz-animation: fadeInPause 3.4s linear forwards;
   animation: fadeInPause 3.4s linear forwards;
@@ -452,16 +423,7 @@ body {
 
 .settingsGithub:hover {
   cursor: pointer;
-  z-index: 3;
-  border: none;
-  outline: none;
-  padding: 48px;
-  padding-bottom: 40px;
-  position: relative;
-  height: auto;
-  margin: auto;
-  display: block;
-  transform: scale(1.5);
+  transform: scale(1.2);
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
@@ -472,16 +434,13 @@ body {
 }
 
 .settingsLinkedIn {
-  z-index: 3;
+  z-index: 2;
   border: none;
   outline: none;
-  padding: 48px;
-  padding-bottom: 40px;
-  position: relative;
-  height: auto;
-  margin: auto;
-  display: block;
-  transform: scale(1.4);
+  height: 8vw;
+  width: 8vw;
+  min-height: 20px;
+  min-width: 25px;
   -webkit-animation: fadeInPause 3.6s linear forwards;
   -moz-animation: fadeInPause 3.6s linear forwards;
   animation: fadeInPause 3.6s linear forwards;
@@ -497,17 +456,7 @@ body {
 
 .settingsLinkedIn:hover {
   cursor: pointer;
-  background: url('../../assets/LinkedIn.png') no-repeat;
-  z-index: 3;
-  border: none;
-  outline: none;
-  padding: 48px;
-  padding-bottom: 40px;
-  position: relative;
-  height: auto;
-  margin: auto;
-  display: block;
-  transform: scale(1.5);
+  transform: scale(1.2);
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
@@ -518,16 +467,13 @@ body {
 }
 
 .settingsVSCO {
-  z-index: 3;
+  z-index: 2;
   border: none;
   outline: none;
-  padding: 48px;
-  padding-bottom: 40px;
-  position: relative;
-  height: auto;
-  margin: auto;
-  display: block;
-  transform: scale(1.4);
+  height: 8vw;
+  width: 8vw;
+  min-height: 20px;
+  min-width: 25px;
   -webkit-animation: fadeInPause 3.8s linear forwards;
   -moz-animation: fadeInPause 3.8s linear forwards;
   animation: fadeInPause 3.8s linear forwards;
@@ -543,17 +489,7 @@ body {
 
 .settingsVSCO:hover {
   cursor: pointer;
-  background: url('../../assets/VSCO.png') no-repeat;
-  z-index: 3;
-  border: none;
-  outline: none;
-  padding: 48px;
-  padding-bottom: 40px;
-  position: relative;
-  height: auto;
-  margin: auto;
-  display: block;
-  transform: scale(1.5);
+  transform: scale(1.2);
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
@@ -564,21 +500,18 @@ body {
 }
 
 .settingsYoutube {
-  z-index: 3;
+  z-index: 2;
   border: none;
   outline: none;
-  padding: 48px;
-  padding-bottom: 40px;
-  position: relative;
-  height: auto;
-  margin: auto;
-  display: block;
-  transform: scale(1.4);
+  height: 7vw;
+  width: 11vw;
+  min-height: 20px;
+  min-width: 25px;
   -webkit-animation: fadeInPause 4s linear forwards;
   -moz-animation: fadeInPause 4s linear forwards;
   animation: fadeInPause 3s linear forwards;
   background: url('../../assets/Youtube.png') no-repeat;
-  background-size: 145%;
+  background-size: cover;
   image-rendering: pixelated;
   background-position: 50% 0%;
 }
@@ -589,21 +522,12 @@ body {
 
 .settingsYoutube:hover {
   cursor: pointer;
-  z-index: 3;
-  border: none;
-  outline: none;
-  padding: 48px;
-  padding-bottom: 40px;
-  position: relative;
-  height: auto;
-  margin: auto;
-  display: block;
-  transform: scale(1.5);
+  transform: scale(1.2);
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
   background: url('../../assets/Youtube.png') no-repeat;
-  background-size: 145%;
+  background-size: cover;
   image-rendering: pixelated;
   background-position: 50% 0%;
 }
@@ -794,34 +718,19 @@ body {
 
 .contactGrid {
   z-index: 2;
-  position: absolute;
+  position: relative;
   text-align: center;
-  image-rendering: pixelated;
-  max-height: 130%;
-  height: 70vh;
-  max-width: 80vw;
-  width: auto;
   margin: auto;
-  display: inline;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  image-rendering: pixelated;
   transition: 2s ease-in-out;
   align-items: center;
   justify-items: center;
-
+  left:50%;
+  top: 50%;
+  transform: translate(-50%, 15%);
   display: inline-grid;
-  grid-template-columns: repeat(2, 200px);
-  grid-template-rows: repeat(5, vh/8);
-  padding: auto;
+  grid-template-columns: repeat(2, 15vw);
+  grid-template-rows: repeat(3, 25vh);
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
-}
-
-.grid-item {
-  background-size: contain;
-  image-rendering: pixelated;
 }
