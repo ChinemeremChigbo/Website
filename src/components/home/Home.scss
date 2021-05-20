@@ -76,6 +76,7 @@ body {
   image-rendering: pixelated;
 
   width: 45vw;
+  min-width: 275px;
 
   -webkit-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
   -moz-animation: animateColor 40s linear infinite, fadeIn 1s linear forwards;
@@ -121,8 +122,8 @@ body {
 
 .musicPlayerControlsPlay {
   z-index: 2;
-  min-height: 45px;
-  min-width: 45px;
+  min-height: 35px;
+  min-width: 35px;
   width: 2.5vw;
   height: 2.5vw;
 
@@ -148,8 +149,8 @@ body {
 
 .musicPlayerControlsPause {
   z-index: 2;
-  min-height: 45px;
-  min-width: 45px;
+  min-height: 35px;
+  min-width: 35px;
   width: 2.5vw;
   height: 2.5vw;
 
@@ -175,8 +176,8 @@ body {
 
 .musicPlayerControlsNext {
   z-index: 2;
-  min-height: 20px;
-  min-width: 20px;
+  min-height: 17px;
+  min-width: 17px;
   width: 1.2vw;
   height: 1.2vw;
   margin-left: 3px;
@@ -202,8 +203,8 @@ body {
 
 .musicPlayerControlsLast {
   z-index: 2;
-  min-height: 20px;
-  min-width: 20px;
+  min-height: 17px;
+  min-width: 17px;
   width: 1.2vw;
   height: 1.2vw;
   margin-left: 2vh;
@@ -230,8 +231,8 @@ body {
 
 .settings {
   z-index: 2;
-  min-height: 70px;
-  min-width: 70px;
+  min-height: 55px;
+  min-width: 55px;
   height: auto;
   width: 4vw;
   height: 4vw;
