@@ -37,7 +37,7 @@ export default function Game() {
       speedIncrement = 0.1,
       /*Allows character to slow down instead of stopping immediately
       the lower, the faster the stopping*/
-      friction = 0.99,
+      friction = 0.95,
       //Used to stop the back parallax movement at the same time as the front
       backgroundMovementX = true,
       backgroundMovementY = true,
@@ -209,6 +209,7 @@ export default function Game() {
       } else {
         backgroundMovementY = true;
       }
+      ctx.clearRect(0, 0, canvas.width, canvas.width);
       /*Drawing the Background, Midground, and Foreground for the game
       these are positioned in the center of the users screen and need to move in the opposite direction that
       the user presses (the x and y in the 2nd and 3rd draw image) the first draw image is stationary.
