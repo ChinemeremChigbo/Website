@@ -37,7 +37,7 @@ export default function Game() {
       speedIncrement = 0.1,
       /*Allows character to slow down instead of stopping immediately
       the lower, the faster the stopping*/
-      friction = 0.95,
+      friction = 0.99,
       //Used to stop the back parallax movement at the same time as the front
       backgroundMovementX = true,
       backgroundMovementY = true,
