@@ -137,11 +137,11 @@ export default function Game() {
       var touchEndPositionY = e.originalEvent.changedTouches[0].clientY;
       if (touchStartPositionY > touchEndPositionY + 5) {
         if (velY > -maxSpeedY) {
-          velY -= speedIncrement * 15;
+          velY += Math.floor(((touchEndPositionY - touchStartPositionY) / screenHeight) * 8);
         }
       } else if (touchStartPositionY < touchEndPositionY - 5) {
         if (velY < maxSpeedY) {
-          velY += speedIncrement * 15;
+          velY += Math.floor(((touchEndPositionY - touchStartPositionY) / screenHeight) * 8);
         }
       }
     });
@@ -153,11 +153,11 @@ export default function Game() {
       var touchEndPositionX = e.originalEvent.changedTouches[0].clientX;
       if (touchStartPositionX > touchEndPositionX + 5) {
         if (velX < maxSpeedX) {
-          velX -= speedIncrement * 15;
+          velX += Math.floor(((touchEndPositionX - touchStartPositionX) / screenHeight) * 8);
         }
       } else if (touchStartPositionX < touchEndPositionX - 5) {
         if (velX > -maxSpeedX) {
-          velX += speedIncrement * 15;
+          velX += Math.floor(((touchEndPositionX - touchStartPositionX) / screenHeight) * 8);
         }
       }
     });
