@@ -340,8 +340,8 @@ body {
   outline: none;
   height: 8vw;
   width: 8vw;
-  min-height: 50px;
-  min-width: 50px;
+  min-height: 80px;
+  min-width: 80px;
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
@@ -373,8 +373,8 @@ body {
   outline: none;
   height: 8vw;
   width: 8vw;
-  min-height: 50px;
-  min-width: 50px;
+  min-height: 80px;
+  min-width: 80px;
   -webkit-animation: fadeInPause 3.2s linear forwards;
   -moz-animation: fadeInPause 3.2s linear forwards;
   animation: fadeInPause 3.2s linear forwards;
@@ -406,8 +406,8 @@ body {
   outline: none;
   height: 8vw;
   width: 8vw;
-  min-height: 50px;
-  min-width: 50px;
+  min-height: 80px;
+  min-width: 80px;
   -webkit-animation: fadeInPause 3.4s linear forwards;
   -moz-animation: fadeInPause 3.4s linear forwards;
   animation: fadeInPause 3.4s linear forwards;
@@ -439,8 +439,8 @@ body {
   outline: none;
   height: 8vw;
   width: 8vw;
-  min-height: 50px;
-  min-width: 50px;
+  min-height: 80px;
+  min-width: 80px;
   -webkit-animation: fadeInPause 3.6s linear forwards;
   -moz-animation: fadeInPause 3.6s linear forwards;
   animation: fadeInPause 3.6s linear forwards;
@@ -472,8 +472,8 @@ body {
   outline: none;
   height: 8vw;
   width: 8vw;
-  min-height: 50px;
-  min-width: 50px;
+  min-height: 80px;
+  min-width: 80px;
   -webkit-animation: fadeInPause 3.8s linear forwards;
   -moz-animation: fadeInPause 3.8s linear forwards;
   animation: fadeInPause 3.8s linear forwards;
@@ -505,8 +505,8 @@ body {
   outline: none;
   height: 8vw;
   width: 8vw;
-  min-height: 50px;
-  min-width: 50px;
+  min-height: 80px;
+  min-width: 80px;
   -webkit-animation: fadeInPause 3.8s linear forwards;
   -moz-animation: fadeInPause 3.8s linear forwards;
   animation: fadeInPause 3.8s linear forwards;
@@ -527,9 +527,9 @@ body {
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
   background: url('../../assets/Youtube.png') no-repeat;
-  background-size: cover;
+  background-size: 145%;
   image-rendering: pixelated;
-  background-position: 50% 0%;
+  background-position: 50% 8%;
 }
 .bottomButtons {
   z-index: 3;
@@ -728,11 +728,10 @@ body {
   align-items: center;
   justify-items: center;
   left:50%;
-  top: 50%;
-  transform: translate(-50%, 38%);
+  transform: translate(-50%, 50%);
   display: inline-grid;
   grid-template-columns: repeat(2, 15vw);
-  grid-template-rows: repeat(3, 18vh);
+  grid-template-rows: repeat(3, 17.5vh);
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
