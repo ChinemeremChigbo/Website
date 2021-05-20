@@ -350,6 +350,7 @@ body {
   background-size: 145%;
   image-rendering: pixelated;
   background-position: 50% 8%;
+  transform: translate(0, 5vh);
 }
 
 .settingsDevpostOff {
@@ -358,7 +359,7 @@ body {
 
 .settingsDevpost:hover {
   cursor: pointer;
-  transform: scale(1.2);
+  transform: translate(0, 5vh) scale(1.2);
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
@@ -374,8 +375,8 @@ body {
   outline: none;
   height: 9vw;
   width: 9vw;
-  min-height: 80px;
-  min-width: 80px;
+  min-height: 90px;
+  min-width: 90px;
   -webkit-animation: fadeInPause 3.2s linear forwards;
   -moz-animation: fadeInPause 3.2s linear forwards;
   animation: fadeInPause 3.2s linear forwards;
@@ -383,6 +384,7 @@ body {
   background-size: 200%;
   image-rendering: pixelated;
   background-position: 50% 27%;
+  transform: translate(0, 5vh);
 }
 
 .settingsEmailOff {
@@ -391,7 +393,7 @@ body {
 
 .settingsEmail:hover {
   cursor: pointer;
-  transform: scale(1.2);
+  transform: translate(0, 5vh) scale(1.2);
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
@@ -432,6 +434,7 @@ body {
   background-size: 130%;
   image-rendering: pixelated;
   background-position: 50% 8%;
+
 }
 
 .settingsLinkedIn {
@@ -449,6 +452,7 @@ body {
   background-size: 145%;
   image-rendering: pixelated;
   background-position: 50% 8%;
+  transform: translate(0, -5vh);
 }
 
 .settingsLinkedInOff {
@@ -457,7 +461,7 @@ body {
 
 .settingsLinkedIn:hover {
   cursor: pointer;
-  transform: scale(1.2);
+  transform: translate(0, -5vh) scale(1.2);
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
@@ -515,6 +519,7 @@ body {
   background-size: 145%;
   image-rendering: pixelated;
   background-position: 50% 8%;
+  transform: translate(0, -5vh) scale(1.1);
 }
 
 .settingsYoutubeOff {
@@ -523,7 +528,7 @@ body {
 
 .settingsYoutube:hover {
   cursor: pointer;
-  transform: scale(1.2);
+  transform: translate(0, -5vh) scale(1.25);
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
@@ -722,18 +727,32 @@ body {
 
 .contactGrid {
   z-index: 2;
-  position: relative;
+  position: absolute;
   text-align: center;
-  margin: auto;
   transition: 2s ease-in-out;
   align-items: center;
   justify-items: center;
-  left:50%;
-  transform: translate(-50%, 50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -47%);
+  max-width: 100vw;
+  max-height: 130%;
+  min-height: auto;
   display: inline-grid;
+  width: auto;
+  margin: auto;
   grid-template-columns: repeat(2, 15vw);
-  grid-template-rows: repeat(3, 17.5vh);
+  grid-template-rows: repeat(3, 17vh);
+  grid-column-gap: 20px;
+  grid-row-gap: 40px;
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
+  flex-wrap: wrap;
+
+}
+.other{
+  z-index: 2;
+
+  transition: 2s ease-in-out;
 }
