@@ -86,44 +86,21 @@ export default function Game() {
     });
 
     //Mobile press detection
-    var touchStartPositionX1;
-    var touchStartPositionY1;
-    var touchStartPositionX2;
-    var touchStartPositionY2;
+    var touchStartPositionX;
+    var touchStartPositionY;
     $(document).on('touchstart', function (e) {
-      touchStartPositionX1 = e.originalEvent.touches[0].clientX;
-      touchStartPositionY1 = e.originalEvent.touches[0].clientY;
-      if (typeof e.originalEvent.touches[1] !== 'undefined') {
-        touchStartPositionX2 = e.originalEvent.touches[1].clientX;
-        touchStartPositionY2 = e.originalEvent.touches[1].clientY;
-      }
-      if (
-        (touchStartPositionX1 > screenWidth / 2 &&
-          touchStartPositionY1 > screenHeight / 3 &&
-          touchStartPositionY1 < screenHeight - screenHeight / 3) ||
-        (touchStartPositionX2 > screenWidth / 2 &&
-          touchStartPositionY2 > screenHeight / 3 &&
-          touchStartPositionY2 < screenHeight - screenHeight / 3)
-      ) {
+      touchStartPositionX = e.originalEvent.touches[0].clientX;
+      touchStartPositionY = e.originalEvent.touches[0].clientY;
+      if (touchStartPositionX > screenWidth / 2) {
         keys['ArrowRight'] = true;
       }
-      if (
-        (touchStartPositionX1 <= screenWidth / 2 &&
-          touchStartPositionY1 > screenHeight / 3 &&
-          touchStartPositionY1 < screenHeight - screenHeight / 3) ||
-        (touchStartPositionX2 <= screenWidth / 2 &&
-          touchStartPositionY2 > screenHeight / 3 &&
-          touchStartPositionY2 < screenHeight - screenHeight / 3)
-      ) {
+      if (touchStartPositionX <= screenWidth / 2) {
         keys['ArrowLeft'] = true;
       }
-      if (touchStartPositionY1 <= screenHeight / 4 || touchStartPositionY2 <= screenHeight / 4) {
+      if (touchStartPositionY <= screenHeight / 3) {
         keys['ArrowUp'] = true;
       }
-      if (
-        touchStartPositionY1 >= screenHeight - screenHeight / 3 ||
-        touchStartPositionY2 >= screenHeight - screenHeight / 3
-      ) {
+      if (touchStartPositionY >= screenHeight - screenHeight / 3) {
         keys['ArrowDown'] = true;
       }
     });
