@@ -78,6 +78,7 @@ export default function Game() {
       './player/Swimming/6.png',
       './player/Swimming/7.png',
     ];
+    var lastDownTarget;
 
     document.body.addEventListener('keydown', function (e) {
       keys[e.key] = true;
@@ -85,64 +86,77 @@ export default function Game() {
     document.body.addEventListener('keyup', function (e) {
       keys[e.key] = false;
     });
-    var touchStartPositionY;
+    // document.body.addEventListener(
+    //   'touchstart',
+    //   function (e) {
+    //     var mousePos = getMousePos(canvas, e);
+    //     if (isInside(mousePos, rectRight)) {
+    //       keys['ArrowRight'] = true;
+    //     }
+    //     if (isInside(mousePos, rectLeft)) {
+    //       keys['ArrowLeft'] = true;
+    //     }
+    //     if (isInside(mousePos, rectUp)) {
+    //       keys['ArrowUp'] = true;
+    //     }
+    //     if (isInside(mousePos, rectDown)) {
+    //       keys['ArrowDown'] = true;
+    //     }
+    //   },
+    //   false
+    // );
+    // document.body.addEventListener(
+    //   'touchend',
+    //   function (e) {
+    //     var mousePos = getMousePos(canvas, e);
+    //     alert(mousePos);
+    //     if (isInside(mousePos, rectRight)) {
+    //       keys['ArrowRight'] = false;
+    //     }
+    //     if (isInside(mousePos, rectLeft)) {
+    //       keys['ArrowLeft'] = false;
+    //     }
+    //     if (isInside(mousePos, rectUp)) {
+    //       keys['ArrowUp'] = false;
+    //     }
+    //     if (isInside(mousePos, rectDown)) {
+    //       keys['ArrowDown'] = false;
+    //     }
+    //   },
+    //   false
+    // );
     var touchStartPositionX;
-    $(document).bind('touchstart', function (e) {
-      touchStartPositionY = e.originalEvent.touches[0].clientY;
-    });
-    $(document).bind('touchend', function (e) {
-      var touchEndPositionY = e.originalEvent.changedTouches[0].clientY;
-      if (touchStartPositionY > touchEndPositionY + 5) {
-        if (velY > -maxSpeedY) {
-          velY += Math.round(((touchEndPositionY - touchStartPositionY) / screenHeight) * 8);
-        }
-      } else if (touchStartPositionY < touchEndPositionY - 5) {
-        if (velY < maxSpeedY) {
-          velY += Math.round(((touchEndPositionY - touchStartPositionY) / screenHeight) * 8);
-        }
-      }
-    });
-    $(document).bind('touchstart', function (e) {
+    var touchStartPositionY;
+    $(document).on('touchstart', function (e) {
       touchStartPositionX = e.originalEvent.touches[0].clientX;
-    });
-
-    $(document).bind('touchend', function (e) {
-      var touchEndPositionX = e.originalEvent.changedTouches[0].clientX;
-      if (touchStartPositionX > touchEndPositionX + 5) {
-        if (velX < maxSpeedX) {
-          velX += Math.round(((touchEndPositionX - touchStartPositionX) / screenHeight) * 8);
-        }
-      } else if (touchStartPositionX < touchEndPositionX - 5) {
-        if (velX > -maxSpeedX) {
-          velX += Math.round(((touchEndPositionX - touchStartPositionX) / screenHeight) * 8);
-        }
+      touchStartPositionY = e.originalEvent.touches[0].clientY;
+      if (
+        touchStartPositionX > screenWidth / 2 &&
+        touchStartPositionY > screenHeight / 4 &&
+        touchStartPositionY < screenHeight - screenHeight / 4
+      ) {
+        keys['ArrowRight'] = true;
+      }
+      if (
+        touchStartPositionX <= screenWidth / 2 &&
+        touchStartPositionY > screenHeight / 4 &&
+        touchStartPositionY < screenHeight - screenHeight / 4
+      ) {
+        keys['ArrowLeft'] = true;
+      }
+      if (touchStartPositionY <= screenHeight / 4) {
+        keys['ArrowUp'] = true;
+      }
+      if (touchStartPositionY >= screenHeight - screenHeight / 4) {
+        keys['ArrowDown'] = true;
       }
     });
-
-    var rectUp = {
-      x: 0,
-      y: 0,
-      width: screenWidth,
-      height: screenHeight / 4,
-    };
-    var rectDown = {
-      width: screenWidth,
-      height: screenHeight / 4,
-      x: 0,
-      y: screenHeight - rectUp.height,
-    };
-    var rectRight = {
-      x: screenWidth - screenWidth / 2,
-      y: rectUp.height,
-      width: screenWidth / 2,
-      height: screenHeight - rectUp.height - rectDown.height,
-    };
-    var rectLeft = {
-      x: 0,
-      y: rectUp.height,
-      width: screenWidth / 2,
-      height: screenHeight - rectUp.height - rectDown.height,
-    };
+    $(document).on('touchend', function (e) {
+      keys['ArrowRight'] = false;
+      keys['ArrowLeft'] = false;
+      keys['ArrowUp'] = false;
+      keys['ArrowDown'] = false;
+    });
 
     function Update() {
       requestAnimationFrame(Update);
@@ -228,19 +242,20 @@ export default function Game() {
       GameBackground.src = 'GameBackground.png';
       ctx.drawImage(
         Background,
-        Math.round(screenWidth / 2 - Background.width / 2),
-        Math.round(screenHeight / 2 - Background.height / 2)
+        Math.floor(screenWidth / 2 - Background.width / 2),
+        Math.floor(screenHeight / 2 - Background.height / 2)
       );
       ctx.drawImage(
         MiddleGround,
-        Math.round(canvas.width / 2 - xSlow - MiddleGround.width / 2 + screenWidth / 2),
-        Math.round(canvas.height / 2 - ySlow - MiddleGround.height / 2 + screenHeight / 2)
+        Math.floor(canvas.width / 2 - xSlow - MiddleGround.width / 2 + screenWidth / 2),
+        Math.floor(canvas.height / 2 - ySlow - MiddleGround.height / 2 + screenHeight / 2)
       );
       ctx.drawImage(
         GameBackground,
-        Math.round(canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2),
-        Math.round(canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2)
+        Math.floor(canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2),
+        Math.floor(canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2)
       );
+      //left portal
       if (
         x < canvas.width / 2 - 939 &&
         y > canvas.height / 2 - 60 &&
