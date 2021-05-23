@@ -11,7 +11,7 @@ export default function Game() {
     let screenWidth = $(window).width();
 
     let navigateOnce = true;
-    let screenSizePadding = 4000;
+    let screenSizePadding = 1000;
     canvas.width = 1880 + screenSizePadding;
     canvas.height = 700 + screenSizePadding;
     let x = canvas.width / 2,
@@ -26,8 +26,6 @@ export default function Game() {
       friction = 0.99,
       backgroundMovementX = true,
       backgroundMovementY = true,
-      // boostTimeout = 1000,
-      // boostReady = false,
       keys = [];
 
     var PlayerFast = [];
@@ -40,7 +38,6 @@ export default function Game() {
     var RushFrame = 0;
     var PlayerSwimming = [];
     var SwimmingFrame = 0;
-    var moveOnce = true;
     var Fast = [
       './player/Fast/1.png',
       './player/Fast/2.png',
@@ -81,7 +78,6 @@ export default function Game() {
       './player/Swimming/6.png',
       './player/Swimming/7.png',
     ];
-    var once = false;
 
     document.body.addEventListener('keydown', function (e) {
       keys[e.key] = true;
@@ -89,45 +85,6 @@ export default function Game() {
     document.body.addEventListener('keyup', function (e) {
       keys[e.key] = false;
     });
-    // document.body.addEventListener(
-    //   'touchstart',
-    //   function (e) {
-    //     var mousePos = getMousePos(canvas, e);
-    //     if (isInside(mousePos, rectRight)) {
-    //       keys['ArrowRight'] = true;
-    //     }
-    //     if (isInside(mousePos, rectLeft)) {
-    //       keys['ArrowLeft'] = true;
-    //     }
-    //     if (isInside(mousePos, rectUp)) {
-    //       keys['ArrowUp'] = true;
-    //     }
-    //     if (isInside(mousePos, rectDown)) {
-    //       keys['ArrowDown'] = true;
-    //     }
-    //   },
-    //   false
-    // );
-    // document.body.addEventListener(
-    //   'touchend',
-    //   function (e) {
-    //     var mousePos = getMousePos(canvas, e);
-    //     alert(mousePos);
-    //     if (isInside(mousePos, rectRight)) {
-    //       keys['ArrowRight'] = false;
-    //     }
-    //     if (isInside(mousePos, rectLeft)) {
-    //       keys['ArrowLeft'] = false;
-    //     }
-    //     if (isInside(mousePos, rectUp)) {
-    //       keys['ArrowUp'] = false;
-    //     }
-    //     if (isInside(mousePos, rectDown)) {
-    //       keys['ArrowDown'] = false;
-    //     }
-    //   },
-    //   false
-    // );
     var touchStartPositionY;
     var touchStartPositionX;
     $(document).bind('touchstart', function (e) {
@@ -137,11 +94,11 @@ export default function Game() {
       var touchEndPositionY = e.originalEvent.changedTouches[0].clientY;
       if (touchStartPositionY > touchEndPositionY + 5) {
         if (velY > -maxSpeedY) {
-          velY += Math.floor(((touchEndPositionY - touchStartPositionY) / screenHeight) * 8);
+          velY += Math.round(((touchEndPositionY - touchStartPositionY) / screenHeight) * 8);
         }
       } else if (touchStartPositionY < touchEndPositionY - 5) {
         if (velY < maxSpeedY) {
-          velY += Math.floor(((touchEndPositionY - touchStartPositionY) / screenHeight) * 8);
+          velY += Math.round(((touchEndPositionY - touchStartPositionY) / screenHeight) * 8);
         }
       }
     });
@@ -153,49 +110,14 @@ export default function Game() {
       var touchEndPositionX = e.originalEvent.changedTouches[0].clientX;
       if (touchStartPositionX > touchEndPositionX + 5) {
         if (velX < maxSpeedX) {
-          velX += Math.floor(((touchEndPositionX - touchStartPositionX) / screenHeight) * 8);
+          velX += Math.round(((touchEndPositionX - touchStartPositionX) / screenHeight) * 8);
         }
       } else if (touchStartPositionX < touchEndPositionX - 5) {
         if (velX > -maxSpeedX) {
-          velX += Math.floor(((touchEndPositionX - touchStartPositionX) / screenHeight) * 8);
+          velX += Math.round(((touchEndPositionX - touchStartPositionX) / screenHeight) * 8);
         }
       }
     });
-    // canvas.addEventListener(
-    //   'click',
-    //   function (e) {
-    //     var mousePos = getMousePos(canvas, e);
-    //     debugger;
-    //     if (isInside(mousePos, rect)) {
-    //       lastDownTarget = e.target;
-    //       keys['ArrowRight'] = true;
-    //     }
-    //   },
-    //   false
-    // );
-    // canvas.addEventListener(
-    //   'click',
-    //   function (evt) {
-    //     var mousePos = getMousePos(canvas, evt);
-    //     debugger;
-    //     if (isInside(mousePos, rect)) {
-    //       alert('clicked inside rect');
-    //     } else {
-    //       alert('clicked outside rect');
-    //     }
-    //   },
-    //   false
-    // );
-    function getMousePos(canvas, event) {
-      var rect = canvas.getBoundingClientRect();
-      return {
-        x: event.clientX - rect.left,
-        y: event.clientY - rect.top,
-      };
-    }
-    function isInside(pos, rect) {
-      return pos.x > rect.x && pos.x < rect.x + rect.width && pos.y < rect.y + rect.height && pos.y > rect.y;
-    }
 
     var rectUp = {
       x: 0,
@@ -304,53 +226,21 @@ export default function Game() {
       MiddleGround.src = 'MiddleGround.png';
       var GameBackground = new Image();
       GameBackground.src = 'GameBackground.png';
-      ctx.drawImage(Background, screenWidth / 2 - Background.width / 2, screenHeight / 2 - Background.height / 2);
-      // ctx.fillStyle = '#0d1a20';
-      // ctx.fillRect(
-      //   canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2 + GameBackground.width - 10,
-      //   canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2,
-      //   2500,
-      //   GameBackground.height
-      // );
-      // ctx.fillRect(
-      //   0,
-      //   canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2 + GameBackground.height,
-      //   GameBackground.width + 2490,
-      //   GameBackground.height
-      // );
-      // ctx.fillRect(
-      //   canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2 - GameBackground.width,
-      //   canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2,
-      //   GameBackground.width,
-      //   GameBackground.height
-      // );
-      // ctx.fillRect(
-      //   0,
-      //   canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2 - GameBackground.height,
-      //   GameBackground.width + 2490,
-      //   GameBackground.height
-      // );
+      ctx.drawImage(
+        Background,
+        Math.round(screenWidth / 2 - Background.width / 2),
+        Math.round(screenHeight / 2 - Background.height / 2)
+      );
       ctx.drawImage(
         MiddleGround,
-        canvas.width / 2 - xSlow - MiddleGround.width / 2 + screenWidth / 2,
-        canvas.height / 2 - ySlow - MiddleGround.height / 2 + screenHeight / 2
+        Math.round(canvas.width / 2 - xSlow - MiddleGround.width / 2 + screenWidth / 2),
+        Math.round(canvas.height / 2 - ySlow - MiddleGround.height / 2 + screenHeight / 2)
       );
       ctx.drawImage(
         GameBackground,
-        canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2,
-        canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2
+        Math.round(canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2),
+        Math.round(canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2)
       );
-      // if (screenWidth < 1024) {
-      //   ctx.rect(rectUp.x, rectUp.y, rectUp.width, rectUp.height);
-      //   ctx.rect(rectDown.x, rectDown.y, rectDown.width, rectDown.height);
-      //   ctx.rect(rectRight.x, rectRight.y, rectRight.width, rectRight.height);
-      //   ctx.rect(rectLeft.x, rectLeft.y, rectLeft.width, rectLeft.height);
-      //   ctx.fillStyle = 'rgba(225,225,225,0.5)';
-      //   ctx.fill();
-      //   ctx.stroke();
-      //   ctx.closePath();
-      // }
-      //left portal
       if (
         x < canvas.width / 2 - 939 &&
         y > canvas.height / 2 - 60 &&
