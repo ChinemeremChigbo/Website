@@ -1,7 +1,6 @@
 import React from 'react';
 import './Game.scss';
 import $ from 'jquery';
-import { Link, Redirect, useHistory } from 'react-router-dom';
 
 export default function Game() {
   $(function () {
@@ -78,76 +77,53 @@ export default function Game() {
       './player/Swimming/6.png',
       './player/Swimming/7.png',
     ];
-    var lastDownTarget;
-
+    //Desktop key detection
     document.body.addEventListener('keydown', function (e) {
       keys[e.key] = true;
     });
     document.body.addEventListener('keyup', function (e) {
       keys[e.key] = false;
     });
-    // document.body.addEventListener(
-    //   'touchstart',
-    //   function (e) {
-    //     var mousePos = getMousePos(canvas, e);
-    //     if (isInside(mousePos, rectRight)) {
-    //       keys['ArrowRight'] = true;
-    //     }
-    //     if (isInside(mousePos, rectLeft)) {
-    //       keys['ArrowLeft'] = true;
-    //     }
-    //     if (isInside(mousePos, rectUp)) {
-    //       keys['ArrowUp'] = true;
-    //     }
-    //     if (isInside(mousePos, rectDown)) {
-    //       keys['ArrowDown'] = true;
-    //     }
-    //   },
-    //   false
-    // );
-    // document.body.addEventListener(
-    //   'touchend',
-    //   function (e) {
-    //     var mousePos = getMousePos(canvas, e);
-    //     alert(mousePos);
-    //     if (isInside(mousePos, rectRight)) {
-    //       keys['ArrowRight'] = false;
-    //     }
-    //     if (isInside(mousePos, rectLeft)) {
-    //       keys['ArrowLeft'] = false;
-    //     }
-    //     if (isInside(mousePos, rectUp)) {
-    //       keys['ArrowUp'] = false;
-    //     }
-    //     if (isInside(mousePos, rectDown)) {
-    //       keys['ArrowDown'] = false;
-    //     }
-    //   },
-    //   false
-    // );
-    var touchStartPositionX;
-    var touchStartPositionY;
+
+    //Mobile press detection
+    var touchStartPositionX1;
+    var touchStartPositionY1;
+    var touchStartPositionX2;
+    var touchStartPositionY2;
     $(document).on('touchstart', function (e) {
-      touchStartPositionX = e.originalEvent.touches[0].clientX;
-      touchStartPositionY = e.originalEvent.touches[0].clientY;
+      touchStartPositionX1 = e.originalEvent.touches[0].clientX;
+      touchStartPositionY1 = e.originalEvent.touches[0].clientY;
+      if (typeof e.originalEvent.touches[1] !== 'undefined') {
+        touchStartPositionX2 = e.originalEvent.touches[1].clientX;
+        touchStartPositionY2 = e.originalEvent.touches[1].clientY;
+      }
       if (
-        touchStartPositionX > screenWidth / 2 &&
-        touchStartPositionY > screenHeight / 4 &&
-        touchStartPositionY < screenHeight - screenHeight / 4
+        (touchStartPositionX1 > screenWidth / 2 &&
+          touchStartPositionY1 > screenHeight / 4 &&
+          touchStartPositionY1 < screenHeight - screenHeight / 4) ||
+        (touchStartPositionX2 > screenWidth / 2 &&
+          touchStartPositionY2 > screenHeight / 4 &&
+          touchStartPositionY2 < screenHeight - screenHeight / 4)
       ) {
         keys['ArrowRight'] = true;
       }
       if (
-        touchStartPositionX <= screenWidth / 2 &&
-        touchStartPositionY > screenHeight / 4 &&
-        touchStartPositionY < screenHeight - screenHeight / 4
+        (touchStartPositionX1 <= screenWidth / 2 &&
+          touchStartPositionY1 > screenHeight / 4 &&
+          touchStartPositionY1 < screenHeight - screenHeight / 4) ||
+        (touchStartPositionX2 <= screenWidth / 2 &&
+          touchStartPositionY2 > screenHeight / 4 &&
+          touchStartPositionY2 < screenHeight - screenHeight / 4)
       ) {
         keys['ArrowLeft'] = true;
       }
-      if (touchStartPositionY <= screenHeight / 4) {
+      if (touchStartPositionY1 <= screenHeight / 4 || touchStartPositionY2 <= screenHeight / 4) {
         keys['ArrowUp'] = true;
       }
-      if (touchStartPositionY >= screenHeight - screenHeight / 4) {
+      if (
+        touchStartPositionY1 >= screenHeight - screenHeight / 4 ||
+        touchStartPositionY2 >= screenHeight - screenHeight / 4
+      ) {
         keys['ArrowDown'] = true;
       }
     });
