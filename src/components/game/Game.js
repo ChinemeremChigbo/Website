@@ -91,10 +91,17 @@ export default function Game() {
     $(document).on('touchstart', function (e) {
       touchStartPositionX = e.originalEvent.touches[0].clientX;
       touchStartPositionY = e.originalEvent.touches[0].clientY;
-      if (touchStartPositionX > screenWidth / 2) {
+      if (
+        touchStartPositionX > screenWidth / 2 &&
+        touchStartPositionY > screenHeight / 3 &&
+        touchStartPositionY < screenHeight - screenHeight / 3
+      ) {
         keys['ArrowRight'] = true;
       }
-      if (touchStartPositionX <= screenWidth / 2) {
+      if (touchStartPositionX > screenWidth - screenWidth / 3) {
+        keys['ArrowRight'] = true;
+      }
+      if (touchStartPositionX < screenWidth / 3) {
         keys['ArrowLeft'] = true;
       }
       if (touchStartPositionY <= screenHeight / 3) {
