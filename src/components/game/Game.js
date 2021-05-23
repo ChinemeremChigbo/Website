@@ -11,7 +11,7 @@ export default function Game() {
     let screenWidth = $(window).width();
 
     let navigateOnce = true;
-    let screenSizePadding = 1000;
+    let screenSizePadding = 500;
     canvas.width = 1880 + screenSizePadding;
     canvas.height = 700 + screenSizePadding;
     let x = canvas.width / 2,
