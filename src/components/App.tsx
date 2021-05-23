@@ -1,7 +1,6 @@
 import React from 'react';
 import Home from './home/Home';
 import Game from './game/Game';
-// import CustomCursor from './game/Game';
 import Contact from './contact/Contact';
 import About from './about/About';
 import Experience from './experience/Experience';
