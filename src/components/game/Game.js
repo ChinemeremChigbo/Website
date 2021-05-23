@@ -99,21 +99,21 @@ export default function Game() {
       }
       if (
         (touchStartPositionX1 > screenWidth / 2 &&
-          touchStartPositionY1 > screenHeight / 4 &&
-          touchStartPositionY1 < screenHeight - screenHeight / 4) ||
+          touchStartPositionY1 > screenHeight / 3 &&
+          touchStartPositionY1 < screenHeight - screenHeight / 3) ||
         (touchStartPositionX2 > screenWidth / 2 &&
-          touchStartPositionY2 > screenHeight / 4 &&
-          touchStartPositionY2 < screenHeight - screenHeight / 4)
+          touchStartPositionY2 > screenHeight / 3 &&
+          touchStartPositionY2 < screenHeight - screenHeight / 3)
       ) {
         keys['ArrowRight'] = true;
       }
       if (
         (touchStartPositionX1 <= screenWidth / 2 &&
-          touchStartPositionY1 > screenHeight / 4 &&
-          touchStartPositionY1 < screenHeight - screenHeight / 4) ||
+          touchStartPositionY1 > screenHeight / 3 &&
+          touchStartPositionY1 < screenHeight - screenHeight / 3) ||
         (touchStartPositionX2 <= screenWidth / 2 &&
-          touchStartPositionY2 > screenHeight / 4 &&
-          touchStartPositionY2 < screenHeight - screenHeight / 4)
+          touchStartPositionY2 > screenHeight / 3 &&
+          touchStartPositionY2 < screenHeight - screenHeight / 3)
       ) {
         keys['ArrowLeft'] = true;
       }
@@ -121,8 +121,8 @@ export default function Game() {
         keys['ArrowUp'] = true;
       }
       if (
-        touchStartPositionY1 >= screenHeight - screenHeight / 4 ||
-        touchStartPositionY2 >= screenHeight - screenHeight / 4
+        touchStartPositionY1 >= screenHeight - screenHeight / 3 ||
+        touchStartPositionY2 >= screenHeight - screenHeight / 3
       ) {
         keys['ArrowDown'] = true;
       }
