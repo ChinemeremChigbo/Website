@@ -292,17 +292,12 @@ export default function Game() {
       } else {
         backgroundMovementY = true;
       }
-<<<<<<< HEAD
       ctx.clearRect(0, 0, canvas.width, canvas.width);
       /*Drawing the Background, Midground, and Foreground for the game
       these are positioned in the center of the users screen and need to move in the opposite direction that
       the user presses (the x and y in the 2nd and 3rd draw image) the first draw image is stationary.
       Keep in mind, that the character does not actually move, just the background and foreground.
       */
-=======
-
-      ctx.clearRect(0, 0, canvas.width, canvas.width);
->>>>>>> parent of 2fa3179 (Revamped backgrounds and commented on game)
       var Background = new Image();
       Background.src = 'Background.png';
       var MiddleGround = new Image();
