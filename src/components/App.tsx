@@ -4,6 +4,7 @@ import Game from './game/Game';
 import Contact from './contact/Contact';
 import About from './about/About';
 import Experience from './experience/Experience';
+import Error from './Error/Error';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
         </Route>
         <Route exact path="/experience">
           <Experience />
+        </Route>
+        <Route>
+          <Error />
         </Route>
       </Switch>
     </Router>

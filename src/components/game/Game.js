@@ -200,6 +200,8 @@ export default function Game() {
       MiddleGround.src = 'MiddleGround.png';
       var GameBackground = new Image();
       GameBackground.src = 'GameBackground.png';
+      var Fish1 = new Image();
+      Fish1.src = 'GameBackground.png';
       ctx.drawImage(
         Background,
         Math.floor(screenWidth / 2 - Background.width / 2),
@@ -209,6 +211,11 @@ export default function Game() {
         MiddleGround,
         Math.floor(canvas.width / 2 - xSlow - MiddleGround.width / 2 + screenWidth / 2),
         Math.floor(canvas.height / 2 - ySlow - MiddleGround.height / 2 + screenHeight / 2)
+      );
+      ctx.drawImage(
+        GameBackground,
+        Math.floor(canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2),
+        Math.floor(canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2)
       );
       ctx.drawImage(
         GameBackground,
