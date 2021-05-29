@@ -91,8 +91,10 @@ export default function Game() {
     let Fish11Y = -100;
     let Fish11StartX = -100;
     let Fish11StartY = -100;
-    const Fish11SpeedX = 1;
-    const Fish11SpeedY = 1;
+    const Fish11SpeedX = 0.1;
+    const Fish11SpeedY = 0.1;
+    let Fish11VelocityX = 0.1;
+    let Fish11VelocityY = 0.1;
 
     //Desktop key detection
     document.body.addEventListener('keydown', function (e) {
@@ -226,14 +228,17 @@ export default function Game() {
         );
 
       //Fish Movement
-      if (Fish11X > Fish11DestinationX + 5 || Fish11X < Fish11DestinationX - 5) {
-        Fish11X += NormaliseFishX * Fish11SpeedX;
-        // console.log(NormaliseFishX, NormaliseFishY);
+      if (Fish11X < Fish11DestinationX) {
+        Fish11X += Math.ceil(Math.abs(NormaliseFishX) * Fish11SpeedX);
+      } else if (Fish11X > Fish11DestinationX) {
+        Fish11X -= Math.ceil(Math.abs(NormaliseFishX) * Fish11SpeedX);
       }
-      if (Fish11Y > Fish11DestinationY + 5 || Fish11X < Fish11DestinationY - 5) {
-        Fish11Y += NormaliseFishY * Fish11SpeedY;
+      if (Fish11Y < Fish11DestinationY) {
+        Fish11Y += Math.ceil(Math.abs(NormaliseFishY) * Fish11SpeedY);
+      } else if (Fish11Y > Fish11DestinationY) {
+        Fish11Y -= Math.ceil(Math.abs(NormaliseFishY) * Fish11SpeedY);
       }
-      console.log(x, y);
+      // console.log(x, y);
       ctx.clearRect(0, 0, canvas.width, canvas.width);
       /*Drawing the Background, Midground, and Foreground for the game
       these are positioned in the center of the users screen and need to move in the opposite direction that
