@@ -91,10 +91,12 @@ export default function Game() {
     let Fish11Y = -100;
     let Fish11StartX = -100;
     let Fish11StartY = -100;
-    const Fish11SpeedX = 0.1;
-    const Fish11SpeedY = 0.1;
-    let Fish11VelocityX = 0.1;
-    let Fish11VelocityY = 0.1;
+    const Fish11MaxSpeedX = 0.5;
+    const Fish11MaxSpeedY = 0.5;
+    const FishSpeedIncrement = 0.1;
+    let Fish11VelocityX = 0;
+    let Fish11VelocityY = 0;
+    let Fish11Friction = 0.95;
 
     //Desktop key detection
     document.body.addEventListener('keydown', function (e) {
@@ -178,11 +180,9 @@ export default function Game() {
       }
       velY *= friction;
       y += velY;
-      // Fish11DestinationY += velY;
 
       velX *= friction;
       x += velX;
-      // Fish11DestinationX += velX;
 
       if (backgroundMovementX) {
         xSlow += velX * 0.5;
@@ -229,15 +229,30 @@ export default function Game() {
 
       //Fish Movement
       if (Fish11X < Fish11DestinationX) {
-        Fish11X += Math.ceil(Math.abs(NormaliseFishX) * Fish11SpeedX);
+        if (Fish11VelocityX < Fish11MaxSpeedX) {
+          Fish11VelocityX += Math.abs(NormaliseFishX) * FishSpeedIncrement;
+        }
       } else if (Fish11X > Fish11DestinationX) {
-        Fish11X -= Math.ceil(Math.abs(NormaliseFishX) * Fish11SpeedX);
+        if (Fish11VelocityX > -Fish11MaxSpeedX) {
+          Fish11VelocityX -= Math.abs(NormaliseFishX) * FishSpeedIncrement;
+        }
       }
       if (Fish11Y < Fish11DestinationY) {
-        Fish11Y += Math.ceil(Math.abs(NormaliseFishY) * Fish11SpeedY);
+        if (Fish11VelocityY < Fish11MaxSpeedY) {
+          Fish11VelocityY += Math.abs(NormaliseFishY) * FishSpeedIncrement;
+        }
       } else if (Fish11Y > Fish11DestinationY) {
-        Fish11Y -= Math.ceil(Math.abs(NormaliseFishY) * Fish11SpeedY);
+        if (Fish11VelocityY > -Fish11MaxSpeedY) {
+          Fish11VelocityY -= Math.abs(NormaliseFishY) * FishSpeedIncrement;
+        }
       }
+
+      Fish11VelocityY *= Fish11Friction;
+      Fish11Y += Fish11VelocityY;
+
+      Fish11VelocityX *= Fish11Friction;
+      Fish11X += Fish11VelocityX;
+
       // console.log(x, y);
       ctx.clearRect(0, 0, canvas.width, canvas.width);
       /*Drawing the Background, Midground, and Foreground for the game
