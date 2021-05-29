@@ -77,6 +77,23 @@ export default function Game() {
       './player/Swimming/6.png',
       './player/Swimming/7.png',
     ];
+
+    var Background = new Image();
+    Background.src = 'Background.png';
+    var MiddleGround = new Image();
+    MiddleGround.src = 'MiddleGround.png';
+    var GameBackground = new Image();
+    GameBackground.src = 'GameBackground.png';
+    var Fish11 = new Image();
+    Fish11.src = 'Fish11.png';
+
+    let Fish11X = -100;
+    let Fish11Y = -100;
+    let Fish11StartX = -100;
+    let Fish11StartY = -100;
+    const Fish11SpeedX = 1;
+    const Fish11SpeedY = 1;
+
     //Desktop key detection
     document.body.addEventListener('keydown', function (e) {
       keys[e.key] = true;
@@ -159,9 +176,12 @@ export default function Game() {
       }
       velY *= friction;
       y += velY;
+      // Fish11DestinationY += velY;
 
       velX *= friction;
       x += velX;
+      // Fish11DestinationX += velX;
+
       if (backgroundMovementX) {
         xSlow += velX * 0.5;
       }
@@ -188,20 +208,39 @@ export default function Game() {
       } else {
         backgroundMovementY = true;
       }
+
+      let Fish11DestinationX = Math.floor(0 + x - canvas.width / 2);
+      let Fish11DestinationY = Math.floor(0 + y - canvas.height / 2);
+
+      let NormaliseFishX =
+        (Fish11DestinationX - Fish11StartX) /
+        Math.sqrt(
+          (Fish11DestinationX - Fish11StartX) * (Fish11DestinationX - Fish11StartX) +
+            (Fish11DestinationY - Fish11StartY) * (Fish11DestinationY - Fish11StartY)
+        );
+      let NormaliseFishY =
+        (Fish11DestinationY - Fish11StartY) /
+        Math.sqrt(
+          (Fish11DestinationX - Fish11StartX) * (Fish11DestinationX - Fish11StartX) +
+            (Fish11DestinationY - Fish11StartY) * (Fish11DestinationY - Fish11StartY)
+        );
+
+      //Fish Movement
+      if (Fish11X > Fish11DestinationX + 5 || Fish11X < Fish11DestinationX - 5) {
+        Fish11X += NormaliseFishX * Fish11SpeedX;
+        // console.log(NormaliseFishX, NormaliseFishY);
+      }
+      if (Fish11Y > Fish11DestinationY + 5 || Fish11X < Fish11DestinationY - 5) {
+        Fish11Y += NormaliseFishY * Fish11SpeedY;
+      }
+      console.log(x, y);
       ctx.clearRect(0, 0, canvas.width, canvas.width);
       /*Drawing the Background, Midground, and Foreground for the game
       these are positioned in the center of the users screen and need to move in the opposite direction that
       the user presses (the x and y in the 2nd and 3rd draw image) the first draw image is stationary.
       Keep in mind, that the character does not actually move, just the background and foreground.
       */
-      var Background = new Image();
-      Background.src = 'Background.png';
-      var MiddleGround = new Image();
-      MiddleGround.src = 'MiddleGround.png';
-      var GameBackground = new Image();
-      GameBackground.src = 'GameBackground.png';
-      var Fish1 = new Image();
-      Fish1.src = 'GameBackground.png';
+
       ctx.drawImage(
         Background,
         Math.floor(screenWidth / 2 - Background.width / 2),
@@ -218,10 +257,11 @@ export default function Game() {
         Math.floor(canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2)
       );
       ctx.drawImage(
-        GameBackground,
-        Math.floor(canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2),
-        Math.floor(canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2)
+        Fish11,
+        Math.floor(canvas.width / 2 - x - Fish11.width / 2 + screenWidth / 2 + Fish11X),
+        Math.floor(canvas.height / 2 - y - Fish11.height / 2 + screenHeight / 2 + Fish11Y)
       );
+
       //left portal
       if (
         x < canvas.width / 2 - 939 &&
