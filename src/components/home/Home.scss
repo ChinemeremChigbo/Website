@@ -59,13 +59,13 @@ body {
 }
 @keyframes animateColor {
   0% {
-    filter: hue-rotate(45deg);
+    filter: hue-rotate(90deg);
   }
   50% {
-    filter: hue-rotate(-45deg);
+    filter: hue-rotate(-90deg);
   }
   100% {
-    filter: hue-rotate(45deg);
+    filter: hue-rotate(90deg);
   }
 }
 .name {
@@ -434,7 +434,6 @@ body {
   background-size: 130%;
   image-rendering: pixelated;
   background-position: 50% 8%;
-
 }
 
 .settingsLinkedIn {
@@ -674,7 +673,7 @@ body {
   height: auto;
   min-height: 85px;
   min-width: 85px;
-  
+
   background: url('../../assets/StartY.png') no-repeat;
   background-size: contain;
   background-position: center;
@@ -749,9 +748,8 @@ body {
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
   flex-wrap: wrap;
-
 }
-.other{
+.other {
   z-index: 2;
 
   transition: 2s ease-in-out;
