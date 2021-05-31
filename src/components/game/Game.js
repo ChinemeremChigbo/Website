@@ -222,7 +222,7 @@ export default function Game() {
         Math.floor(canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2),
         Math.floor(canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2)
       );
-      //left portal
+      //left portal (Home)
       if (
         x < canvas.width / 2 - 939 &&
         y > canvas.height / 2 - 60 &&
