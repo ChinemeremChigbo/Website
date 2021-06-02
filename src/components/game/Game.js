@@ -115,13 +115,21 @@ export default function Game() {
     $(document).on('touchstart', function (e) {
       touchStartPositionX = e.originalEvent.touches[0].clientX;
       touchStartPositionY = e.originalEvent.touches[0].clientY;
+      let touchStartPositionXRelative = screenWidth / 2 - touchStartPositionX;
+      let touchStartPositionYRelative = screenHeight / 2 - touchStartPositionY;
       // alert(touchStartPositionX, touchStartPositionY);
       NormalisePlayerX =
-        (screenWidth / 2 - touchStartPositionX) /
-        Math.sqrt(touchStartPositionX * touchStartPositionX + touchStartPositionY * touchStartPositionY);
+        touchStartPositionXRelative /
+        Math.sqrt(
+          touchStartPositionXRelative * touchStartPositionXRelative +
+            touchStartPositionYRelative * touchStartPositionYRelative
+        );
       NormalisePlayerY =
-        (screenHeight / 2 - touchStartPositionY) /
-        Math.sqrt(touchStartPositionX * touchStartPositionX + touchStartPositionY * touchStartPositionY);
+        touchStartPositionYRelative /
+        Math.sqrt(
+          touchStartPositionXRelative * touchStartPositionXRelative +
+            touchStartPositionYRelative * touchStartPositionYRelative
+        );
       if (Math.abs(velX) < Math.abs(maxSpeedX)) {
         velX -= NormalisePlayerX * 5;
       }
