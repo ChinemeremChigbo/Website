@@ -109,34 +109,29 @@ export default function Game() {
     //Mobile press detection
     var touchStartPositionX;
     var touchStartPositionY;
+    var NormalisePlayerX;
+    var NormalisePlayerY;
+
     $(document).on('touchstart', function (e) {
       touchStartPositionX = e.originalEvent.touches[0].clientX;
       touchStartPositionY = e.originalEvent.touches[0].clientY;
-      if (
-        touchStartPositionX > screenWidth / 2 &&
-        touchStartPositionY > screenHeight / 3 &&
-        touchStartPositionY < screenHeight - screenHeight / 3
-      ) {
-        keys['ArrowRight'] = true;
+      // alert(touchStartPositionX, touchStartPositionY);
+      NormalisePlayerX =
+        (screenWidth / 2 - touchStartPositionX) /
+        Math.sqrt(touchStartPositionX * touchStartPositionX + touchStartPositionY * touchStartPositionY);
+      NormalisePlayerY =
+        (screenHeight / 2 - touchStartPositionY) /
+        Math.sqrt(touchStartPositionX * touchStartPositionX + touchStartPositionY * touchStartPositionY);
+      if (Math.abs(velX) < Math.abs(maxSpeedX)) {
+        velX -= NormalisePlayerX * 5;
       }
-      if (touchStartPositionX > screenWidth - screenWidth / 3) {
-        keys['ArrowRight'] = true;
-      }
-      if (touchStartPositionX < screenWidth / 3) {
-        keys['ArrowLeft'] = true;
-      }
-      if (touchStartPositionY <= screenHeight / 3) {
-        keys['ArrowUp'] = true;
-      }
-      if (touchStartPositionY >= screenHeight - screenHeight / 3) {
-        keys['ArrowDown'] = true;
+      if (Math.abs(velY) < Math.abs(maxSpeedY)) {
+        velY -= NormalisePlayerY * 5;
       }
     });
     $(document).on('touchend', function (e) {
-      keys['ArrowRight'] = false;
-      keys['ArrowLeft'] = false;
-      keys['ArrowUp'] = false;
-      keys['ArrowDown'] = false;
+      velX *= friction;
+      velY *= friction;
     });
 
     function Update() {
@@ -276,11 +271,11 @@ export default function Game() {
         Math.floor(canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2),
         Math.floor(canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2)
       );
-      ctx.drawImage(
-        Fish11,
-        Math.floor(canvas.width / 2 - x - Fish11.width / 2 + screenWidth / 2 + Fish11X),
-        Math.floor(canvas.height / 2 - y - Fish11.height / 2 + screenHeight / 2 + Fish11Y)
-      );
+      // ctx.drawImage(
+      //   Fish11,
+      //   Math.floor(canvas.width / 2 - x - Fish11.width / 2 + screenWidth / 2 + Fish11X),
+      //   Math.floor(canvas.height / 2 - y - Fish11.height / 2 + screenHeight / 2 + Fish11Y)
+      // );
 
       //left portal
       if (
