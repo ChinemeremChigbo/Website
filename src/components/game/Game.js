@@ -110,50 +110,31 @@ export default function Game() {
     //Mobile press detection
     var touchStartPositionX;
     var touchStartPositionY;
+    var touchStartPositionXRelative;
+    var touchStartPositionYRelative;
     //Mobile initial touch detection
-    $(document).on('touchmove', function (e) {
-      touchStartPositionX = e.originalEvent.touches[0].clientX;
-      touchStartPositionY = e.originalEvent.touches[0].clientY;
-      let touchStartPositionXRelative = screenWidth / 2 - touchStartPositionX;
-      let touchStartPositionYRelative = screenHeight / 2 - touchStartPositionY;
-      NormalisePlayerX =
-        touchStartPositionXRelative /
-        Math.sqrt(
-          touchStartPositionXRelative * touchStartPositionXRelative +
-            touchStartPositionYRelative * touchStartPositionYRelative
-        );
-      NormalisePlayerY =
-        touchStartPositionYRelative /
-        Math.sqrt(
-          touchStartPositionXRelative * touchStartPositionXRelative +
-            touchStartPositionYRelative * touchStartPositionYRelative
-        );
-      if (Math.abs(velX) < Math.abs(maxSpeedX)) {
-        velX -= (NormalisePlayerX * speedIncrement) / 5;
-      }
-      if (Math.abs(velY) < Math.abs(maxSpeedY)) {
-        velY -= (NormalisePlayerY * speedIncrement) / 5;
-      }
-    });
-
-    $(document).on('touchstart', function (e) {
-      touchStartPositionX = e.originalEvent.touches[0].clientX;
-      touchStartPositionY = e.originalEvent.touches[0].clientY;
-      let touchStartPositionXRelative = screenWidth / 2 - touchStartPositionX;
-      let touchStartPositionYRelative = screenHeight / 2 - touchStartPositionY;
-      NormalisePlayerX =
-        touchStartPositionXRelative /
-        Math.sqrt(
-          touchStartPositionXRelative * touchStartPositionXRelative +
-            touchStartPositionYRelative * touchStartPositionYRelative
-        );
-      NormalisePlayerY =
-        touchStartPositionYRelative /
-        Math.sqrt(
-          touchStartPositionXRelative * touchStartPositionXRelative +
-            touchStartPositionYRelative * touchStartPositionYRelative
-        );
-    });
+    function Touch(touchtype) {
+      $(document).on(touchtype, function (e) {
+        touchStartPositionX = e.originalEvent.touches[0].clientX;
+        touchStartPositionY = e.originalEvent.touches[0].clientY;
+        touchStartPositionXRelative = screenWidth / 2 - touchStartPositionX;
+        touchStartPositionYRelative = screenHeight / 2 - touchStartPositionY;
+        NormalisePlayerX =
+          touchStartPositionXRelative /
+          Math.sqrt(
+            touchStartPositionXRelative * touchStartPositionXRelative +
+              touchStartPositionYRelative * touchStartPositionYRelative
+          );
+        NormalisePlayerY =
+          touchStartPositionYRelative /
+          Math.sqrt(
+            touchStartPositionXRelative * touchStartPositionXRelative +
+              touchStartPositionYRelative * touchStartPositionYRelative
+          );
+      });
+    }
+    Touch('touchstart');
+    Touch('touchmove');
 
     //Slow Velocity on release
     $(document).on('touchend', function (e) {
@@ -163,8 +144,6 @@ export default function Game() {
 
     function Update() {
       requestAnimationFrame(Update);
-      velX -= NormalisePlayerX * speedIncrement;
-      velY -= NormalisePlayerY * speedIncrement;
       PlayerFast[FastFrame] = new Image();
       PlayerFast[FastFrame].src = Fast[FastFrame];
       PlayerHurt[HurtFrame] = new Image();
@@ -176,6 +155,13 @@ export default function Game() {
       PlayerSwimming[SwimmingFrame] = new Image();
       PlayerSwimming[SwimmingFrame].src = Swimming[SwimmingFrame];
 
+      //Mobile Movement
+      if (Math.abs(velX) < Math.abs(maxSpeedX)) {
+        velX -= NormalisePlayerX * speedIncrement;
+      }
+      if (Math.abs(velY) < Math.abs(maxSpeedY)) {
+        velY -= NormalisePlayerY * speedIncrement;
+      }
       //Background Movement
       //Up or W
       if (keys['ArrowUp'] || keys['w']) {
