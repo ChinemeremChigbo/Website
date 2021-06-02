@@ -59,13 +59,13 @@ body {
 }
 @keyframes animateColor {
   0% {
-    filter: hue-rotate(90deg);
+    filter: hue-rotate(0deg);
   }
   50% {
     filter: hue-rotate(-90deg);
   }
   100% {
-    filter: hue-rotate(90deg);
+    filter: hue-rotate(0deg);
   }
 }
 .name {
