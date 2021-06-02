@@ -117,7 +117,6 @@ export default function Game() {
       touchStartPositionY = e.originalEvent.touches[0].clientY;
       let touchStartPositionXRelative = screenWidth / 2 - touchStartPositionX;
       let touchStartPositionYRelative = screenHeight / 2 - touchStartPositionY;
-      // alert(touchStartPositionX, touchStartPositionY);
       NormalisePlayerX =
         touchStartPositionXRelative /
         Math.sqrt(
