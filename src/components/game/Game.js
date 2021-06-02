@@ -111,6 +111,7 @@ export default function Game() {
     var touchStartPositionY;
     var NormalisePlayerX;
     var NormalisePlayerY;
+
     //Mobile initial touch detection
     $(document).on('touchstart', function (e) {
       touchStartPositionX = e.originalEvent.touches[0].clientX;
