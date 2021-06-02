@@ -8,7 +8,6 @@ export default function Game() {
       ctx = canvas.getContext('2d');
     let screenHeight = $(window).height();
     let screenWidth = $(window).width();
-
     let navigateOnce = true;
     let screenSizePadding = 500;
     canvas.width = 1880 + screenSizePadding;
@@ -144,6 +143,8 @@ export default function Game() {
 
     function Update() {
       requestAnimationFrame(Update);
+      screenHeight = $(window).height();
+      screenWidth = $(window).width();
       PlayerFast[FastFrame] = new Image();
       PlayerFast[FastFrame].src = Fast[FastFrame];
       PlayerHurt[HurtFrame] = new Image();
@@ -380,6 +381,7 @@ export default function Game() {
           IdleFrame++;
         }
       }
+
       requestAnimationFrame(PlayerMovement);
     }
     requestAnimationFrame(PlayerMovement);
