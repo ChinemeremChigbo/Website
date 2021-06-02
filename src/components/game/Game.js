@@ -111,7 +111,7 @@ export default function Game() {
     var touchStartPositionY;
     var NormalisePlayerX;
     var NormalisePlayerY;
-
+    //Mobile initial touch detection
     $(document).on('touchstart', function (e) {
       touchStartPositionX = e.originalEvent.touches[0].clientX;
       touchStartPositionY = e.originalEvent.touches[0].clientY;
@@ -137,6 +137,7 @@ export default function Game() {
         velY -= NormalisePlayerY * 5;
       }
     });
+    //Slow Velocity on release
     $(document).on('touchend', function (e) {
       velX *= friction;
       velY *= friction;
