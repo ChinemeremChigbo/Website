@@ -143,8 +143,10 @@ export default function Game() {
 
     function Update() {
       requestAnimationFrame(Update);
+      //Frequently Update Screen Size
       screenHeight = $(window).height();
       screenWidth = $(window).width();
+      //Player SpriteSheet
       PlayerFast[FastFrame] = new Image();
       PlayerFast[FastFrame].src = Fast[FastFrame];
       PlayerHurt[HurtFrame] = new Image();
