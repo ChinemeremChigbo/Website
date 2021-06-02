@@ -4,54 +4,67 @@ import $ from 'jquery';
 
 export default function Game() {
   $(function () {
-    let canvas = document.getElementById('canvas'),
-      ctx = canvas.getContext('2d');
+    //Canvas Properties
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const screenSizePadding = 500;
+    canvas.width = 1880 + screenSizePadding;
+    canvas.height = 700 + screenSizePadding;
     let screenHeight = $(window).height();
     let screenWidth = $(window).width();
     let navigateOnce = true;
-    let screenSizePadding = 500;
-    canvas.width = 1880 + screenSizePadding;
-    canvas.height = 700 + screenSizePadding;
-    let x = canvas.width / 2,
-      y = canvas.height / 2,
-      xSlow = canvas.width / 2,
-      ySlow = canvas.height / 2,
-      velY = 0,
-      velX = 0,
-      maxSpeedX = 3,
-      maxSpeedY = 2,
-      speedIncrement = 0.1,
-      friction = 0.99,
-      backgroundMovementX = true,
-      backgroundMovementY = true,
-      keys = [];
+    //Fish Properties
+    let Fish11X = -100;
+    let Fish11Y = -100;
+    let Fish11VelocityX = 0;
+    let Fish11VelocityY = 0;
+    const Fish11StartX = -100;
+    const Fish11StartY = -100;
+    const Fish11MaxSpeedX = 0.5;
+    const Fish11MaxSpeedY = 0.5;
+    const FishSpeedIncrement = 0.1;
+    const Fish11Friction = 0.99;
+    //Player Properties
+    let x = canvas.width / 2;
+    let y = canvas.height / 2;
+    let xSlow = canvas.width / 2;
+    let ySlow = canvas.height / 2;
+    let velY = 0;
+    let velX = 0;
+    const maxSpeedX = 3;
+    const maxSpeedY = 3;
+    const speedIncrement = 0.1;
+    const friction = 0.99;
+    let backgroundMovementX = true;
+    let backgroundMovementY = true;
     let NormalisePlayerX = 0;
     let NormalisePlayerY = 0;
-    var PlayerFast = [];
-    var FastFrame = 0;
-    var PlayerHurt = [];
-    var HurtFrame = 0;
-    var PlayerIdle = [];
-    var IdleFrame = 0;
-    var PlayerRush = [];
-    var RushFrame = 0;
-    var PlayerSwimming = [];
-    var SwimmingFrame = 0;
-    var Fast = [
+    const keys = [];
+    const PlayerFast = [];
+    const FastFrame = 0;
+    const PlayerHurt = [];
+    const HurtFrame = 0;
+    const PlayerIdle = [];
+    let IdleFrame = 0;
+    const PlayerRush = [];
+    const RushFrame = 0;
+    const PlayerSwimming = [];
+    let SwimmingFrame = 0;
+    const Fast = [
       './player/Fast/1.png',
       './player/Fast/2.png',
       './player/Fast/3.png',
       './player/Fast/4.png',
       './player/Fast/5.png',
     ];
-    var Hurt = [
+    const Hurt = [
       './player/Hurt/1.png',
       './player/Hurt/2.png',
       './player/Hurt/3.png',
       './player/Hurt/4.png',
       './player/Hurt/5.png',
     ];
-    var Idle = [
+    const Idle = [
       './player/Idle/1.png',
       './player/Idle/2.png',
       './player/Idle/3.png',
@@ -59,7 +72,7 @@ export default function Game() {
       './player/Idle/5.png',
       './player/Idle/6.png',
     ];
-    var Rush = [
+    const Rush = [
       './player/Rush/1.png',
       './player/Rush/2.png',
       './player/Rush/3.png',
@@ -68,7 +81,7 @@ export default function Game() {
       './player/Rush/6.png',
       './player/Rush/7.png',
     ];
-    var Swimming = [
+    const Swimming = [
       './player/Swimming/1.png',
       './player/Swimming/2.png',
       './player/Swimming/3.png',
@@ -77,26 +90,6 @@ export default function Game() {
       './player/Swimming/6.png',
       './player/Swimming/7.png',
     ];
-
-    var Background = new Image();
-    Background.src = 'Background.png';
-    var MiddleGround = new Image();
-    MiddleGround.src = 'MiddleGround.png';
-    var GameBackground = new Image();
-    GameBackground.src = 'GameBackground.png';
-    var Fish11 = new Image();
-    Fish11.src = 'Fish11.png';
-
-    let Fish11X = -100;
-    let Fish11Y = -100;
-    let Fish11StartX = -100;
-    let Fish11StartY = -100;
-    const Fish11MaxSpeedX = 0.5;
-    const Fish11MaxSpeedY = 0.5;
-    const FishSpeedIncrement = 0.1;
-    let Fish11VelocityX = 0;
-    let Fish11VelocityY = 0;
-    let Fish11Friction = 0.99;
 
     //Desktop key detection
     document.body.addEventListener('keydown', function (e) {
@@ -107,10 +100,10 @@ export default function Game() {
     });
 
     //Mobile press detection
-    var touchStartPositionX;
-    var touchStartPositionY;
-    var touchStartPositionXRelative;
-    var touchStartPositionYRelative;
+    let touchStartPositionX;
+    let touchStartPositionY;
+    let touchStartPositionXRelative;
+    let touchStartPositionYRelative;
     //Mobile initial touch detection
     function Touch(touchtype) {
       $(document).on(touchtype, function (e) {
@@ -135,18 +128,19 @@ export default function Game() {
     Touch('touchstart');
     Touch('touchmove');
 
-    //Slow Velocity on release
+    //Slow Velocity on mobile touch release
     $(document).on('touchend', function (e) {
       NormalisePlayerX = 0;
       NormalisePlayerY = 0;
     });
 
     function Update() {
+      //Recursively refresh in accordnce to device speed
       requestAnimationFrame(Update);
       //Frequently Update Screen Size
       screenHeight = $(window).height();
       screenWidth = $(window).width();
-      //Player SpriteSheet
+      //SpriteSheet
       PlayerFast[FastFrame] = new Image();
       PlayerFast[FastFrame].src = Fast[FastFrame];
       PlayerHurt[HurtFrame] = new Image();
@@ -157,6 +151,14 @@ export default function Game() {
       PlayerRush[RushFrame].src = Rush[RushFrame];
       PlayerSwimming[SwimmingFrame] = new Image();
       PlayerSwimming[SwimmingFrame].src = Swimming[SwimmingFrame];
+      const Background = new Image();
+      Background.src = 'Background.png';
+      const MiddleGround = new Image();
+      MiddleGround.src = 'MiddleGround.png';
+      const GameBackground = new Image();
+      GameBackground.src = 'GameBackground.png';
+      const Fish11 = new Image();
+      Fish11.src = 'Fish11.png';
 
       //Mobile Movement
       if (Math.abs(velX) < Math.abs(maxSpeedX)) {
@@ -190,12 +192,15 @@ export default function Game() {
           velX -= speedIncrement;
         }
       }
+
+      //Slow upon release
       velY *= friction;
       y += velY;
 
       velX *= friction;
       x += velX;
 
+      //Parallax background
       if (backgroundMovementX) {
         xSlow += velX * 0.5;
       }
@@ -203,36 +208,40 @@ export default function Game() {
         ySlow += velY * 0.5;
       }
 
+      //Stop when player hits edge in x-axis
       if (x >= canvas.width - screenSizePadding / 2) {
         x = canvas.width - screenSizePadding / 2;
         backgroundMovementX = false;
       } else if (x <= screenSizePadding / 2) {
         x = screenSizePadding / 2;
+        //Stop parallax background x-axis
         backgroundMovementX = false;
       } else {
         backgroundMovementX = true;
       }
 
+      //Stop when player hits edge in y-axis
       if (y > canvas.height - screenSizePadding / 2) {
         y = canvas.height - screenSizePadding / 2;
         backgroundMovementY = false;
       } else if (y <= screenSizePadding / 2) {
         y = screenSizePadding / 2;
+        //Stop parallax background y-axis
         backgroundMovementY = false;
       } else {
         backgroundMovementY = true;
       }
 
-      let Fish11DestinationX = Math.floor(0 + x - canvas.width / 2);
-      let Fish11DestinationY = Math.floor(0 + y - canvas.height / 2);
+      const Fish11DestinationX = Math.floor(0 + x - canvas.width / 2);
+      const Fish11DestinationY = Math.floor(0 + y - canvas.height / 2);
 
-      let NormaliseFishX =
+      const NormaliseFishX =
         (Fish11DestinationX - Fish11StartX) /
         Math.sqrt(
           (Fish11DestinationX - Fish11StartX) * (Fish11DestinationX - Fish11StartX) +
             (Fish11DestinationY - Fish11StartY) * (Fish11DestinationY - Fish11StartY)
         );
-      let NormaliseFishY =
+      const NormaliseFishY =
         (Fish11DestinationY - Fish11StartY) /
         Math.sqrt(
           (Fish11DestinationX - Fish11StartX) * (Fish11DestinationX - Fish11StartX) +
@@ -265,8 +274,8 @@ export default function Game() {
       Fish11VelocityX *= Fish11Friction;
       Fish11X += Fish11VelocityX;
 
-      // console.log(x, y);
       ctx.clearRect(0, 0, canvas.width, canvas.width);
+
       /*Drawing the Background, Midground, and Foreground for the game
       these are positioned in the center of the users screen and need to move in the opposite direction that
       the user presses (the x and y in the 2nd and 3rd draw image) the first draw image is stationary.
@@ -360,7 +369,7 @@ export default function Game() {
       ctx.restore();
     }
     function PlayerMovement() {
-      //Changing Play Sprites Based Off of Movement and Speed
+      //Changing player sprites based off of movement andspeed
       const swimToIdleThreshold = 0.8;
       if (velX > swimToIdleThreshold) {
         drawGif(PlayerSwimming, screenWidth / 2, screenHeight / 2, 1, 1, 0, 1.5, 100);

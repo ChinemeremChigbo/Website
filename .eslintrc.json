@@ -26,6 +26,10 @@
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "prefer-const": ["error", {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": false
+    }]
   }
 }
