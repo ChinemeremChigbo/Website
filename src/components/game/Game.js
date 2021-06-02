@@ -96,7 +96,7 @@ export default function Game() {
     const FishSpeedIncrement = 0.1;
     let Fish11VelocityX = 0;
     let Fish11VelocityY = 0;
-    let Fish11Friction = 0.95;
+    let Fish11Friction = 0.99;
 
     //Desktop key detection
     document.body.addEventListener('keydown', function (e) {
