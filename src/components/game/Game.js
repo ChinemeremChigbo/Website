@@ -50,6 +50,14 @@ export default function Game() {
     const RushFrame = 0;
     const PlayerSwimming = [];
     let SwimmingFrame = 0;
+    const Background = new Image();
+    Background.src = 'Background.png';
+    const MiddleGround = new Image();
+    MiddleGround.src = 'MiddleGround.png';
+    const GameBackground = new Image();
+    GameBackground.src = 'GameBackground.png';
+    const Fish11 = new Image();
+    Fish11.src = 'Fish11.png';
     const Fast = [
       './player/Fast/1.png',
       './player/Fast/2.png',
@@ -151,14 +159,6 @@ export default function Game() {
       PlayerRush[RushFrame].src = Rush[RushFrame];
       PlayerSwimming[SwimmingFrame] = new Image();
       PlayerSwimming[SwimmingFrame].src = Swimming[SwimmingFrame];
-      const Background = new Image();
-      Background.src = 'Background.png';
-      const MiddleGround = new Image();
-      MiddleGround.src = 'MiddleGround.png';
-      const GameBackground = new Image();
-      GameBackground.src = 'GameBackground.png';
-      const Fish11 = new Image();
-      Fish11.src = 'Fish11.png';
 
       //Mobile Movement
       if (Math.abs(velX) < Math.abs(maxSpeedX)) {
@@ -281,12 +281,12 @@ export default function Game() {
       the user presses (the x and y in the 2nd and 3rd draw image) the first draw image is stationary.
       Keep in mind, that the character does not actually move, just the background and foreground.
       */
-
       ctx.drawImage(
         Background,
         Math.floor(screenWidth / 2 - Background.width / 2),
         Math.floor(screenHeight / 2 - Background.height / 2)
       );
+
       ctx.drawImage(
         MiddleGround,
         Math.floor(canvas.width / 2 - xSlow - MiddleGround.width / 2 + screenWidth / 2),
