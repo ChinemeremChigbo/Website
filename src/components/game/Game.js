@@ -235,6 +235,7 @@ export default function Game() {
       const Fish11DestinationX = Math.floor(0 + x - canvas.width / 2);
       const Fish11DestinationY = Math.floor(0 + y - canvas.height / 2);
 
+      //Find vector between fish and target and convert to unit vector
       const NormaliseFishX =
         (Fish11DestinationX - Fish11StartX) /
         Math.sqrt(
@@ -274,34 +275,7 @@ export default function Game() {
       Fish11VelocityX *= Fish11Friction;
       Fish11X += Fish11VelocityX;
 
-      ctx.clearRect(0, 0, canvas.width, canvas.width);
-
-      /*Drawing the Background, Midground, and Foreground for the game
-      these are positioned in the center of the users screen and need to move in the opposite direction that
-      the user presses (the x and y in the 2nd and 3rd draw image) the first draw image is stationary.
-      Keep in mind, that the character does not actually move, just the background and foreground.
-      */
-      ctx.drawImage(
-        Background,
-        Math.floor(screenWidth / 2 - Background.width / 2),
-        Math.floor(screenHeight / 2 - Background.height / 2)
-      );
-
-      ctx.drawImage(
-        MiddleGround,
-        Math.floor(canvas.width / 2 - xSlow - MiddleGround.width / 2 + screenWidth / 2),
-        Math.floor(canvas.height / 2 - ySlow - MiddleGround.height / 2 + screenHeight / 2)
-      );
-      ctx.drawImage(
-        GameBackground,
-        Math.floor(canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2),
-        Math.floor(canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2)
-      );
-      // ctx.drawImage(
-      //   Fish11,
-      //   Math.floor(canvas.width / 2 - x - Fish11.width / 2 + screenWidth / 2 + Fish11X),
-      //   Math.floor(canvas.height / 2 - y - Fish11.height / 2 + screenHeight / 2 + Fish11Y)
-      // );
+      //Page Navigation Portals
 
       //left portal
       if (
@@ -343,6 +317,37 @@ export default function Game() {
         navigateOnce = false;
         window.location.href = '/experience';
       }
+
+      //Drawing images
+
+      ctx.clearRect(0, 0, canvas.width, canvas.width);
+
+      /*Drawing the Background, Midground, and Foreground for the game
+      these are positioned in the center of the users screen and need to move in the opposite direction that
+      the user presses (the x and y in the 2nd and 3rd draw image) the first draw image is stationary.
+      Keep in mind, that the character does not actually move, just the background and foreground.
+      */
+      ctx.drawImage(
+        Background,
+        Math.floor(screenWidth / 2 - Background.width / 2),
+        Math.floor(screenHeight / 2 - Background.height / 2)
+      );
+
+      ctx.drawImage(
+        MiddleGround,
+        Math.floor(canvas.width / 2 - xSlow - MiddleGround.width / 2 + screenWidth / 2),
+        Math.floor(canvas.height / 2 - ySlow - MiddleGround.height / 2 + screenHeight / 2)
+      );
+      ctx.drawImage(
+        GameBackground,
+        Math.floor(canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2),
+        Math.floor(canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2)
+      );
+      // ctx.drawImage(
+      //   Fish11,
+      //   Math.floor(canvas.width / 2 - x - Fish11.width / 2 + screenWidth / 2 + Fish11X),
+      //   Math.floor(canvas.height / 2 - y - Fish11.height / 2 + screenHeight / 2 + Fish11Y)
+      // );
     }
     Update();
 
