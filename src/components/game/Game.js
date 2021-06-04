@@ -107,6 +107,17 @@ export default function Game() {
       keys[e.key] = false;
     });
 
+    window.addEventListener('load', function () {
+      // Set a timeout...
+      setTimeout(function () {
+        // Hide the address bar!
+        window.scrollTo(0, 10);
+      }, 0);
+    });
+    document.body.addEventListener('touchstart', function (e) {
+      e.preventDefault();
+    });
+
     //Mobile press detection
     let touchStartPositionX;
     let touchStartPositionY;
