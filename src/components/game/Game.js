@@ -85,6 +85,42 @@ export default function Game() {
       });
     }
     TouchInput();
+    let clickMovement = false;
+    function ClickInput() {
+      let clickStartPositionX;
+      let clickStartPositionY;
+      let clickStartPositionXRelative;
+      let clickStartPositionYRelative;
+      $(document).on('mousedown', function (e) {
+        clickMovement = true;
+        $(document).on('mousemove', function (e) {
+          if (clickMovement === true) {
+            clickStartPositionX = window.event.clientX;
+            clickStartPositionY = window.event.clientY;
+            clickStartPositionXRelative = screenWidth / 2 - clickStartPositionX;
+            clickStartPositionYRelative = screenHeight / 2 - clickStartPositionY;
+            NormalisePlayerX =
+              clickStartPositionXRelative /
+              Math.sqrt(
+                clickStartPositionXRelative * clickStartPositionXRelative +
+                  clickStartPositionYRelative * clickStartPositionYRelative
+              );
+            NormalisePlayerY =
+              clickStartPositionYRelative /
+              Math.sqrt(
+                clickStartPositionXRelative * clickStartPositionXRelative +
+                  clickStartPositionYRelative * clickStartPositionYRelative
+              );
+          }
+        });
+      });
+    }
+    ClickInput();
+    $(document).on('mouseup', function (e) {
+      NormalisePlayerX = 0;
+      NormalisePlayerY = 0;
+      clickMovement = false;
+    });
 
     //Keyboard Input Propertoes
     const keys = [];
