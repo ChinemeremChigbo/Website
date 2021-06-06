@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Controls(props) {
   return (
     <div className="backgroundBack">
-      <div className={props.isRules || props.isSettings ? 'backgroundBlurred' : 'background'}>
+      <div className={props.isRules || props.isSettings ? 'backgroundBlurred' : 'backgroundBack'}>
         <div>
           <div className={props.isRules || props.isSettings ? 'musicPlayerControlsInvisible' : 'musicPlayerControls'}>
             <button

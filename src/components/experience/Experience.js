@@ -5,7 +5,7 @@ function Controls(props) {
   return (
     <body onLoad={() => props.setIsSettings(true)}>
       <div className="backgroundBack">
-        <div className={props.isRules || props.isSettings ? 'backgroundBlurred' : 'background'}>
+        <div className={props.isRules || props.isSettings ? 'backgroundBlurred' : 'backgroundBack'}>
           <div>
             <Link onClick={props.handleClick} to={'/game'}>
               <button
