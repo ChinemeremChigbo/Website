@@ -540,11 +540,13 @@ body {
 }
 .bottomButtonsInvisible {
   z-index: 3;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 75vh;
-  margin-bottom: 15vh;
+  left: 50%;
+  bottom: 5%;
+  transform: translate(-50%, -50%);
   -webkit-animation: fadeOut 1s linear forwards;
   -moz-animation: fadeOut 1s linear forwards;
   animation: fadeOut 1s linear forwards;
@@ -629,7 +631,7 @@ body {
   transform: translate(-50%, 0%);
   border: none;
   outline: none;
-  
+
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
