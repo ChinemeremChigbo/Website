@@ -1,10 +1,19 @@
 @import '../../styles/styles.scss';
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
 .gameBackground {
   background-color: #0d1a20;
 }
 .game {
-  color: black;
+  display: grid;
+  grid-template-rows: 100vh;
+  grid-template-columns: 100vw;
 }
 .canvas {
-  border: 1px solid #000;
+  justify-self: center;
+  align-self: center;
 }

@@ -246,21 +246,22 @@ export default function Game() {
       the user presses (the x and y in the 2nd and 3rd draw image) the first draw image is stationary.
       Keep in mind, that the character does not actually move, just the background and foreground.
       */
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(
         Background,
-        Math.floor(screenWidth / 2 - Background.width / 2),
-        Math.floor(screenHeight / 2 - Background.height / 2)
+        Math.floor(canvas.width / 2 - Background.width / 2),
+        Math.floor(canvas.height / 2 - Background.height / 2)
       );
 
       ctx.drawImage(
         MiddleGround,
-        Math.floor(canvas.width / 2 - xSlow - MiddleGround.width / 2 + screenWidth / 2),
-        Math.floor(canvas.height / 2 - ySlow - MiddleGround.height / 2 + screenHeight / 2)
+        Math.floor(canvas.width - xSlow - MiddleGround.width / 2),
+        Math.floor(canvas.height - ySlow - MiddleGround.height / 2)
       );
       ctx.drawImage(
         GameBackground,
-        Math.floor(canvas.width / 2 - x - GameBackground.width / 2 + screenWidth / 2),
-        Math.floor(canvas.height / 2 - y - GameBackground.height / 2 + screenHeight / 2)
+        Math.floor(canvas.width - x - GameBackground.width / 2),
+        Math.floor(canvas.height - y - GameBackground.height / 2)
       );
 
       //Recursively redraw frame in accordance to device speed
@@ -360,22 +361,22 @@ export default function Game() {
       //Changing player sprites based off of movement andspeed
       const swimToIdleThreshold = 0.8;
       if (velX > swimToIdleThreshold) {
-        AnimateSpritesheet(PlayerSwimming, screenWidth / 2, screenHeight / 2, 1.5, 1.5, 0, 100);
+        AnimateSpritesheet(PlayerSwimming, canvas.width / 2, canvas.height / 2, 1.5, 1.5, 0, 100);
         if (SwimmingFrame < Swimming.length - 1) {
           SwimmingFrame++;
         }
       } else if (velX < -swimToIdleThreshold) {
-        AnimateSpritesheet(PlayerSwimming, screenWidth / 2, screenHeight / 2, -1.5, 1.5, 0, 100);
+        AnimateSpritesheet(PlayerSwimming, canvas.width / 2, canvas.height / 2, -1.5, 1.5, 0, 100);
         if (SwimmingFrame < Swimming.length - 1) {
           SwimmingFrame++;
         }
       } else if (0 < velX <= swimToIdleThreshold) {
-        AnimateSpritesheet(PlayerIdle, screenWidth / 2, screenHeight / 2, -1.5, 1.5, 0, 150);
+        AnimateSpritesheet(PlayerIdle, canvas.width / 2, canvas.height / 2, -1.5, 1.5, 0, 150);
         if (IdleFrame < Idle.length - 1) {
           IdleFrame++;
         }
       } else {
-        AnimateSpritesheet(PlayerIdle, screenWidth / 2, screenHeight / 2, 1.5, 1.5, 0, 150);
+        AnimateSpritesheet(PlayerIdle, canvas.width / 2, canvas.height / 2, 1.5, 1.5, 0, 150);
         if (IdleFrame < Idle.length - 1) {
           IdleFrame++;
         }
@@ -458,7 +459,7 @@ export default function Game() {
   return (
     <div className="gameBackground">
       <div className="game">
-        <canvas id="canvas"></canvas>
+        <canvas className="canvas" id="canvas"></canvas>
       </div>
     </div>
   );
