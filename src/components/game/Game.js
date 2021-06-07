@@ -12,7 +12,6 @@ export default function Game() {
     canvas.width = screenWidth;
     canvas.height = screenHeight;
     let navigateOnce = true;
-    let goFullScreenOnce = true;
     //Cross-function properties
     let x = 0;
     let y = 0;
@@ -28,16 +27,10 @@ export default function Game() {
     const friction = 0.99;
 
     //Go FullScreen
-    $(document).on('touchend', function (e) {
-      NormalisePlayerX = 0;
-      NormalisePlayerY = 0;
-
-      if (goFullScreenOnce) {
-        if (canvas.requestFullScreen) canvas.requestFullScreen();
-        else if (canvas.webkitRequestFullScreen) canvas.webkitRequestFullScreen();
-        else if (canvas.mozRequestFullScreen) canvas.mozRequestFullScreen();
-        goFullScreenOnce = false;
-      }
+    $(document).on('touchstart', function (e) {
+      if (canvas.requestFullScreen) canvas.requestFullScreen();
+      else if (canvas.webkitRequestFullScreen) canvas.webkitRequestFullScreen();
+      else if (canvas.mozRequestFullScreen) canvas.mozRequestFullScreen();
     });
 
     function AnimateSpritesheet(arr, x, y, scalex, scaley, rotation, framerate) {
