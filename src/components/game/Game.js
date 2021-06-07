@@ -7,18 +7,17 @@ export default function Game() {
     //Canvas Properties
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
-    const screenSizePadding = 750;
-    canvas.width = 1880 + screenSizePadding;
-    canvas.height = 700 + screenSizePadding;
-    let screenHeight = $(window).height();
     let screenWidth = $(window).width();
+    let screenHeight = $(window).height();
+    canvas.width = screenWidth;
+    canvas.height = screenHeight;
     let navigateOnce = true;
-
+    let goFullScreenOnce = true;
     //Cross-function properties
-    let x = canvas.width / 2;
-    let y = canvas.height / 2;
-    let xSlow = canvas.width / 2;
-    let ySlow = canvas.height / 2;
+    let x = 0;
+    let y = 0;
+    let xSlow = 0;
+    let ySlow = 0;
     let velY = 0;
     let velX = 0;
     let NormalisePlayerX = 0;
@@ -27,6 +26,19 @@ export default function Game() {
     const maxSpeedY = 3;
     const speedIncrement = 0.1;
     const friction = 0.99;
+
+    //Go FullScreen
+    $(document).on('touchend', function (e) {
+      NormalisePlayerX = 0;
+      NormalisePlayerY = 0;
+
+      if (goFullScreenOnce) {
+        if (canvas.requestFullScreen) canvas.requestFullScreen();
+        else if (canvas.webkitRequestFullScreen) canvas.webkitRequestFullScreen();
+        else if (canvas.mozRequestFullScreen) canvas.mozRequestFullScreen();
+        goFullScreenOnce = false;
+      }
+    });
 
     function AnimateSpritesheet(arr, x, y, scalex, scaley, rotation, framerate) {
       if (!framerate) {
@@ -46,11 +58,6 @@ export default function Game() {
         );
       }
       ctx.restore();
-    }
-    function GoFullScreen() {
-      if (canvas.requestFullScreen) canvas.requestFullScreen();
-      else if (canvas.webkitRequestFullScreen) canvas.webkitRequestFullScreen();
-      else if (canvas.mozRequestFullScreen) canvas.mozRequestFullScreen();
     }
 
     function TouchInput() {
@@ -82,12 +89,10 @@ export default function Game() {
       }
       TouchandDrag('touchstart');
       TouchandDrag('touchmove');
-
       //Slow Velocity on mobile touch release
       $(document).on('touchend', function (e) {
         NormalisePlayerX = 0;
         NormalisePlayerY = 0;
-        GoFullScreen();
       });
     }
 
@@ -157,6 +162,9 @@ export default function Game() {
       //Frequently Update Screen Size
       screenHeight = $(window).height();
       screenWidth = $(window).width();
+      canvas.width = screenWidth;
+      canvas.height = screenHeight;
+      // Go Fullscreen on Mobile
 
       //Mobile Movement
       if (Math.abs(velX) < Math.abs(maxSpeedX)) {
@@ -208,42 +216,22 @@ export default function Game() {
       //Page Navigation Portals
 
       //left portal
-      if (
-        x < canvas.width / 2 - 939 &&
-        y > canvas.height / 2 - 60 &&
-        y < canvas.height / 2 + 20 &&
-        navigateOnce === true
-      ) {
+      if (x < -939 && y > -60 && y < +20 && navigateOnce === true) {
         navigateOnce = false;
         window.location.href = '/';
       }
       //right portal (Contact)
-      if (
-        x > canvas.width / 2 + 939 &&
-        y > canvas.height / 2 - 40 &&
-        y < canvas.height / 2 + 40 &&
-        navigateOnce === true
-      ) {
+      if (x > 939 && y > -40 && y < +40 && navigateOnce === true) {
         navigateOnce = false;
         window.location.href = '/contact';
       }
       //bottom portal (About)
-      if (
-        x > canvas.width / 2 + 105 &&
-        x < canvas.width / 2 + 185 &&
-        y > canvas.height / 2 + 349 &&
-        navigateOnce === true
-      ) {
+      if (x > 105 && x < 185 && y > 359 && navigateOnce === true) {
         navigateOnce = false;
         window.location.href = '/about';
       }
       //top portal (Experience)
-      if (
-        x > canvas.width / 2 - 15 &&
-        x < canvas.width / 2 + 70 &&
-        y < canvas.height / 2 - 349 &&
-        navigateOnce === true
-      ) {
+      if (x > 15 && x < 70 && y < -359 && navigateOnce === true) {
         navigateOnce = false;
         window.location.href = '/experience';
       }
@@ -262,13 +250,13 @@ export default function Game() {
 
       ctx.drawImage(
         MiddleGround,
-        Math.floor(canvas.width - xSlow - MiddleGround.width / 2),
-        Math.floor(canvas.height - ySlow - MiddleGround.height / 2)
+        Math.floor(canvas.width / 2 - xSlow - MiddleGround.width / 2),
+        Math.floor(canvas.height / 2 - ySlow - MiddleGround.height / 2)
       );
       ctx.drawImage(
         GameBackground,
-        Math.floor(canvas.width - x - GameBackground.width / 2),
-        Math.floor(canvas.height - y - GameBackground.height / 2)
+        Math.floor(canvas.width / 2 - x - GameBackground.width / 2),
+        Math.floor(canvas.height / 2 - y - GameBackground.height / 2)
       );
 
       //Recursively redraw frame in accordance to device speed
@@ -332,11 +320,11 @@ export default function Game() {
 
     function PlayerMovement() {
       //Stop when player hits edge in x-axis
-      if (x >= canvas.width - screenSizePadding / 2) {
-        x = canvas.width - screenSizePadding / 2;
+      if (x >= 940) {
+        x = 940;
         backgroundMovementX = false;
-      } else if (x <= screenSizePadding / 2) {
-        x = screenSizePadding / 2;
+      } else if (x <= -940) {
+        x = -940;
         //Stop parallax background x-axis
         backgroundMovementX = false;
       } else {
@@ -344,11 +332,11 @@ export default function Game() {
       }
 
       //Stop when player hits edge in y-axis
-      if (y > canvas.height - screenSizePadding / 2) {
-        y = canvas.height - screenSizePadding / 2;
+      if (y > 360) {
+        y = 360;
         backgroundMovementY = false;
-      } else if (y <= screenSizePadding / 2) {
-        y = screenSizePadding / 2;
+      } else if (y <= -360) {
+        y = -360;
         //Stop parallax background y-axis
         backgroundMovementY = false;
       } else {
