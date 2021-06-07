@@ -7,7 +7,7 @@ export default function Game() {
     //Canvas Properties
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
-    const screenSizePadding = 500;
+    const screenSizePadding = 750;
     canvas.width = 1880 + screenSizePadding;
     canvas.height = 700 + screenSizePadding;
     let screenHeight = $(window).height();
