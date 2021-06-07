@@ -1,6 +1,7 @@
 import React from 'react';
 import './Game.scss';
 import $ from 'jquery';
+import { StopScreenShare } from '@material-ui/icons';
 
 export default function Game() {
   $(function () {
@@ -27,16 +28,6 @@ export default function Game() {
     const speedIncrement = 0.1;
     const friction = 0.99;
 
-    //Go FullScreen
-    $(document).on('touchstart', function (e) {
-      if (goFullScreenOnce) {
-        if (canvas.requestFullScreen) canvas.requestFullScreen();
-        else if (canvas.webkitRequestFullScreen) canvas.webkitRequestFullScreen();
-        else if (canvas.mozRequestFullScreen) canvas.mozRequestFullScreen();
-        goFullScreenOnce = false;
-      }
-    });
-
     function AnimateSpritesheet(arr, x, y, scalex, scaley, rotation, framerate) {
       if (!framerate) {
         framerate = 1;
@@ -56,6 +47,20 @@ export default function Game() {
       }
       ctx.restore();
     }
+    //Go FullScreen on mobile
+    $(document).on('touchend', function (e) {
+      NormalisePlayerX = 0;
+      NormalisePlayerY = 0;
+
+      if (goFullScreenOnce) {
+        if (canvas.requestFullScreen) canvas.requestFullScreen();
+        else if (canvas.webkitRequestFullScreen) canvas.webkitRequestFullScreen();
+        else if (canvas.mozRequestFullScreen) canvas.mozRequestFullScreen();
+        goFullScreenOnce = false;
+      }
+    });
+
+    canvas.addEventListener('click', function (evt) {});
 
     function TouchInput() {
       //Mobile press detection
@@ -161,8 +166,6 @@ export default function Game() {
       screenWidth = $(window).width();
       canvas.width = screenWidth;
       canvas.height = screenHeight;
-      // Go Fullscreen on Mobile
-
       //Mobile Movement
       if (Math.abs(velX) < Math.abs(maxSpeedX)) {
         velX -= NormalisePlayerX * speedIncrement;
