@@ -47,6 +47,11 @@ export default function Game() {
       }
       ctx.restore();
     }
+    function GoFullScreen() {
+      if (canvas.requestFullScreen) canvas.requestFullScreen();
+      else if (canvas.webkitRequestFullScreen) canvas.webkitRequestFullScreen();
+      else if (canvas.mozRequestFullScreen) canvas.mozRequestFullScreen();
+    }
 
     function TouchInput() {
       //Mobile press detection
@@ -82,8 +87,10 @@ export default function Game() {
       $(document).on('touchend', function (e) {
         NormalisePlayerX = 0;
         NormalisePlayerY = 0;
+        GoFullScreen();
       });
     }
+
     TouchInput();
     let clickMovement = false;
     function ClickInput() {

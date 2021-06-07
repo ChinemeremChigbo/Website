@@ -287,20 +287,23 @@ body {
 }
 
 .settingsDone {
-  display: inline;
   z-index: 3;
   position: absolute;
-  margin: auto;
-  width: 10vw;
-  height: auto;
-  min-height: 85px;
-  min-width: 85px;
-
-  bottom: 2%;
+  justify-content: center;
+  align-items: center;
   left: 50%;
-  transform: translate(-50%, 0%);
+  bottom: 5%;
+  transform: translate(-50%, -50%);
+  display: inline;
+  margin-right: 35%;
+  margin-left: auto;
   border: none;
   outline: none;
+  min-height: 30px;
+  min-width: 85px;
+  width: 15vw;
+  height: 4vw;
+
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
   animation: fadeInPause 3s linear forwards;
@@ -317,7 +320,7 @@ body {
 .settingsDone:hover {
   cursor: pointer;
   transform: scale(1.1);
-  transform: translate(-50%, 0%) scale(1.1);
+  transform: translate(-50%, -50%) scale(1.1);
   background: url('../../assets/DoneB.png') no-repeat;
   background-size: contain;
   background-position: center;
@@ -559,7 +562,7 @@ body {
   border: none;
   outline: none;
   min-height: 30px;
-  min-width: 75px;
+  min-width: 85px;
   width: 15vw;
   height: 4vw;
 
@@ -620,17 +623,20 @@ body {
 .rulesDone {
   z-index: 3;
   position: absolute;
-  margin: auto;
-  bottom: 1%;
+  justify-content: center;
+  align-items: center;
   left: 50%;
+  bottom: 5%;
+  transform: translate(-50%, -50%);
   display: inline;
-  width: 10vw;
-  height: auto;
-  min-height: 85px;
-  min-width: 85px;
-  transform: translate(-50%, 0%);
+  margin-right: 35%;
+  margin-left: auto;
   border: none;
   outline: none;
+  min-height: 30px;
+  min-width: 85px;
+  width: 15vw;
+  height: 4vw;
 
   -webkit-animation: fadeInPause 3s linear forwards;
   -moz-animation: fadeInPause 3s linear forwards;
@@ -649,7 +655,7 @@ body {
   cursor: pointer;
   background: url('../../assets/DoneB.png') no-repeat;
   background-size: contain;
-  transform: translate(-50%, 0%) scale(1.1);
+  transform: translate(-50%, -50%) scale(1.1);
   background-position: center;
   image-rendering: pixelated;
 }
@@ -660,7 +666,7 @@ body {
   border: none;
   outline: none;
   min-height: 30px;
-  min-width: 75px;
+  min-width: 85px;
   width: 15vw;
   height: 4vw;
 
