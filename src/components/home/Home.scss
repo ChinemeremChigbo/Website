@@ -529,7 +529,7 @@ body {
   background-position: 50% 8%;
 }
 .bottomButtons {
-  z-index: 3;
+  z-index: 2;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -542,7 +542,7 @@ body {
   animation: fadeIn 1s linear forwards;
 }
 .bottomButtonsInvisible {
-  z-index: 3;
+  z-index: 2;
   position: absolute;
   display: flex;
   justify-content: center;
