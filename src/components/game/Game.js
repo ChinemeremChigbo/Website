@@ -257,34 +257,35 @@ export default function Game() {
         Math.floor(canvas.width / 2 - x - GameBackground.width / 2),
         Math.floor(canvas.height / 2 - y - GameBackground.height / 2)
       );
-
-      ctx.fillStyle = '#0d1a20';
-      //Top Rect
-      ctx.fillRect(
-        Math.floor(canvas.width / 2 - x - GameBackground.width / 2),
-        Math.floor(canvas.height / 2 - y - GameBackground.height / 1.5),
-        Math.floor(GameBackground.width),
-        Math.floor(GameBackground.height / 4)
-      ); // Bottom Rect
-      ctx.fillRect(
-        Math.floor(canvas.width / 2 - x - GameBackground.width / 2),
-        Math.floor(canvas.height / 2 - y + GameBackground.height / 2.5),
-        Math.floor(GameBackground.width),
-        Math.floor(GameBackground.height / 4)
-      );
-      ctx.fillRect(
-        Math.floor(canvas.width / 2 - x - GameBackground.width),
-        Math.floor(canvas.height / 2 - y - GameBackground.height / 1.5),
-        Math.floor(GameBackground.width / 1.65),
-        Math.floor(GameBackground.height * 1.317)
-      );
-      ctx.fillRect(
-        Math.floor(canvas.width / 2 - x + GameBackground.width / 2.35),
-        Math.floor(canvas.height / 2 - y - GameBackground.height / 1.5),
-        Math.floor(GameBackground.width / 1.75),
-        Math.floor(GameBackground.height * 1.317)
-      );
-
+      if (screenWidth > 1200) {
+        //Don't draw on phones and tablets
+        ctx.fillStyle = '#0d1a20';
+        //Top Rect
+        ctx.fillRect(
+          Math.floor(canvas.width / 2 - x - GameBackground.width / 2),
+          Math.floor(canvas.height / 2 - y - GameBackground.height / 1.5),
+          Math.floor(GameBackground.width),
+          Math.floor(GameBackground.height / 4)
+        ); // Bottom Rect
+        ctx.fillRect(
+          Math.floor(canvas.width / 2 - x - GameBackground.width / 2),
+          Math.floor(canvas.height / 2 - y + GameBackground.height / 2.5),
+          Math.floor(GameBackground.width),
+          Math.floor(GameBackground.height / 4)
+        );
+        ctx.fillRect(
+          Math.floor(canvas.width / 2 - x - GameBackground.width),
+          Math.floor(canvas.height / 2 - y - GameBackground.height / 1.5),
+          Math.floor(GameBackground.width / 1.65),
+          Math.floor(GameBackground.height * 1.317)
+        );
+        ctx.fillRect(
+          Math.floor(canvas.width / 2 - x + GameBackground.width / 2.35),
+          Math.floor(canvas.height / 2 - y - GameBackground.height / 1.5),
+          Math.floor(GameBackground.width / 1.75),
+          Math.floor(GameBackground.height * 1.317)
+        );
+      }
       //Recursively redraw frame in accordance to device speed
       requestAnimationFrame(BackgroundMovement);
     }
