@@ -254,7 +254,7 @@ body {
   position: absolute;
   text-align: center;
   image-rendering: pixelated;
-  height: 110%;
+  max-height: 110%;
   min-height: auto;
   max-width: 100vw;
   width: auto;
@@ -272,7 +272,7 @@ body {
   position: absolute;
   text-align: center;
   image-rendering: pixelated;
-  height: 110%;
+  max-height: 110%;
   min-height: auto;
   max-width: 100vw;
   width: auto;
