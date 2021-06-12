@@ -257,7 +257,7 @@ export default function Game() {
         Math.floor(canvas.width / 2 - x - GameBackground.width / 2),
         Math.floor(canvas.height / 2 - y - GameBackground.height / 2)
       );
-      if (screenWidth > 1200) {
+      if (screenWidth > 768) {
         //Don't draw on phones and tablets
         ctx.fillStyle = '#0d1a20';
         //Top Rect
