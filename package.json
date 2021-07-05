@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3",
-    "@fortawesome/react-fontawesome": "fortawesome/react-fontawesome",
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.4",
