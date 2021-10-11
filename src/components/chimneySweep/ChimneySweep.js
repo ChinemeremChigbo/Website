@@ -1,8 +1,8 @@
 import React from 'react';
-import './Game.scss';
+import './ChimneySweep.scss';
 import $ from 'jquery';
 
-export default function Game() {
+export default function ChimneySweep() {
   $(function () {
     //Canvas Properties
     const canvas = document.getElementById('canvas');
@@ -11,7 +11,6 @@ export default function Game() {
     let screenHeight = $(window).height();
     canvas.width = screenWidth;
     canvas.height = screenHeight;
-    let navigateOnce = true;
     let goFullScreenOnce = true;
     //Cross-function properties
     let x = 0;
@@ -210,29 +209,6 @@ export default function Game() {
       }
       if (backgroundMovementY) {
         ySlow += velY * 0.5;
-      }
-
-      //Page Navigation Portals
-
-      //left portal
-      if (x < -939 && y > -60 && y < +20 && navigateOnce === true) {
-        navigateOnce = false;
-        window.location.href = '/';
-      }
-      //right portal (Contact)
-      if (x > 939 && y > -40 && y < +40 && navigateOnce === true) {
-        navigateOnce = false;
-        window.location.href = '/contact';
-      }
-      //bottom portal (About)
-      if (x > 105 && x < 185 && y > 359 && navigateOnce === true) {
-        navigateOnce = false;
-        window.location.href = '/about';
-      }
-      //top portal (Experience)
-      if (x > 15 && x < 70 && y < -359 && navigateOnce === true) {
-        navigateOnce = false;
-        window.location.href = '/experience';
       }
 
       /*Drawing the Background, Midground, and Foreground for the game
@@ -465,12 +441,6 @@ export default function Game() {
 
       Fish11VelocityX *= Fish11Friction;
       Fish11X += Fish11VelocityX;
-
-      // ctx.drawImage(
-      //   Fish11,
-      //   Math.floor(canvas.width / 2 - x - Fish11.width / 2 + screenWidth / 2 + Fish11X),
-      //   Math.floor(canvas.height / 2 - y - Fish11.height / 2 + screenHeight / 2 + Fish11Y)
-      // );
 
       //Recursively redraw frame in accordance to device speed
       requestAnimationFrame(FishMovement);
