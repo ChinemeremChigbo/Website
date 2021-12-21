@@ -1,4 +1,4 @@
-# Locally Building Chinememerem.com
+# Locally Building Chinemerem.com
 
 ## Available Scripts
 
