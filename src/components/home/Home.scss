@@ -1,12 +1,12 @@
 @import '../../styles/styles.scss';
-html,
-body {
+.html,
+.body {
   overflow: hidden;
   margin: 0;
 }
 ::-webkit-scrollbar {
   width: 0;
-  background: transparent; //Ensures no scroll bar across browsers
+  background: transparent;
 }
 @keyframes parallax {
   0% {
