@@ -225,7 +225,7 @@ export const Apod: React.FC<Props> = ({
   if (isLoading)
     return (
       <div className="app-container">
-        <Loader />;
+        <Loader />
       </div>
     );
 
