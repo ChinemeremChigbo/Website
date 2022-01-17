@@ -33,7 +33,7 @@ const https = () => {
 
 const apodService = {
   getPictureOfTheDay(today: string) {
-    return https().get(`?api_key=${API_KEY}&date=${today}/`);
+    return https().get(`?api_key=${API_KEY}&date=${today}`);
   }
 };
 
