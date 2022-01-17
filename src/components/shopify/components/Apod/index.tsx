@@ -144,12 +144,13 @@ export const Apod: React.FC<Props> = ({
           console.log(e);
         });
     }
-
-    if (favoritesRef.current) {
-      favoritesRef.current.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
+    setTimeout(function () {
+      if (favoritesRef.current) {
+        favoritesRef.current.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    }, 100);
   };
 
   // Preview favorite picture of the day
@@ -292,7 +293,7 @@ export const Apod: React.FC<Props> = ({
 
         <div className="buttons">
           <button className="custom-btn" onClick={addFavorite}>
-            Set favorite
+            Favourite
           </button>
           <input
             type="date"
