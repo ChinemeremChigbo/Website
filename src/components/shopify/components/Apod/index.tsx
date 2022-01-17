@@ -1,40 +1,40 @@
 /* eslint-disable no-console */
-import React, { useState, useEffect, useRef } from 'react';
-import { RootState } from '../../reducers';
-import { Picture } from '../../types';
-import { connect } from 'react-redux';
-import { bindActionCreators, Dispatch } from 'redux';
-import './index.scss';
+import React, { useState, useEffect, useRef } from "react";
+import { RootState } from "../../reducers";
+import { Picture } from "../../types";
+import { connect } from "react-redux";
+import { bindActionCreators, Dispatch } from "redux";
+import "./index.scss";
 
 // Components
-import RenderErrorMessage from '../../components/RenderErrorMessage';
-import FavoritePictures from '../../components/FavoritePictures';
-import Portal from '../../components/Portal';
-import Popup from '../../components/Popup';
-import Loader from '../../components/Loader';
+import RenderErrorMessage from "../../components/RenderErrorMessage";
+import FavoritePictures from "../../components/FavoritePictures";
+import Portal from "../../components/Portal";
+import Popup from "../../components/Popup";
+import Loader from "../../components/Loader";
 
 // Utils
-import { formatDate, nextDay, previousDay } from '../../utilities';
+import { formatDate, nextDay, previousDay } from "../../utilities";
 
 // Actions
-import { getPictureOfTheDay } from '../../actions/apod';
+import { getPictureOfTheDay } from "../../actions/apod";
 
 // Services
-import firebaseService from '../../services/firebaseService';
+import firebaseService from "../../services/firebaseService";
 
 // Images
-import { ReactComponent as LeftChevron } from '../../assets/images/left-chevron.svg';
-import { ReactComponent as RightChevron } from '../../assets/images/right-chevron.svg';
+import { ReactComponent as LeftChevron } from "../../assets/images/left-chevron.svg";
+import { ReactComponent as RightChevron } from "../../assets/images/right-chevron.svg";
 
 const mapStateToProps = (state: RootState) => ({
   picture: state.pictures.pictureOfTheDay.picture,
-  isLoading: state.pictures.pictureOfTheDay.loading
+  isLoading: state.pictures.pictureOfTheDay.loading,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return bindActionCreators(
     {
-      getPictureOfTheDay
+      getPictureOfTheDay,
     },
     dispatch
   );
@@ -52,40 +52,52 @@ type HoverValue = {
 };
 
 const defaultPicture = {
-  id: '',
-  msg: '',
-  copyright: '',
-  date: '',
-  explanation: '',
-  hdurl: '',
-  media_type: '',
-  service_version: '',
-  title: '',
-  url: ''
+  id: "",
+  msg: "",
+  copyright: "",
+  date: "",
+  explanation: "",
+  hdurl: "",
+  media_type: "",
+  service_version: "",
+  title: "",
+  url: "",
 };
 
 export const Apod: React.FC<Props> = ({
   getPictureOfTheDay,
   picture = defaultPicture,
-  isLoading
+  isLoading,
 }) => {
   const favoritesRef = useRef<HTMLDivElement>(null);
-  const initialDateValue = localStorage.getItem('pictureOfTheDay');
+  const initialDateValue = localStorage.getItem("pictureOfTheDay");
 
   const [dateValue, setDateValue] = useState(
-    initialDateValue ? JSON.parse(initialDateValue).date : formatDate(new Date())
+    initialDateValue
+      ? JSON.parse(initialDateValue).date
+      : formatDate(new Date())
   );
-  const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites') || '[]'));
-  const [hoverValue, setHoverValues] = useState<HoverValue>({ id: '', date: '' });
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem("favorites") || "[]")
+  );
+  const [hoverValue, setHoverValues] = useState<HoverValue>({
+    id: "",
+    date: "",
+  });
 
   const getFavoritePictures = async () => {
     const favPicturesFromFirebase = await Promise.all([firebaseService.get()]);
     setFavorites(favPicturesFromFirebase[0]);
-    localStorage.setItem('favorites', JSON.stringify(favPicturesFromFirebase[0]));
+    localStorage.setItem(
+      "favorites",
+      JSON.stringify(favPicturesFromFirebase[0])
+    );
   };
 
   useEffect(() => {
-    const storedPictureOfTheDay = JSON.parse(localStorage.getItem('pictureOfTheDay') || '{}');
+    const storedPictureOfTheDay = JSON.parse(
+      localStorage.getItem("pictureOfTheDay") || "{}"
+    );
 
     if (storedPictureOfTheDay.url) {
       setDateValue(storedPictureOfTheDay.date);
@@ -112,13 +124,15 @@ export const Apod: React.FC<Props> = ({
 
   // Add picture of the day to favorites
   const addFavorite = () => {
-    const storedFavourites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    const storedFavourites = JSON.parse(
+      localStorage.getItem("favorites") || "[]"
+    );
     const checkDuplicate = storedFavourites.some(
       (favorite: Picture) => favorite.date === picture.date
     );
     if (!checkDuplicate) {
       storedFavourites.push(picture);
-      localStorage.setItem('favorites', JSON.stringify(storedFavourites));
+      localStorage.setItem("favorites", JSON.stringify(storedFavourites));
       setFavorites([...favorites, picture]);
 
       firebaseService
@@ -133,33 +147,42 @@ export const Apod: React.FC<Props> = ({
 
     if (favoritesRef.current) {
       favoritesRef.current.scrollIntoView({
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   };
 
   // Preview favorite picture of the day
   const previewFavoritePicture = (date: string) => {
-    const selectedFavorite = favorites.find((favorite: Picture) => favorite.date === date);
+    const selectedFavorite = favorites.find(
+      (favorite: Picture) => favorite.date === date
+    );
     setDateValue(selectedFavorite.date);
   };
 
   // Get previous picture of the day
   const handlePreviousDay = () => {
     const prevDate = previousDay(dateValue);
+    console.log(dateValue, prevDate);
     setDateValue(prevDate);
   };
 
   // Get Next picture of the day
   const handleNextDay = () => {
     const nextDate = nextDay(dateValue);
+    console.log("setting day from", dateValue, nextDate);
     setDateValue(nextDate);
   };
 
   // Delete a single favorite picture
-  const deleteSingleFavorite = (e: React.MouseEvent<HTMLButtonElement>, id: string) => {
+  const deleteSingleFavorite = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    id: string
+  ) => {
     e.stopPropagation();
-    const filteredResult = favorites.filter((favorite: Picture) => favorite.id !== id);
+    const filteredResult = favorites.filter(
+      (favorite: Picture) => favorite.id !== id
+    );
     setFavorites(filteredResult);
 
     firebaseService
@@ -186,18 +209,18 @@ export const Apod: React.FC<Props> = ({
   // Handle Load picture of the day on hover
   const handleMouseEnter = (e: React.MouseEvent<HTMLButtonElement>) => {
     const el = e.currentTarget as HTMLButtonElement;
-    const dataValue = el.getAttribute('data-id');
+    const dataValue = el.getAttribute("data-id");
     setHoverValues({
       id: el.id,
-      date: dataValue!
+      date: dataValue!,
     });
   };
 
   // Reset hover state
   const handleMouseLeave = () => {
     setHoverValues({
-      id: '',
-      date: ''
+      id: "",
+      date: "",
     });
   };
 
@@ -240,13 +263,13 @@ export const Apod: React.FC<Props> = ({
             id="previous-picture"
             data-testid="previous-picture"
             data-id={previousDay(dateValue)}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            // onMouseEnter={handleMouseEnter}
+            // onMouseLeave={handleMouseLeave}
             onClick={handlePreviousDay}
           >
             <LeftChevron width="20px" />
           </button>
-          {picture.media_type === 'video' ? (
+          {picture.media_type === "video" ? (
             <video controls autoPlay loop muted preload="auto">
               <p>
                 Your browser doesn't support HTML5 video. Here is a&nbsp;
@@ -277,9 +300,9 @@ export const Apod: React.FC<Props> = ({
           <input
             type="date"
             className="custom-btn"
-            min={formatDate(new Date('1995-06-16'))}
+            min={formatDate(new Date("1995-06-16"))}
             max={formatDate(new Date())}
-            value={dateValue ? dateValue : ''}
+            value={dateValue ? dateValue : ""}
             onChange={handleDateChange}
           />
         </div>

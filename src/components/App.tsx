@@ -12,7 +12,7 @@ import { rootReducer } from "./shopify/reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import reportWebVitals from "./shopify/reportWebVitals";
-import "./shopify/index.scss";
+
 
 import Error from "./Error/Error";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";

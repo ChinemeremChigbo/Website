@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./index.scss";
 // Components
 import APOD from "./components/Apod";
 import Header from "./components/Header";
