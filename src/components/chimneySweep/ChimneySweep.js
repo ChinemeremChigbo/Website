@@ -529,7 +529,7 @@ class Canvas {
   }
 
   drawActors(actors) {
-    for (let actor of actors) {
+    for (const actor of actors) {
       if (actor.type === 'circle') {
         this.drawCircle(actor);
       }
@@ -575,7 +575,7 @@ class Ball {
      * this is the most stable solution to avoid overlap
      * but it is slightly inaccurate
      */
-    for (let actor of state.actors) {
+    for (const actor of state.actors) {
       if (this === actor || this.collisions.includes(actor.id + updateId)) {
         continue;
       }
