@@ -1,9 +1,10 @@
 .header {
   display: flex;
+  font-family: "Raleway", sans-serif;
   align-items: center;
-  padding: 10px 60px;
+  padding: 30px 30px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 50px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -13,6 +14,5 @@ $breakpoint-tablet: 768px;
   .header {
     justify-content: center;
     padding: unset;
-    padding-top: 10px;
   }
 }

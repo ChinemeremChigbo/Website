@@ -167,7 +167,6 @@ export const Apod: React.FC<Props> = ({
     setDateValue(prevDate);
   };
 
-
   // Delete a single favorite picture
   const deleteSingleFavorite = (
     e: React.MouseEvent<HTMLButtonElement>,
@@ -252,17 +251,19 @@ export const Apod: React.FC<Props> = ({
         <h1 className="title">{picture.title}</h1>
 
         <div className="gallery-container">
-          <button
-            className="back-btn"
-            id="previous-picture"
-            data-testid="previous-picture"
-            data-id={previousDay(dateValue)}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onClick={() => setDateValue(previousDay(dateValue))}
-          >
-            <LeftChevron width="20px" />
-          </button>
+          {dateValue != formatDate(new Date("1995-06-17")) && (
+            <button
+              className="back-btn"
+              id="previous-picture"
+              data-testid="previous-picture"
+              data-id={previousDay(dateValue)}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onClick={() => setDateValue(previousDay(dateValue))}
+            >
+              <LeftChevron width="20px" />
+            </button>
+          )}
           {picture.media_type === "video" ? (
             <video controls autoPlay loop muted preload="auto">
               <p>
@@ -274,17 +275,19 @@ export const Apod: React.FC<Props> = ({
             <img src={picture.url} alt={picture.title} />
           )}
 
-          <button
-            className="next-btn"
-            id="next-picture"
-            data-testid="next-picture"
-            data-id={nextDay(dateValue)}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onClick={() => setDateValue(nextDay(dateValue))}
-          >
-            <RightChevron width="20px" />
-          </button>
+          {dateValue != formatDate(new Date()) && (
+            <button
+              className="next-btn"
+              id="next-picture"
+              data-testid="next-picture"
+              data-id={nextDay(dateValue)}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onClick={() => setDateValue(nextDay(dateValue))}
+            >
+              <RightChevron width="20px" />
+            </button>
+          )}
         </div>
 
         <div className="buttons">

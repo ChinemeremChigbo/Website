@@ -1,6 +1,7 @@
-@import '../../assets/styles/colors';
+@import "../../../../styles/styles.scss";
 
 .app-container {
+  font-family: "Raleway", sans-serif;
   width: 70%;
   margin: 0 auto;
   height: 85vh;
@@ -98,9 +99,9 @@
   }
 
   .custom-btn {
-    font-family: 'Raleway', sans-serif;
-    background: $green;
+    background: $blue;
     color: $white;
+    min-width: 150px;
     padding: 10px 20px;
     border: 1px solid $white;
     outline: none;
@@ -108,8 +109,12 @@
     border-radius: 5px;
     cursor: pointer;
   }
-
+  ::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path fill="%23ffffff" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>');
+  }
   .description {
+    padding: 15px;
     animation: slideInX 1s;
     font-size: 18px;
     line-height: 30px;
@@ -117,7 +122,7 @@
 }
 
 #footer .container .row {
-  padding-bottom:8px;
+  padding-bottom: 8px;
 }
 
 @keyframes popup {

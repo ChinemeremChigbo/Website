@@ -27,11 +27,6 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/shopify">
-          <Provider store={store}>
-            <Shopify />
-          </Provider>
-        </Route>
         <Route exact path="/game">
           <Game />
         </Route>
@@ -47,7 +42,11 @@ function App() {
         <Route exact path="/chimneySweep">
           <ChimneySweep />
         </Route>
-
+        <Route exact path="/shopify">
+          <Provider store={store}>
+            <Shopify />
+          </Provider>
+        </Route>
         <Route>
           <Error />
         </Route>
