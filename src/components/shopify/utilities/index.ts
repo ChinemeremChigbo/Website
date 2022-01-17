@@ -17,19 +17,19 @@ export const formatDate = (date: Date) => {
 };
 
 export const nextDay = (date: string) => {
-  const nextDay = new Date(new Date(date).getTime() + 24 * 60 * 60 * 1000);
+  const nextDay = new Date(
+    new Date(date).getTime() + 2 * (24 * 60 * 60 * 1000)
+  );
   const getFullYear = nextDay.getFullYear();
   const getMonth = nextDay.getMonth();
   const getDate = nextDay.getDate();
-  console.log("TODAY", date, nextDay, new Date(new Date(date).getTime()));
   return `${getFullYear}-${formatMonth(getMonth)}-${formatDay(getDate)}`;
 };
 
 export const previousDay = (date: string) => {
-  const prevDay = new Date(new Date(date).getTime() - 24 * 60 * 60 * 1000);
+  const prevDay = new Date(new Date(date).getTime());
   const getFullYear = prevDay.getFullYear();
   const getMonth = prevDay.getMonth();
   const getDate = prevDay.getDate();
-  console.log(`${getFullYear}-${formatMonth(getMonth)}-${formatDay(getDate)}`);
   return `${getFullYear}-${formatMonth(getMonth)}-${formatDay(getDate)}`;
 };

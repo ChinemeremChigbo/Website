@@ -13,7 +13,6 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import reportWebVitals from "./shopify/reportWebVitals";
 
-
 import Error from "./Error/Error";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 const store = createStore(
@@ -27,6 +26,11 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route exact path="/shopify">
+          <Provider store={store}>
+            <Shopify />
+          </Provider>
         </Route>
         <Route exact path="/game">
           <Game />
@@ -43,11 +47,7 @@ function App() {
         <Route exact path="/chimneySweep">
           <ChimneySweep />
         </Route>
-        <Route exact path="/shopify">
-          <Provider store={store}>
-            <Shopify />
-          </Provider>
-        </Route>
+
         <Route>
           <Error />
         </Route>

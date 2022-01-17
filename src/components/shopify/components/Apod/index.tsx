@@ -167,12 +167,6 @@ export const Apod: React.FC<Props> = ({
     setDateValue(prevDate);
   };
 
-  // Get Next picture of the day
-  const handleNextDay = () => {
-    const nextDate = nextDay(dateValue);
-    console.log("setting day from", dateValue, nextDate);
-    setDateValue(nextDate);
-  };
 
   // Delete a single favorite picture
   const deleteSingleFavorite = (
@@ -263,9 +257,9 @@ export const Apod: React.FC<Props> = ({
             id="previous-picture"
             data-testid="previous-picture"
             data-id={previousDay(dateValue)}
-            // onMouseEnter={handleMouseEnter}
-            // onMouseLeave={handleMouseLeave}
-            onClick={handlePreviousDay}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onClick={() => setDateValue(previousDay(dateValue))}
           >
             <LeftChevron width="20px" />
           </button>
@@ -287,7 +281,7 @@ export const Apod: React.FC<Props> = ({
             data-id={nextDay(dateValue)}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            onClick={handleNextDay}
+            onClick={() => setDateValue(nextDay(dateValue))}
           >
             <RightChevron width="20px" />
           </button>

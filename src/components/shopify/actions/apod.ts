@@ -13,10 +13,10 @@ export const getPictureOfTheDay = (date: string) => async (
     const res = await apodService.getPictureOfTheDay(date);
     localStorage.setItem("pictureOfTheDay", JSON.stringify(res.data));
     dispatch(typedAction(types.GET_PICTURE_OF_THE_DAY_SUCCESS, res.data));
-  } catch (error) {
-      dispatch(
-        typedAction(types.GET_PICTURE_OF_THE_DAY_FAILURE, error.response.data)
-      );
+  } catch (error: any) {
+    dispatch(
+      typedAction(types.GET_PICTURE_OF_THE_DAY_FAILURE, error.response.data)
+    );
   }
 };
 
@@ -29,7 +29,7 @@ export const getPreviousOrNextPicture = (date: string) => async (
     dispatch(
       typedAction(types.GET_PREVIOUS_OR_NEXT_DAY_PICTURE_SUCCESS, res.data)
     );
-  } catch (error) {
+  } catch (error: any) {
     dispatch(
       typedAction(
         types.GET_PREVIOUS_OR_NEXT_DAY_PICTURE_FAILURE,
