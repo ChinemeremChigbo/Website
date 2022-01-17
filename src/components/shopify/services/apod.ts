@@ -3,7 +3,7 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 
 const http = () => {
   const axiosInstance = axios.create({
-    baseURL: process.env.REACT_APP_BASE_URL,
+    baseURL: " https://api.nasa.gov/planetary/apod",
     headers: {
       accept: 'application/json',
       'Content-type': 'application/json; charset=UTF-8'
