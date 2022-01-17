@@ -44,11 +44,9 @@ function App() {
           <ChimneySweep />
         </Route>
         <Route exact path="/shopify">
-          ReactDOM.render(
           <Provider store={store}>
             <Shopify />
           </Provider>
-          , document.getElementById('root') );
         </Route>
         <Route>
           <Error />
