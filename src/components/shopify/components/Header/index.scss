@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px 60px;
+  font-weight: 700;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+$breakpoint-tablet: 768px;
+@media (max-width: $breakpoint-tablet) {
+  .header {
+    justify-content: center;
+    padding: unset;
+    padding-top: 10px;
+  }
+}

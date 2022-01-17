@@ -34,7 +34,7 @@ export default function ChimneySweep() {
       ctx.translate(x, y);
       ctx.scale(scalex, scaley);
       ctx.rotate((rotation * Math.PI) / 180);
-      if (!!arr[Math.round(Date.now() / framerate) % arr.length]) {
+      if (!arr[Math.round(Date.now() / framerate) % arr.length]) {
         ctx.drawImage(
           arr[Math.round(Date.now() / framerate) % arr.length],
           -(arr[Math.round(Date.now() / framerate) % arr.length].width / 2),
@@ -58,7 +58,7 @@ export default function ChimneySweep() {
       }
     });
 
-    canvas.addEventListener('click', function (evt) {});
+    // canvas.addEventListener('click', function () {});
 
     function TouchInput() {
       //Mobile press detection
@@ -284,14 +284,14 @@ export default function ChimneySweep() {
       './player/Fast/2.png',
       './player/Fast/3.png',
       './player/Fast/4.png',
-      './player/Fast/5.png',
+      './player/Fast/5.png'
     ];
     const Hurt = [
       './player/Hurt/1.png',
       './player/Hurt/2.png',
       './player/Hurt/3.png',
       './player/Hurt/4.png',
-      './player/Hurt/5.png',
+      './player/Hurt/5.png'
     ];
     const Idle = [
       './player/Idle/1.png',
@@ -299,7 +299,7 @@ export default function ChimneySweep() {
       './player/Idle/3.png',
       './player/Idle/4.png',
       './player/Idle/5.png',
-      './player/Idle/6.png',
+      './player/Idle/6.png'
     ];
     const Rush = [
       './player/Rush/1.png',
@@ -308,7 +308,7 @@ export default function ChimneySweep() {
       './player/Rush/4.png',
       './player/Rush/5.png',
       './player/Rush/6.png',
-      './player/Rush/7.png',
+      './player/Rush/7.png'
     ];
     const Swimming = [
       './player/Swimming/1.png',
@@ -317,7 +317,7 @@ export default function ChimneySweep() {
       './player/Swimming/4.png',
       './player/Swimming/5.png',
       './player/Swimming/6.png',
-      './player/Swimming/7.png',
+      './player/Swimming/7.png'
     ];
 
     function PlayerMovement() {
@@ -556,7 +556,7 @@ class Ball {
         velocity: new Vector(5, 3),
         radius: 25,
         color: 'blue',
-        collisions: [],
+        collisions: []
       },
       config
     );
@@ -584,7 +584,8 @@ class Ball {
        * check if actors collide in the next frame and update now if they do
        * innaccurate, but it is the easiest solution to the sticky collision bug
        */
-      const distance = this.position.add(this.velocity).subtract(actor.position.add(actor.velocity)).magnitude;
+      const distance = this.position.add(this.velocity).subtract(actor.position.add(actor.velocity))
+        .magnitude;
 
       if (distance <= this.radius + actor.radius) {
         const v1 = collisionVector(this, actor);
@@ -597,7 +598,10 @@ class Ball {
     }
 
     // setting bounds on the canvas prevents balls from overlapping on update
-    const upperLimit = new Vector(state.display.canvas.width - this.radius, state.display.canvas.height - this.radius);
+    const upperLimit = new Vector(
+      state.display.canvas.width - this.radius,
+      state.display.canvas.height - this.radius
+    );
     const lowerLimit = new Vector(0 + this.radius, 0 + this.radius);
 
     // check if hitting left or right of container
@@ -615,7 +619,7 @@ class Ball {
 
     return new Ball({
       ...this,
-      position: new Vector(newX, newY),
+      position: new Vector(newX, newY)
     });
   }
 
@@ -634,7 +638,9 @@ const collisionVector = (particle1, particle2) => {
     particle1.position
       .subtract(particle2.position)
       .multiply(
-        particle1.velocity.subtract(particle2.velocity).dotProduct(particle1.position.subtract(particle2.position)) /
+        particle1.velocity
+          .subtract(particle2.velocity)
+          .dotProduct(particle1.position.subtract(particle2.position)) /
           particle1.position.subtract(particle2.position).magnitude ** 2
       )
 
@@ -679,7 +685,7 @@ const collidingBalls = ({ width = 400, height = 400, parent = document.body, cou
         radius: random(8, 3) + Math.random(),
         color: colors[random(colors.length - 1)],
         position: new Vector(random(width - 10, 10), random(height - 10, 10)),
-        velocity: new Vector(random(3, -3), random(3, -3)),
+        velocity: new Vector(random(3, -3), random(3, -3))
       })
     );
   }
@@ -690,4 +696,4 @@ const collidingBalls = ({ width = 400, height = 400, parent = document.body, cou
   });
 };
 
-collidingBalls();
+// collidingBalls();

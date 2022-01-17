@@ -1,12 +1,12 @@
-import React from 'react';
-import './Game.scss';
-import $ from 'jquery';
+import React from "react";
+import "./Game.scss";
+import $ from "jquery";
 
 export default function Game() {
   $(function () {
     //Canvas Properties
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
     let screenWidth = $(window).width();
     let screenHeight = $(window).height();
     canvas.width = screenWidth;
@@ -27,7 +27,15 @@ export default function Game() {
     const speedIncrement = 0.1;
     const friction = 0.99;
 
-    function AnimateSpritesheet(arr, x, y, scalex, scaley, rotation, framerate) {
+    function AnimateSpritesheet(
+      arr,
+      x,
+      y,
+      scalex,
+      scaley,
+      rotation,
+      framerate
+    ) {
       if (!framerate) {
         framerate = 1;
       }
@@ -35,7 +43,7 @@ export default function Game() {
       ctx.translate(x, y);
       ctx.scale(scalex, scaley);
       ctx.rotate((rotation * Math.PI) / 180);
-      if (!!arr[Math.round(Date.now() / framerate) % arr.length]) {
+      if (!arr[Math.round(Date.now() / framerate) % arr.length]) {
         ctx.drawImage(
           arr[Math.round(Date.now() / framerate) % arr.length],
           -(arr[Math.round(Date.now() / framerate) % arr.length].width / 2),
@@ -47,19 +55,20 @@ export default function Game() {
       ctx.restore();
     }
     //Go FullScreen on mobile
-    $(document).on('touchend', function (e) {
+    $(document).on("touchend", function (e) {
       NormalisePlayerX = 0;
       NormalisePlayerY = 0;
 
       if (goFullScreenOnce) {
         if (canvas.requestFullScreen) canvas.requestFullScreen();
-        else if (canvas.webkitRequestFullScreen) canvas.webkitRequestFullScreen();
+        else if (canvas.webkitRequestFullScreen)
+          canvas.webkitRequestFullScreen();
         else if (canvas.mozRequestFullScreen) canvas.mozRequestFullScreen();
         goFullScreenOnce = false;
       }
     });
 
-    canvas.addEventListener('click', function (evt) {});
+    // canvas.addEventListener("click", function (evt) {});
 
     function TouchInput() {
       //Mobile press detection
@@ -88,10 +97,10 @@ export default function Game() {
             );
         });
       }
-      TouchandDrag('touchstart');
-      TouchandDrag('touchmove');
+      TouchandDrag("touchstart");
+      TouchandDrag("touchmove");
       //Slow Velocity on mobile touch release
-      $(document).on('touchend', function (e) {
+      $(document).on("touchend", function (e) {
         NormalisePlayerX = 0;
         NormalisePlayerY = 0;
       });
@@ -104,14 +113,15 @@ export default function Game() {
       let clickStartPositionY;
       let clickStartPositionXRelative;
       let clickStartPositionYRelative;
-      $(document).on('mousedown', function (e) {
+      $(document).on("mousedown", function (e) {
         clickMovement = true;
-        $(document).on('mousemove', function (e) {
+        $(document).on("mousemove", function (e) {
           if (clickMovement === true) {
             clickStartPositionX = window.event.clientX;
             clickStartPositionY = window.event.clientY;
             clickStartPositionXRelative = screenWidth / 2 - clickStartPositionX;
-            clickStartPositionYRelative = screenHeight / 2 - clickStartPositionY;
+            clickStartPositionYRelative =
+              screenHeight / 2 - clickStartPositionY;
             NormalisePlayerX =
               clickStartPositionXRelative /
               Math.sqrt(
@@ -129,7 +139,7 @@ export default function Game() {
       });
     }
     ClickInput();
-    $(document).on('mouseup', function (e) {
+    $(document).on("mouseup", function (e) {
       NormalisePlayerX = 0;
       NormalisePlayerY = 0;
       clickMovement = false;
@@ -140,10 +150,10 @@ export default function Game() {
 
     function KeyInput() {
       //Desktop key detection
-      document.body.addEventListener('keydown', function (e) {
+      document.body.addEventListener("keydown", function (e) {
         keys[e.key] = true;
       });
-      document.body.addEventListener('keyup', function (e) {
+      document.body.addEventListener("keyup", function (e) {
         keys[e.key] = false;
       });
     }
@@ -153,11 +163,11 @@ export default function Game() {
     let backgroundMovementX = true;
     let backgroundMovementY = true;
     const Background = new Image();
-    Background.src = 'Background.png';
+    Background.src = "Background.png";
     const MiddleGround = new Image();
-    MiddleGround.src = 'MiddleGround.png';
+    MiddleGround.src = "MiddleGround.png";
     const GameBackground = new Image();
-    GameBackground.src = 'GameBackground.png';
+    GameBackground.src = "GameBackground.png";
 
     function BackgroundMovement() {
       //Frequently Update Screen Size
@@ -174,25 +184,25 @@ export default function Game() {
       }
       //Background Movement
       //Up or W
-      if (keys['ArrowUp'] || keys['w']) {
+      if (keys["ArrowUp"] || keys["w"]) {
         if (velY > -maxSpeedY) {
           velY -= speedIncrement;
         }
       }
       //Down or S
-      if (keys['ArrowDown'] || keys['s']) {
+      if (keys["ArrowDown"] || keys["s"]) {
         if (velY < maxSpeedY) {
           velY += speedIncrement;
         }
       }
       //Right or D
-      if (keys['ArrowRight'] || keys['d']) {
+      if (keys["ArrowRight"] || keys["d"]) {
         if (velX < maxSpeedX) {
           velX += speedIncrement;
         }
       }
       //Left or A
-      if (keys['ArrowLeft'] || keys['a']) {
+      if (keys["ArrowLeft"] || keys["a"]) {
         if (velX > -maxSpeedX) {
           velX -= speedIncrement;
         }
@@ -217,22 +227,22 @@ export default function Game() {
       //left portal
       if (x < -939 && y > -60 && y < +20 && navigateOnce === true) {
         navigateOnce = false;
-        window.location.href = '/';
+        window.location.href = "/";
       }
       //right portal (Contact)
       if (x > 939 && y > -40 && y < +40 && navigateOnce === true) {
         navigateOnce = false;
-        window.location.href = '/contact';
+        window.location.href = "/contact";
       }
       //bottom portal (About)
       if (x > 105 && x < 185 && y > 359 && navigateOnce === true) {
         navigateOnce = false;
-        window.location.href = '/about';
+        window.location.href = "/about";
       }
       //top portal (Experience)
       if (x > 15 && x < 70 && y < -359 && navigateOnce === true) {
         navigateOnce = false;
-        window.location.href = '/experience';
+        window.location.href = "/experience";
       }
 
       /*Drawing the Background, Midground, and Foreground for the game
@@ -258,7 +268,7 @@ export default function Game() {
       );
       if (screenWidth > 768) {
         //Don't draw on phones and tablets
-        ctx.fillStyle = '#0d1a20';
+        ctx.fillStyle = "#0d1a20";
         //Top Rect
         ctx.fillRect(
           Math.floor(canvas.width / 2 - x - GameBackground.width / 2),
@@ -304,44 +314,44 @@ export default function Game() {
     let SwimmingFrame = 0;
 
     const Fast = [
-      './player/Fast/1.png',
-      './player/Fast/2.png',
-      './player/Fast/3.png',
-      './player/Fast/4.png',
-      './player/Fast/5.png',
+      "./player/Fast/1.png",
+      "./player/Fast/2.png",
+      "./player/Fast/3.png",
+      "./player/Fast/4.png",
+      "./player/Fast/5.png",
     ];
     const Hurt = [
-      './player/Hurt/1.png',
-      './player/Hurt/2.png',
-      './player/Hurt/3.png',
-      './player/Hurt/4.png',
-      './player/Hurt/5.png',
+      "./player/Hurt/1.png",
+      "./player/Hurt/2.png",
+      "./player/Hurt/3.png",
+      "./player/Hurt/4.png",
+      "./player/Hurt/5.png",
     ];
     const Idle = [
-      './player/Idle/1.png',
-      './player/Idle/2.png',
-      './player/Idle/3.png',
-      './player/Idle/4.png',
-      './player/Idle/5.png',
-      './player/Idle/6.png',
+      "./player/Idle/1.png",
+      "./player/Idle/2.png",
+      "./player/Idle/3.png",
+      "./player/Idle/4.png",
+      "./player/Idle/5.png",
+      "./player/Idle/6.png",
     ];
     const Rush = [
-      './player/Rush/1.png',
-      './player/Rush/2.png',
-      './player/Rush/3.png',
-      './player/Rush/4.png',
-      './player/Rush/5.png',
-      './player/Rush/6.png',
-      './player/Rush/7.png',
+      "./player/Rush/1.png",
+      "./player/Rush/2.png",
+      "./player/Rush/3.png",
+      "./player/Rush/4.png",
+      "./player/Rush/5.png",
+      "./player/Rush/6.png",
+      "./player/Rush/7.png",
     ];
     const Swimming = [
-      './player/Swimming/1.png',
-      './player/Swimming/2.png',
-      './player/Swimming/3.png',
-      './player/Swimming/4.png',
-      './player/Swimming/5.png',
-      './player/Swimming/6.png',
-      './player/Swimming/7.png',
+      "./player/Swimming/1.png",
+      "./player/Swimming/2.png",
+      "./player/Swimming/3.png",
+      "./player/Swimming/4.png",
+      "./player/Swimming/5.png",
+      "./player/Swimming/6.png",
+      "./player/Swimming/7.png",
     ];
 
     function PlayerMovement() {
@@ -382,22 +392,54 @@ export default function Game() {
       //Changing player sprites based off of movement andspeed
       const swimToIdleThreshold = 0.8;
       if (velX > swimToIdleThreshold) {
-        AnimateSpritesheet(PlayerSwimming, canvas.width / 2, canvas.height / 2, 1.5, 1.5, 0, 100);
+        AnimateSpritesheet(
+          PlayerSwimming,
+          canvas.width / 2,
+          canvas.height / 2,
+          1.5,
+          1.5,
+          0,
+          100
+        );
         if (SwimmingFrame < Swimming.length - 1) {
           SwimmingFrame++;
         }
       } else if (velX < -swimToIdleThreshold) {
-        AnimateSpritesheet(PlayerSwimming, canvas.width / 2, canvas.height / 2, -1.5, 1.5, 0, 100);
+        AnimateSpritesheet(
+          PlayerSwimming,
+          canvas.width / 2,
+          canvas.height / 2,
+          -1.5,
+          1.5,
+          0,
+          100
+        );
         if (SwimmingFrame < Swimming.length - 1) {
           SwimmingFrame++;
         }
       } else if (0 < velX <= swimToIdleThreshold) {
-        AnimateSpritesheet(PlayerIdle, canvas.width / 2, canvas.height / 2, -1.5, 1.5, 0, 150);
+        AnimateSpritesheet(
+          PlayerIdle,
+          canvas.width / 2,
+          canvas.height / 2,
+          -1.5,
+          1.5,
+          0,
+          150
+        );
         if (IdleFrame < Idle.length - 1) {
           IdleFrame++;
         }
       } else {
-        AnimateSpritesheet(PlayerIdle, canvas.width / 2, canvas.height / 2, 1.5, 1.5, 0, 150);
+        AnimateSpritesheet(
+          PlayerIdle,
+          canvas.width / 2,
+          canvas.height / 2,
+          1.5,
+          1.5,
+          0,
+          150
+        );
         if (IdleFrame < Idle.length - 1) {
           IdleFrame++;
         }
@@ -420,7 +462,7 @@ export default function Game() {
     const FishSpeedIncrement = 0.1;
     const Fish11Friction = 0.99;
     const Fish11 = new Image();
-    Fish11.src = 'Fish11.png';
+    Fish11.src = "Fish11.png";
 
     function FishMovement() {
       const Fish11DestinationX = Math.floor(0 + x - canvas.width / 2);
@@ -430,14 +472,18 @@ export default function Game() {
       const NormaliseFishX =
         (Fish11DestinationX - Fish11StartX) /
         Math.sqrt(
-          (Fish11DestinationX - Fish11StartX) * (Fish11DestinationX - Fish11StartX) +
-            (Fish11DestinationY - Fish11StartY) * (Fish11DestinationY - Fish11StartY)
+          (Fish11DestinationX - Fish11StartX) *
+            (Fish11DestinationX - Fish11StartX) +
+            (Fish11DestinationY - Fish11StartY) *
+              (Fish11DestinationY - Fish11StartY)
         );
       const NormaliseFishY =
         (Fish11DestinationY - Fish11StartY) /
         Math.sqrt(
-          (Fish11DestinationX - Fish11StartX) * (Fish11DestinationX - Fish11StartX) +
-            (Fish11DestinationY - Fish11StartY) * (Fish11DestinationY - Fish11StartY)
+          (Fish11DestinationX - Fish11StartX) *
+            (Fish11DestinationX - Fish11StartX) +
+            (Fish11DestinationY - Fish11StartY) *
+              (Fish11DestinationY - Fish11StartY)
         );
 
       //Fish Movement

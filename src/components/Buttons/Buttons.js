@@ -6,7 +6,13 @@ function Controls(props) {
     <div className="backgroundBack">
       <div className={props.isRules || props.isSettings ? 'backgroundBlurred' : 'backgroundBack'}>
         <div>
-          <div className={props.isRules || props.isSettings ? 'musicPlayerControlsInvisible' : 'musicPlayerControls'}>
+          <div
+            className={
+              props.isRules || props.isSettings
+                ? 'musicPlayerControlsInvisible'
+                : 'musicPlayerControls'
+            }
+          >
             <button
               aria-label="Last Track"
               className="musicPlayerControlsLast"
@@ -29,9 +35,21 @@ function Controls(props) {
             ></button>
             <img className="name" src="Name.png" alt="Chinemerem Chigbo"></img>
           </div>
-          <div className={props.isRules || props.isSettings ? 'bottomButtonsInvisible' : 'bottomButtons'}>
-            <button aria-label="Rules" className="rules" onClick={() => props.setIsRules(!props.isRules)}></button>
-            <button aria-label="Start" className="start" onClick={() => (window.location.href = '/game')}></button>
+          <div
+            className={
+              props.isRules || props.isSettings ? 'bottomButtonsInvisible' : 'bottomButtons'
+            }
+          >
+            <button
+              aria-label="Rules"
+              className="rules"
+              onClick={() => props.setIsRules(!props.isRules)}
+            ></button>
+            <button
+              aria-label="Start"
+              className="start"
+              onClick={() => (window.location.href = '/game')}
+            ></button>
           </div>
           <button
             aria-label="Done"
@@ -43,7 +61,11 @@ function Controls(props) {
             className={props.isRules ? 'rulesDone' : 'rulesDoneOff'}
             onClick={() => props.setIsRules(false)}
           ></button>
-          <img className={props.isSettings ? 'settingsOn' : 'settingsOff'} src="Settings.png" alt="Settings"></img>
+          <img
+            className={props.isSettings ? 'settingsOn' : 'settingsOff'}
+            src="Settings.png"
+            alt="Settings"
+          ></img>
           <img className={props.isRules ? 'rulesOn' : 'rulesOff'} src="Rules.png" alt="Rules"></img>
         </div>
       </div>

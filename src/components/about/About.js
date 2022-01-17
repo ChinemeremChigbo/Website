@@ -14,7 +14,11 @@ function Controls(props) {
                 onClick={() => props.setIsSettings(false)}
               ></button>
             </Link>
-            <img className={props.isSettings ? 'settingsOn' : 'settingsOff'} src="About.png" alt="Experience"></img>
+            <img
+              className={props.isSettings ? 'settingsOn' : 'settingsOff'}
+              src="About.png"
+              alt="Experience"
+            ></img>
           </div>
         </div>
       </div>
