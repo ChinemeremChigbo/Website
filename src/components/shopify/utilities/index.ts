@@ -21,16 +21,15 @@ export const nextDay = (date: string) => {
   const getFullYear = nextDay.getFullYear();
   const getMonth = nextDay.getMonth();
   const getDate = nextDay.getDate();
-  console.log("TODAY",date)
-  console.log(`${getFullYear}-${formatMonth(getMonth)}-${formatDay(getDate)}`)
+  console.log("TODAY", date, nextDay, new Date(new Date(date).getTime()));
   return `${getFullYear}-${formatMonth(getMonth)}-${formatDay(getDate)}`;
 };
 
 export const previousDay = (date: string) => {
-  const nextDay = new Date(new Date(date).getTime() - 24 * 60 * 60 * 1000);
-  const getFullYear = nextDay.getFullYear();
-  const getMonth = nextDay.getMonth();
-  const getDate = nextDay.getDate();
-  console.log(`${getFullYear}-${formatMonth(getMonth)}-${formatDay(getDate)}`)
+  const prevDay = new Date(new Date(date).getTime() - 24 * 60 * 60 * 1000);
+  const getFullYear = prevDay.getFullYear();
+  const getMonth = prevDay.getMonth();
+  const getDate = prevDay.getDate();
+  console.log(`${getFullYear}-${formatMonth(getMonth)}-${formatDay(getDate)}`);
   return `${getFullYear}-${formatMonth(getMonth)}-${formatDay(getDate)}`;
 };
