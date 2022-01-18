@@ -268,9 +268,14 @@ export const Apod: React.FC<Props> = ({
             </button>
           )}
           {picture.media_type === "video" ? (
-            <iframe className="video" src={picture.url}></iframe>
+            <div>
+              <iframe
+                className="video"
+                style={{ display: "block" }}
+                src={picture.url}
+              ></iframe>
+            </div>
           ) : (
-           
             <img src={picture.url} alt={picture.title} />
           )}
 

@@ -38,7 +38,7 @@ const FavoritePictures: React.FC<Props> = ({
             onClick={() => previewFavoritePicture(favorite.date)}
           >
             {favorite.media_type === "video" ? (
-              <iframe src={favorite.url}></iframe>
+              <iframe height="100px" width = "150px" src={favorite.url}></iframe>
             ) : (
               <img
                 className="thumbnail"
