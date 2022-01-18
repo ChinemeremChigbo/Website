@@ -5,6 +5,8 @@ import { Picture } from "../../types";
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
 import "./index.scss";
+// @ts-ignore
+import { SimpleShareButtons } from "react-simple-share";
 
 // Components
 import RenderErrorMessage from "../../components/RenderErrorMessage";
@@ -291,10 +293,16 @@ export const Apod: React.FC<Props> = ({
           )}
         </div>
 
+        <button className="custom-btn" onClick={addFavorite}>
+          Favourite
+        </button>
         <div className="buttons">
-          <button className="custom-btn" onClick={addFavorite}>
-            Favourite
-          </button>
+          <SimpleShareButtons
+            url={JSON.parse(initialDateValue ?? "").url}
+            whitelist={["Facebook", "Twitter", "Pinterest", "Reddit"]}
+            size="40px"
+            via="NASA"
+          />
           <input
             type="date"
             className="custom-btn"
