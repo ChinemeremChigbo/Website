@@ -1,21 +1,24 @@
-import React from 'react';
-import { Picture } from '../../types';
-import { ReactComponent as DeleteSingleIcon } from '../../assets/images/rubbish.svg';
-import { ReactComponent as DeleteAllIcon } from '../../assets/images/dustbin.svg';
-import './index.scss';
+import React from "react";
+import { Picture } from "../../types";
+import { ReactComponent as DeleteSingleIcon } from "../../assets/images/rubbish.svg";
+import { ReactComponent as DeleteAllIcon } from "../../assets/images/dustbin.svg";
+import "./index.scss";
 
 type Props = {
   favorites: Picture[];
   deleteAllFavorites: () => void;
   previewFavoritePicture: (date: string) => void;
-  deleteSingleFavorite: (e: React.MouseEvent<HTMLButtonElement>, date: string) => void;
+  deleteSingleFavorite: (
+    e: React.MouseEvent<HTMLButtonElement>,
+    date: string
+  ) => void;
 };
 
 const FavoritePictures: React.FC<Props> = ({
   favorites,
   deleteAllFavorites,
   previewFavoritePicture,
-  deleteSingleFavorite
+  deleteSingleFavorite,
 }) => {
   return (
     <div className="favorites-container">
@@ -34,11 +37,31 @@ const FavoritePictures: React.FC<Props> = ({
             key={favorite.url}
             onClick={() => previewFavoritePicture(favorite.date)}
           >
-            <img className="thumbnail" src={favorite.url} alt={favorite.title} />
-            <button className="delete" onClick={(e) => deleteSingleFavorite(e, favorite.id!)}>
-              <DeleteSingleIcon width="20px" height="20px" fill="#d11a2a" stroke="#d11a2a" />
+            {favorite.media_type === "video" ? (
+              <iframe src={favorite.url}></iframe>
+            ) : (
+              <img
+                className="thumbnail"
+                src={favorite.url}
+                alt={favorite.title}
+              />
+            )}
+            <button
+              className="delete"
+              onClick={(e) => deleteSingleFavorite(e, favorite.id!)}
+            >
+              <DeleteSingleIcon
+                width="20px"
+                height="20px"
+                fill="#d11a2a"
+                stroke="#d11a2a"
+              />
             </button>
-            <img src={favorite.url} alt={favorite.title} className="large-img" />
+            <img
+              src={favorite.url}
+              alt={favorite.title}
+              className="large-img"
+            />
           </div>
         ))}
       </div>

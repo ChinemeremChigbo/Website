@@ -48,16 +48,7 @@ const Popup: React.FC<Props> = ({
       ) : (
         <div className="image-popup">
           {picture.media_type === "video" ? (
-            <video
-              controls
-              autoPlay
-              loop
-              muted
-              preload="auto"
-              src={picture.url}
-            >
-              <a href={picture.url}>link to the video</a>&nbsp;
-            </video>
+             <iframe className="video" src={picture.url}></iframe>
           ) : (
             <img src={picture.url} alt={picture.title} />
           )}

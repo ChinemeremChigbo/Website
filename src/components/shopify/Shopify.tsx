@@ -11,7 +11,6 @@ export const Shopify = () => {
         overflowX: "hidden",
         overflowY: "auto",
         position: "absolute",
-        paddingTop: "35px",
         width: "100%",
         height: "100%",
         top: "0px",
