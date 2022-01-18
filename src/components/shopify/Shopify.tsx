@@ -8,7 +8,8 @@ export const Shopify = () => {
     <div
       style={{
         margin: 0,
-        overflow: "scroll",
+        overflowX: "hidden",
+        overflowY: "auto",
         position: "absolute",
         paddingTop: "35px",
         width: "100%",
@@ -17,7 +18,6 @@ export const Shopify = () => {
         bottom: "0px",
         left: " 0px",
       }}
-      className="scroll"
     >
       <Header />
       <APOD />

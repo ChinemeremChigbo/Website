@@ -4,10 +4,10 @@
   overflow: hidden;
   margin: 0;
 }
-::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
-}
+// ::-webkit-scrollbar {
+//   width: 0;
+//   background: transparent;
+// }
 @keyframes parallax {
   0% {
     background-position: 0vw 50%, 0vw 50%;

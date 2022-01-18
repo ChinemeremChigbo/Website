@@ -297,12 +297,7 @@ export const Apod: React.FC<Props> = ({
           <button className="custom-btn" onClick={addFavorite}>
             Favourite
           </button>
-          <SimpleShareButtons
-            url={JSON.parse(initialDateValue ?? "").url}
-            whitelist={["Facebook", "Twitter", "Pinterest", "Reddit"]}
-            size="40px"
-            via="NASA"
-          />
+
           <input
             type="date"
             className="custom-btn"
@@ -311,7 +306,16 @@ export const Apod: React.FC<Props> = ({
             value={dateValue ? dateValue : ""}
             onChange={handleDateChange}
           />
+          <div>
+            <SimpleShareButtons
+              url={JSON.parse(initialDateValue ?? "").url}
+              whitelist={["Facebook", "Twitter", "Pinterest", "Reddit"]}
+              size="40px"
+              via="NASA"
+            />
+          </div>
         </div>
+
         <div className="description">
           <p>{picture.explanation}</p>
         </div>

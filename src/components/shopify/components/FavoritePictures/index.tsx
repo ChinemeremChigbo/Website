@@ -22,7 +22,7 @@ const FavoritePictures: React.FC<Props> = ({
       <div className="favorites-header">
         <h3>Favorite Picture(s) of the Day</h3>
         <button onClick={deleteAllFavorites} className="delete-all">
-          Clear Favorites
+          Clear Favourites
           <DeleteAllIcon width="20px" height="20px" fill="#fff" stroke="#fff" />
         </button>
       </div>
