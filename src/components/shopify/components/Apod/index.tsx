@@ -293,10 +293,10 @@ export const Apod: React.FC<Props> = ({
           )}
         </div>
 
-        <button className="custom-btn" onClick={addFavorite}>
-          Favourite
-        </button>
         <div className="buttons">
+          <button className="custom-btn" onClick={addFavorite}>
+            Favourite
+          </button>
           <SimpleShareButtons
             url={JSON.parse(initialDateValue ?? "").url}
             whitelist={["Facebook", "Twitter", "Pinterest", "Reddit"]}
