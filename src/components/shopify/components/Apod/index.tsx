@@ -5,7 +5,7 @@ import { Picture } from "../../types";
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
 // @ts-ignore
-import { SimpleShareButtons } from "react-simple-share";
+import {  SimpleShareButtons } from "react-simple-share";
 
 import "./index.scss";
 
