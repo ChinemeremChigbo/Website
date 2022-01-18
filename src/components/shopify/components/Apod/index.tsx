@@ -264,7 +264,7 @@ export const Apod: React.FC<Props> = ({
               onMouseLeave={handleMouseLeave}
               onClick={() => setDateValue(previousDay(dateValue))}
             >
-              <LeftChevron width="20px" />
+              <LeftChevron width="25px" />
             </button>
           )}
           {picture.media_type === "video" ? (
@@ -289,7 +289,7 @@ export const Apod: React.FC<Props> = ({
               onMouseLeave={handleMouseLeave}
               onClick={() => setDateValue(nextDay(dateValue))}
             >
-              <RightChevron width="20px" />
+              <RightChevron width="25px" />
             </button>
           )}
         </div>
