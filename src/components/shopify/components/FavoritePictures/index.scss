@@ -1,7 +1,7 @@
 @import "../../../../styles/styles.scss";
 
 .favorites-container {
-  padding-bottom: 25px;
+  padding-bottom: 50px;
   .favorites-header {
     display: flex;
     align-items: center;
@@ -87,7 +87,7 @@ $breakpoint-tablet: 768px;
 @media (max-width: $breakpoint-tablet) {
   .favorites-container {
     width: 90%;
-    margin: 0 auto;
+    margin: 10px;
 
     .favorites-header {
       h3 {
