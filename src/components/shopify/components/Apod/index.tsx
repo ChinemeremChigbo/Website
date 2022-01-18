@@ -4,9 +4,6 @@ import { RootState } from "../../reducers";
 import { Picture } from "../../types";
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
-// @ts-ignore
-import {  SimpleShareButtons } from "react-simple-share";
-
 import "./index.scss";
 
 // Components
@@ -298,12 +295,6 @@ export const Apod: React.FC<Props> = ({
           <button className="custom-btn" onClick={addFavorite}>
             Favourite
           </button>
-          <SimpleShareButtons
-            url={JSON.parse(initialDateValue ?? "").url}
-            whitelist={["Facebook", "Twitter", "Pinterest", "Reddit"]}
-            size="40px"
-            via="NASA"
-          />
           <input
             type="date"
             className="custom-btn"
@@ -317,7 +308,6 @@ export const Apod: React.FC<Props> = ({
           <p>{picture.explanation}</p>
         </div>
       </div>
-
       <div ref={favoritesRef}>
         {favorites.length > 0 && (
           <FavoritePictures

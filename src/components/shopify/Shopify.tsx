@@ -12,7 +12,7 @@ export const Shopify = () => {
         position: "absolute",
         paddingTop: "35px",
         width: "100%",
-        height: "100vh",
+        height: "100%",
         top: "0px",
         bottom: "0px",
         left: " 0px",
