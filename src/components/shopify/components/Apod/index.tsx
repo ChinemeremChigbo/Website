@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState, useEffect, useRef } from "react";
 import { RootState } from "../../reducers";
 import { Picture } from "../../types";
