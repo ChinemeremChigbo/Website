@@ -8,7 +8,15 @@
   box-sizing: border-box;
   position: relative;
   box-sizing: border-box;
-
+  .video {
+    z-index: inherit;
+    width: 100%;
+    height: 65%;
+    margin: 90px;
+    align-items: center;
+    align-self: center;
+    object-fit: cover;
+  }
   .picture-container {
     padding-top: 20px;
     box-sizing: border-box;

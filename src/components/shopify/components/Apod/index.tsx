@@ -268,13 +268,14 @@ export const Apod: React.FC<Props> = ({
             </button>
           )}
           {picture.media_type === "video" ? (
-            <video controls autoPlay loop muted preload="auto">
-              <p>
-                Your browser doesn't support HTML5 video. Here is a&nbsp;
-                <a href={picture.url}>link to the video</a>&nbsp; instead.
-              </p>
-            </video>
+            <iframe className="video" src={picture.url}></iframe>
           ) : (
+            // <video controls autoPlay loop muted preload="auto">
+            //   <p>
+            //     Your browser doesn't support HTML5 video. Here is a&nbsp;
+            //     <a href={picture.url}>link to the video</a>&nbsp; instead.
+            //   </p>
+            // </video>
             <img src={picture.url} alt={picture.title} />
           )}
 
