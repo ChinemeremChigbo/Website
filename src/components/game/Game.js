@@ -215,22 +215,22 @@ export default function Game() {
       //Page Navigation Portals
 
       //left portal
-      if (x < -939 && y > -60 && y < +20 && navigateOnce === true) {
+      if (x < -939 && y > -65 && y < 10 && navigateOnce === true) {
         navigateOnce = false;
         window.location.href = '/';
       }
       //right portal (Contact)
-      if (x > 939 && y > -40 && y < +40 && navigateOnce === true) {
+      if (x > 939 && y > -60 && y < 35 && navigateOnce === true) {
         navigateOnce = false;
         window.location.href = '/contact';
       }
       //bottom portal (About)
-      if (x > 105 && x < 185 && y > 359 && navigateOnce === true) {
+      if (x > 85 && x < 170 && y > 359 && navigateOnce === true) {
         navigateOnce = false;
         window.location.href = '/about';
       }
       //top portal (Experience)
-      if (x > 15 && x < 70 && y < -359 && navigateOnce === true) {
+      if (x > -40 && x < 65 && y < -359 && navigateOnce === true) {
         navigateOnce = false;
         window.location.href = '/experience';
       }
