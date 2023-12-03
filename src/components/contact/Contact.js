@@ -40,7 +40,7 @@ function Controls(props) {
               <button
                 aria-label="LinkedIn"
                 className={props.isSettings ? 'settingsLinkedIn' : 'settingsLinkedInOff'}
-                onClick={() => window.open('https://www.linkedin.com/in/chinemeremchigbo/', '_blank')}
+                onClick={() => window.open('https://www.linkedin.com/in/cchigbo/', '_blank')}
               ></button>{' '}
               <button
                 aria-label="Youtube"
